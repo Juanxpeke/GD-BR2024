@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://f7hxx5p0b4y4"]
+
+[ext_resource type="FontFile" uid="uid://ddsoj3e3t6uud" path="res://Fonts/monogram.ttf" id="1_7s802"]
+
+[resource]
+default_font = ExtResource("1_7s802")
+default_font_size = 24
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 24
