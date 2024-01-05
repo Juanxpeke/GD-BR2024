@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmrxv1fiuh5fl"]
+
+[ext_resource type="Script" path="res://Extra/Templates/template.gd" id="1_l5mlb"]
+
+[node name="Template" type="Node2D"]
+script = ExtResource("1_l5mlb")
+
+[node name="OuterChild" type="Node2D" parent="."]
+
+[node name="Child" type="Node2D" parent="OuterChild"]
+unique_name_in_owner = true
