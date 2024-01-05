@@ -1,6 +1,8 @@
 class_name Domino
 extends Node2D
 
+static var dominoes_atlas : Texture2D = load("res://Core/Domino/black_and_white_v1.png")
+
 var grabbed : bool = false
 
 var dots : Vector2i = Vector2i(0, 0)
@@ -13,6 +15,7 @@ func _ready() -> void:
 	area.input_event.connect(_on_input_event)
 	area.mouse_entered.connect(_on_mouse_entered)
 	area.mouse_exited.connect(_on_mouse_exited)
+	set_dots_texture(Vector2i(4, 5))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame
 func _process(delta: float) -> void:
@@ -45,8 +48,9 @@ func set_dots(dots : Vector2i) -> void:
 
 # Sets the dots texture
 func set_dots_texture(dots : Vector2i) -> void:
-	var texture_position = Vector2()
-	var texture_size = Vector2() 
+	var texture_position = Vector2(dots.x * 32, dots.y * 16)
+	var texture_size = Vector2(32, 16) 
 	
 	sprite.texture = AtlasTexture.new()
+	sprite.texture.atlas = dominoes_atlas
 	sprite.texture.region = Rect2(texture_position, texture_size)
