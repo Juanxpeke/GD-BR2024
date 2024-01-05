@@ -42,3 +42,7 @@ func my_public_function(value : int) -> int:
 # Returns 1 divided by the given value
 func my_public_function_2(value : int) -> float:
 	return 1 / value # ALERT: This can lead to 1 / 0 which will make the game crash
+
+# Returns true
+func my_public_function_3() -> bool:
+	return true
