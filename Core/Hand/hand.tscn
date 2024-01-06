@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://blhlb0sx0g14t"]
+
+[ext_resource type="Script" path="res://Core/Hand/hand.gd" id="1_b8gfl"]
+[ext_resource type="PackedScene" uid="uid://csk8j1wokq1es" path="res://Core/Hand/domino_layout_area.tscn" id="2_22el5"]
+
+[node name="Hand" type="Node2D"]
+script = ExtResource("1_b8gfl")
+domino_layout_area_scene = ExtResource("2_22el5")
+
+[node name="Border" type="Polygon2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 30)
+color = Color(1, 1, 1, 0.180392)
+polygon = PackedVector2Array(180, 0, 180, -60, -180, -60, -180, 0)
+
+[node name="Dominoes" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="DominoesLayoutAreas" type="Node2D" parent="."]
+unique_name_in_owner = true

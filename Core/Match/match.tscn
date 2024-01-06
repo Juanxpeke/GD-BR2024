@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://jqq8ueul6hen"]
+[gd_scene load_steps=3 format=3 uid="uid://jqq8ueul6hen"]
 
 [ext_resource type="Script" path="res://Core/Match/match.gd" id="1_gvxcp"]
+[ext_resource type="PackedScene" uid="uid://blhlb0sx0g14t" path="res://Core/Hand/hand.tscn" id="2_pi3ny"]
 
 [node name="Match" type="Node2D"]
 script = ExtResource("1_gvxcp")
+
+[node name="Hand" parent="." instance=ExtResource("2_pi3ny")]
+position = Vector2(564, 606)

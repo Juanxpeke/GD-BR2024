@@ -5,7 +5,7 @@ static var dominoes_atlas : Texture2D = load("res://Core/Domino/black_and_white_
 
 var grabbed : bool = false
 
-var dots : Vector2i = Vector2i(0, 0)
+var dots : Vector2i = Vector2i(-1, -1)
 
 @onready var sprite := %Sprite
 @onready var area := %Area
@@ -21,6 +21,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if grabbed:
 		global_position = get_viewport().get_mouse_position()
+
+# Called on any input event
+func _input(event : InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if not event.is_pressed():
+			# Set the grabbed var as false in case the domino is being grabbed but
+			# you unclicked outside it because of moving the mouse too fast
+			grabbed = false
 
 # Called on input event within the node
 func _on_input_event(viewport : Node, event : InputEvent, shape_idx : int) -> void:
