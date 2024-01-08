@@ -1,7 +1,7 @@
 class_name DominoLayoutArea
 extends Area2D
 
-const AREA_SIZE : Vector2 = Vector2(200, 200)
+const AREA_SIZE : Vector2 = Vector2(120, 200)
 
 var last_domino_entered : Domino = null
 var last_domino_exited : Domino = null

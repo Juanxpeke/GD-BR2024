@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://2bfvk1qmbvgr"]
+
+[ext_resource type="Script" path="res://Core/Board/placement_area.gd" id="1_db43k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jp6we"]
+size = Vector2(96, 128)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vi706"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+anti_aliasing = false
+
+[node name="PlacementArea" type="Area2D"]
+texture_filter = 1
+script = ExtResource("1_db43k")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jp6we")
+
+[node name="PlacementBorder" type="Panel" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.0
+offset_top = -34.0
+offset_right = 17.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vi706")

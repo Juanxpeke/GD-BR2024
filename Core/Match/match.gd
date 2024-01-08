@@ -1,5 +1,7 @@
 extends Node2D
 
+const CAMERA_ZOOM_SPEED : float = 0.1
+
 const MAX_DOTS : int = 6
 
 @export var domino_scene : PackedScene
@@ -8,6 +10,7 @@ var deck : Array[Vector2i] = []
 
 var turn : int = 0
 
+@onready var camera := %Camera
 @onready var deck_area := %DeckArea
 @onready var hand := %Hand
 
@@ -16,6 +19,13 @@ func _ready() -> void:
 	_init_deck()
 	deck_area.input_event.connect(_on_deck_area_input)
 	
+# Called on any input event
+func _input(event : InputEvent) -> void:
+	if event.is_action_pressed('wheel_up'):
+		camera.zoom += Vector2(CAMERA_ZOOM_SPEED, CAMERA_ZOOM_SPEED)
+	if event.is_action_pressed('wheel_down'):
+		camera.zoom -= Vector2(CAMERA_ZOOM_SPEED, CAMERA_ZOOM_SPEED)
+
 # Called on input event within the deck area
 func _on_deck_area_input(viewport : Node, event : InputEvent, shape_idx : int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
