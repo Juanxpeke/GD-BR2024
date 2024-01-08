@@ -22,6 +22,7 @@ texture = SubResource("AtlasTexture_tqsw4")
 
 [node name="Area" type="Area2D" parent="."]
 unique_name_in_owner = true
+monitoring = false
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Area"]
 shape = SubResource("RectangleShape2D_fsirf")

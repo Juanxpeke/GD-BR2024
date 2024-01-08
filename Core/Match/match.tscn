@@ -1,24 +1,40 @@
-[gd_scene load_steps=5 format=3 uid="uid://jqq8ueul6hen"]
+[gd_scene load_steps=7 format=3 uid="uid://jqq8ueul6hen"]
 
 [ext_resource type="Script" path="res://Core/Match/match.gd" id="1_gvxcp"]
 [ext_resource type="PackedScene" uid="uid://lnky8im65wgg" path="res://Core/Domino/domino.tscn" id="2_cil56"]
 [ext_resource type="PackedScene" uid="uid://blhlb0sx0g14t" path="res://Core/Hand/hand.tscn" id="2_pi3ny"]
+[ext_resource type="PackedScene" uid="uid://b3kbu23fy2cjm" path="res://Core/Board/board.tscn" id="3_36ug3"]
+[ext_resource type="Texture2D" uid="uid://chbpfa6wijgy4" path="res://Assets/Dispenser/DispenserTest/Dispp128.png" id="4_ux7mg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_671bj"]
-size = Vector2(60, 60)
+size = Vector2(120, 120)
 
 [node name="Match" type="Node2D"]
 script = ExtResource("1_gvxcp")
 domino_scene = ExtResource("2_cil56")
 
-[node name="DeckArea" type="Area2D" parent="."]
+[node name="Camera" type="Camera2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(942, 331)
+position = Vector2(576, 324)
+
+[node name="Board" parent="." instance=ExtResource("3_36ug3")]
+position = Vector2(573, 249)
+
+[node name="TopLayer" type="CanvasLayer" parent="."]
+
+[node name="Deck" type="Node2D" parent="TopLayer"]
+position = Vector2(1048, 331)
+
+[node name="DeckSprite" type="Sprite2D" parent="TopLayer/Deck"]
+texture = ExtResource("4_ux7mg")
+
+[node name="DeckArea" type="Area2D" parent="TopLayer/Deck"]
+unique_name_in_owner = true
 metadata/_edit_group_ = true
 
-[node name="CollisionShape" type="CollisionShape2D" parent="DeckArea"]
+[node name="CollisionShape" type="CollisionShape2D" parent="TopLayer/Deck/DeckArea"]
 shape = SubResource("RectangleShape2D_671bj")
 
-[node name="Hand" parent="." instance=ExtResource("2_pi3ny")]
+[node name="Hand" parent="TopLayer" instance=ExtResource("2_pi3ny")]
 unique_name_in_owner = true
 position = Vector2(564, 606)
