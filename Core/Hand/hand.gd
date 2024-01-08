@@ -13,10 +13,7 @@ var dominoes_layout : Array[Domino] = []
 
 # Called when the node enters the scene tree for the first time
 func _ready() -> void:
-	var xd_scene = load("res://Core/Domino/domino.tscn")
-	for i in 3:
-		var xd : Domino = xd_scene.instantiate()
-		add_domino(xd)
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame
 func _process(delta : float) -> void:
