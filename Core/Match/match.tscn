@@ -18,6 +18,7 @@ unique_name_in_owner = true
 position = Vector2(576, 324)
 
 [node name="Board" parent="." instance=ExtResource("3_36ug3")]
+unique_name_in_owner = true
 position = Vector2(573, 249)
 
 [node name="TopLayer" type="CanvasLayer" parent="."]

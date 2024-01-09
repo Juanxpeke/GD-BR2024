@@ -11,6 +11,7 @@ var deck : Array[Vector2i] = []
 var turn : int = 0
 
 @onready var camera := %Camera
+@onready var board := %Board
 @onready var deck_area := %DeckArea
 @onready var hand := %Hand
 
@@ -18,7 +19,9 @@ var turn : int = 0
 func _ready() -> void:
 	_init_deck()
 	deck_area.input_event.connect(_on_deck_area_input)
-	
+	deck.shuffle()
+	board.add_xd(deck.pop_back())
+
 # Called on any input event
 func _input(event : InputEvent) -> void:
 	if event.is_action_pressed('wheel_up'):
