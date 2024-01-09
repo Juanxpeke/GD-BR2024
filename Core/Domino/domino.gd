@@ -1,7 +1,10 @@
 class_name Domino
 extends Node2D
 
-static var dominoes_atlas : Texture2D = load("res://Core/Domino/black_and_white_v1.png")
+const SPRITE_WIDTH : int = 32
+const SPRITE_HEIGHT : int = 64
+
+static var dominoes_atlas : Texture2D = load("res://Core/Domino/Dominos2x.png")
 static var grabbing : bool = false
 
 var grabbed : bool = false
@@ -61,8 +64,9 @@ func set_dots(dots : Vector2i) -> void:
 
 # Sets the dots texture
 func set_dots_texture(dots : Vector2i) -> void:
-	var texture_position = Vector2(dots.x * 32, dots.y * 16)
-	var texture_size = Vector2(32, 16) 
+	# NOTE: Sprites in atlas are rotated 90 degrees, so is the sprite node
+	var texture_position = Vector2(dots.x * SPRITE_HEIGHT, dots.y * SPRITE_WIDTH)
+	var texture_size = Vector2(SPRITE_HEIGHT, SPRITE_WIDTH) 
 	
 	sprite.texture = AtlasTexture.new()
 	sprite.texture.atlas = dominoes_atlas

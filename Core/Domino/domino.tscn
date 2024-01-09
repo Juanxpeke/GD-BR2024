@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://lnky8im65wgg"]
 
 [ext_resource type="Script" path="res://Core/Domino/domino.gd" id="1_0ifoe"]
-[ext_resource type="Texture2D" uid="uid://bc3fv3mamqtpw" path="res://Core/Domino/black_and_white_v1.png" id="2_vrq3s"]
+[ext_resource type="Texture2D" uid="uid://cpsquyp2ijebv" path="res://Core/Domino/Dominos2x.png" id="2_xu6ud"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tqsw4"]
-atlas = ExtResource("2_vrq3s")
-region = Rect2(0, 0, 32, 16)
+atlas = ExtResource("2_xu6ud")
+region = Rect2(0, 0, 64, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fsirf"]
 size = Vector2(32, 64)
@@ -17,7 +17,6 @@ script = ExtResource("1_0ifoe")
 unique_name_in_owner = true
 texture_filter = 1
 rotation = -1.5708
-scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_tqsw4")
 
 [node name="Area" type="Area2D" parent="."]

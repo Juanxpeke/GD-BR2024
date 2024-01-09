@@ -6,7 +6,23 @@
 [node name="Board" type="Node2D"]
 script = ExtResource("1_m6nev")
 
-[node name="PlacementArea" parent="." instance=ExtResource("2_thwnt")]
+[node name="StartPlacementArea" parent="." instance=ExtResource("2_thwnt")]
+unique_name_in_owner = true
+
+[node name="StartPlacementArea2" parent="." instance=ExtResource("2_thwnt")]
+unique_name_in_owner = true
+
+[node name="StartPlacementArea3" parent="." instance=ExtResource("2_thwnt")]
+unique_name_in_owner = true
+
+[node name="EndPlacementArea" parent="." instance=ExtResource("2_thwnt")]
+unique_name_in_owner = true
+
+[node name="EndPlacementArea2" parent="." instance=ExtResource("2_thwnt")]
+unique_name_in_owner = true
+
+[node name="EndPlacementArea3" parent="." instance=ExtResource("2_thwnt")]
+unique_name_in_owner = true
 
 [node name="Dominoes" type="Node2D" parent="."]
 unique_name_in_owner = true
