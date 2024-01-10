@@ -8,7 +8,6 @@ static var dominoes_atlas : Texture2D = load("res://Core/Domino/Dominos2x.png")
 static var grabbing : bool = false
 
 var grabbed : bool = false
-var in_board : bool = false
 
 var dots : Vector2i = Vector2i(-1, -1)
 
@@ -29,23 +28,20 @@ func _process(delta: float) -> void:
 
 # Called on any input event
 func _input(event : InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if not event.is_pressed():
-			# Set the grabbed var as false in case the domino is being grabbed but
-			# you unclicked outside it because of moving the mouse too fast
-			grabbed = false
-			grabbing = false
+	if event.is_action_released("right_click"):
+		# Set the grabbed var as false in case the domino is being grabbed but
+		# you unclicked outside it because of moving the mouse too fast
+		grabbed = false
+		grabbing = false
 
 # Called on input event within the node
 func _on_input_event(viewport : Node, event : InputEvent, shape_idx : int) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		var pressed = event.is_pressed()
-		if pressed and not grabbing:
-			grabbed = true
-			grabbing = true
-		else:
-			grabbed = false
-			grabbing = false
+	if event.is_action_pressed("right_click") and not grabbing:
+		grabbed = true
+		grabbing = true
+	elif event.is_action_released("right_click"):
+		grabbed = false
+		grabbing = false
 
 # Called when the mouse enters the node
 func _on_mouse_entered() -> void:
@@ -74,7 +70,6 @@ func set_dots_texture(dots : Vector2i) -> void:
 
 # Sets the domino board state
 func set_board_state(value : bool) -> void:
-	in_board = value
 	area.monitorable = not value
 	if value:
 		area.hide()

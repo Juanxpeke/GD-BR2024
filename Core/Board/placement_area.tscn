@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Core/Board/placement_area.gd" id="1_db43k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jp6we"]
-size = Vector2(64, 96)
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vi706"]
 bg_color = Color(0, 0, 0, 0)
@@ -23,6 +23,7 @@ monitorable = false
 script = ExtResource("1_db43k")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_jp6we")
 
 [node name="PlacementBorder" type="Panel" parent="."]
