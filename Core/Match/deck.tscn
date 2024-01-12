@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://p4kwvy8s0hs3"]
+
+[ext_resource type="Script" path="res://Core/Match/deck.gd" id="1_recei"]
+[ext_resource type="Texture2D" uid="uid://chbpfa6wijgy4" path="res://Assets/Dispenser/DispenserTest/Dispp128.png" id="1_u6tmv"]
+[ext_resource type="PackedScene" uid="uid://lnky8im65wgg" path="res://Core/Domino/domino.tscn" id="2_xir6y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_671bj"]
+size = Vector2(120, 120)
+
+[node name="Deck" type="Node2D"]
+script = ExtResource("1_recei")
+domino_scene = ExtResource("2_xir6y")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_u6tmv")
+
+[node name="Area" type="Area2D" parent="."]
+unique_name_in_owner = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Area"]
+shape = SubResource("RectangleShape2D_671bj")

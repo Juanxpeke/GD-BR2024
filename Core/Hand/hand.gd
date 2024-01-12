@@ -4,6 +4,8 @@ extends Node2D
 @export var domino_layout_area_scene : PackedScene
 
 var dominoes_layout : Array[Domino] = []
+var health : int = 100
+
 
 @onready var dominoes := %Dominoes
 @onready var dominoes_layout_areas := %DominoesLayoutAreas
@@ -47,6 +49,7 @@ func _update_dominoes_layout() -> void:
 	
 	for i in range(dominoes_layout.size()):
 		# TODO: Change this to support animations
+		# ALERT: This can lead to a board domino change of position, solve this please
 		dominoes_layout[i].global_position = dominoes_layout_areas.get_child(i).global_position
 
 # Public

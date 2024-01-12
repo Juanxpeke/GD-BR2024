@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c44laowkuxfc4"]
+
+[ext_resource type="Script" path="res://Core/Entity/Player/player.gd" id="1_72hs4"]
+[ext_resource type="PackedScene" uid="uid://blhlb0sx0g14t" path="res://Core/Hand/hand.tscn" id="2_vksxr"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_72hs4")
+
+[node name="Hand" parent="." instance=ExtResource("2_vksxr")]
+unique_name_in_owner = true

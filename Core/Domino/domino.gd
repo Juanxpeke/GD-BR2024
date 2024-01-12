@@ -19,12 +19,11 @@ func _ready() -> void:
 	area.input_event.connect(_on_input_event)
 	area.mouse_entered.connect(_on_mouse_entered)
 	area.mouse_exited.connect(_on_mouse_exited)
-	set_dots_texture(Vector2i(4, 5))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame
 func _process(delta: float) -> void:
 	if grabbed:
-		global_position = get_viewport().get_mouse_position()
+		global_position = GameManager.get_mouse_world_position()
 
 # Called on any input event
 func _input(event : InputEvent) -> void:
@@ -71,7 +70,8 @@ func set_dots_texture(dots : Vector2i) -> void:
 # Sets the domino board state
 func set_board_state(value : bool) -> void:
 	area.monitorable = not value
+	area.visible = not value
+
 	if value:
-		area.hide()
 		grabbed = false
 

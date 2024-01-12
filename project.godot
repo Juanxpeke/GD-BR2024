@@ -15,6 +15,10 @@ run/main_scene="res://Core/GUI/MainMenu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*res://Global/game_manager.gd"
+
 [gui]
 
 theme/custom="res://Themes/main_theme.tres"

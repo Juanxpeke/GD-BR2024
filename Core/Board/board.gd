@@ -11,7 +11,7 @@ var placement_areas_queue : Array[PlacementArea] = []
 
 # Called when the node enters the scene tree for the first time
 func _ready() -> void:
-	pass
+	GameManager.set_board(self)
 
 # Called on any input event
 func _input(event : InputEvent) -> void:
@@ -41,12 +41,10 @@ func unqueue_placement_area(placement_area : PlacementArea) -> void:
 	if not placement_areas_queue.is_empty():
 		placement_areas_queue.back().show_hint() 
 
-# Add xd
-func add_xd(xd : Vector2i) -> void:
-	var domino = get_parent().domino_scene.instantiate()
+# Adds a initial domino to the board
+func add_initial_domino(domino : Domino, dots : Vector2i) -> void:
 	dominoes.add_child(domino)
-	domino.set_dots(xd)
-	domino.rotate(deg_to_rad(90))
+	domino.set_dots(dots)
 	
 	domino.global_position = dominoes.global_position
 	
