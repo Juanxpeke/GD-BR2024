@@ -16,8 +16,12 @@ var current_health : int = health
 
 # Called when the node enters the scene tree for the first time
 func _ready() -> void:
-	pass # Replace with function body
+	GameManager.match_setted.connect(
+		func(): GameManager.current_match.turn_ended.connect(self._on_turn_ended))
 
+# Called when the current turn ends
+func _on_turn_ended() -> void:
+	pass
 
 # Public
 

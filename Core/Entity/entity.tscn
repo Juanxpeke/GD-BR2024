@@ -7,3 +7,4 @@
 script = ExtResource("1_ujrho")
 
 [node name="Hand" parent="." instance=ExtResource("2_o4a1v")]
+unique_name_in_owner = true

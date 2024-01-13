@@ -6,7 +6,6 @@ extends Node2D
 var dominoes_layout : Array[Domino] = []
 var health : int = 100
 
-
 @onready var dominoes := %Dominoes
 @onready var dominoes_layout_areas := %DominoesLayoutAreas
 
