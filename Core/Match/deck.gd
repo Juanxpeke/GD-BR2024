@@ -5,6 +5,7 @@ extends Node2D
 
 var deck : Array[Vector2i] = []
 
+@onready var sprite := %Sprite
 @onready var area := %Area
 
 # Private
@@ -12,15 +13,19 @@ var deck : Array[Vector2i] = []
 # Called when the node enters the scene tree for the first time
 func _ready() -> void:
 	_init_deck()
-	
-	area.input_event.connect(_on_area_input_event)
-	
+
 	deck.shuffle()
 	var new_domino = domino_scene.instantiate()
 	GameManager.current_board.add_initial_domino(new_domino, deck.pop_back())
+	
+	area.input_event.connect(_on_area_input_event)
+
 
 # Called on input event within the area
 func _on_area_input_event(viewport : Node, event : InputEvent, shape_idx : int) -> void:
+	if not GameManager.current_match.is_turn_owner(GameManager.current_player):
+		return
+	
 	if event.is_action_pressed("right_click"):
 		if deck.is_empty():
 			# TODO: Special end game logic (?)
@@ -30,6 +35,8 @@ func _on_area_input_event(viewport : Node, event : InputEvent, shape_idx : int) 
 		var new_domino = domino_scene.instantiate()
 		GameManager.current_player.hand.add_domino(new_domino)
 		new_domino.set_dots(deck.pop_back())
+		
+		GameManager.current_match.end_turn()
 
 # Initializes the deck
 func _init_deck() -> void:

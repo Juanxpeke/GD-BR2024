@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://jqq8ueul6hen"]
+[gd_scene load_steps=6 format=3 uid="uid://jqq8ueul6hen"]
 
 [ext_resource type="Script" path="res://Core/Match/match.gd" id="1_gvxcp"]
 [ext_resource type="PackedScene" uid="uid://c44laowkuxfc4" path="res://Core/Entity/Player/player.tscn" id="3_3jmjl"]
 [ext_resource type="PackedScene" uid="uid://b3kbu23fy2cjm" path="res://Core/Board/board.tscn" id="3_36ug3"]
+[ext_resource type="PackedScene" uid="uid://dhpj4gs6e4p0f" path="res://Core/Entity/Boss/Bob/bob.tscn" id="5_k0w88"]
 [ext_resource type="PackedScene" uid="uid://p4kwvy8s0hs3" path="res://Core/Match/deck.tscn" id="5_l31hq"]
 
 [node name="Match" type="Node2D"]
@@ -14,14 +15,20 @@ position = Vector2(576, 324)
 
 [node name="Board" parent="." instance=ExtResource("3_36ug3")]
 unique_name_in_owner = true
-position = Vector2(862, 318)
-
-[node name="Player" parent="." instance=ExtResource("3_3jmjl")]
-unique_name_in_owner = true
-position = Vector2(580, 586)
+position = Vector2(576, 318)
 
 [node name="TopLayer" type="CanvasLayer" parent="."]
 
 [node name="Deck" parent="TopLayer" instance=ExtResource("5_l31hq")]
 unique_name_in_owner = true
-position = Vector2(1088, 328)
+position = Vector2(1069, 337)
+
+[node name="Entities" type="Node2D" parent="TopLayer"]
+unique_name_in_owner = true
+
+[node name="Player" parent="TopLayer/Entities" instance=ExtResource("3_3jmjl")]
+unique_name_in_owner = true
+position = Vector2(580, 586)
+
+[node name="Bob" parent="TopLayer/Entities" instance=ExtResource("5_k0w88")]
+position = Vector2(571, 64)

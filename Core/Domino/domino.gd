@@ -35,6 +35,9 @@ func _input(event : InputEvent) -> void:
 
 # Called on input event within the node
 func _on_input_event(viewport : Node, event : InputEvent, shape_idx : int) -> void:
+	if not GameManager.current_match.is_turn_owner(GameManager.current_player):
+		return
+	
 	if event.is_action_pressed("right_click") and not grabbing:
 		grabbed = true
 		grabbing = true

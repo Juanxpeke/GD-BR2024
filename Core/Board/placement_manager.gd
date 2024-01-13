@@ -36,10 +36,12 @@ func handle_domino_placement(placement_area : PlacementArea) -> void:
 		#trigger de efecto entre placement_area y el domino antiguo
 		domino.global_transform = placement_area.global_transform
 		domino.reparent(get_parent().dominoes)
+		GameManager.current_match.end_turn()
 		set_placed_domino(domino, false)
 	elif domino.dots.y == placed_dot:
 		domino.global_transform = placement_area.global_transform
 		domino.reparent(get_parent().dominoes)
+		GameManager.current_match.end_turn()
 		domino.rotate(PI)
 		set_placed_domino(domino, true)
 	else:
