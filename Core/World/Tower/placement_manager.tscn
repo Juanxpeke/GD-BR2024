@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba78ji7uuaebr"]
+
+[ext_resource type="Script" path="res://Core/World/Tower/placement_manager.gd" id="1_h34fe"]
+[ext_resource type="PackedScene" uid="uid://2bfvk1qmbvgr" path="res://Core/World/Tower/placement_area.tscn" id="2_bikjv"]
+
+[node name="PlacementManager" type="Node2D"]
+script = ExtResource("1_h34fe")
+
+[node name="PlacementAreaUp" parent="." instance=ExtResource("2_bikjv")]
+unique_name_in_owner = true
+
+[node name="PlacementAreaRight" parent="." instance=ExtResource("2_bikjv")]
+unique_name_in_owner = true
+
+[node name="PlacementAreaLeft" parent="." instance=ExtResource("2_bikjv")]
+unique_name_in_owner = true

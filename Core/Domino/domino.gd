@@ -21,9 +21,9 @@ func _ready() -> void:
 	area.mouse_exited.connect(_on_mouse_exited)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if grabbed:
-		global_position = GameManager.get_mouse_world_position()
+		global_position = get_global_mouse_position()
 
 # Called on any input event
 func _input(event : InputEvent) -> void:
@@ -34,16 +34,24 @@ func _input(event : InputEvent) -> void:
 		grabbing = false
 
 # Called on input event within the node
-func _on_input_event(viewport : Node, event : InputEvent, shape_idx : int) -> void:
+func _on_input_event(_viewport : Node, event : InputEvent, _shape_idx : int) -> void:
+	if event.is_action_pressed("right_click"):
+		print('RC in ', _viewport.name)
+	if event.is_action_released("right_click"):
+		print('UnRC in ', _viewport.name)
+	
 	if not GameManager.current_match.is_turn_owner(GameManager.current_player):
+		print('NOT TURN OWNER')
 		return
 	
 	if event.is_action_pressed("right_click") and not grabbing:
 		grabbed = true
 		grabbing = true
+		GameManager.current_player.set_grabbed_domino(self)
 	elif event.is_action_released("right_click"):
 		grabbed = false
 		grabbing = false
+		GameManager.current_player.clear_grabbed_domino()
 
 # Called when the mouse enters the node
 func _on_mouse_entered() -> void:

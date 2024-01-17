@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3kbu23fy2cjm"]
+
+[ext_resource type="Script" path="res://Core/World/Tower/board.gd" id="1_gav48"]
+[ext_resource type="PackedScene" uid="uid://ba78ji7uuaebr" path="res://Core/World/Tower/placement_manager.tscn" id="2_irrcj"]
+
+[node name="Board" type="Node2D"]
+script = ExtResource("1_gav48")
+
+[node name="StartPlacementManager" parent="." instance=ExtResource("2_irrcj")]
+unique_name_in_owner = true
+
+[node name="EndPlacementManager" parent="." instance=ExtResource("2_irrcj")]
+unique_name_in_owner = true
+
+[node name="Dominoes" type="Node2D" parent="."]
+unique_name_in_owner = true

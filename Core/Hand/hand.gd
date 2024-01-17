@@ -16,14 +16,11 @@ func _ready() -> void:
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame
-func _process(delta : float) -> void:
+func _process(_delta : float) -> void:
 	pass
 
 # Updates the dominoes layout
 func _update_dominoes_layout() -> void:
-	for do in dominoes_layout_areas.get_children():
-		do.time = 0.0
-	
 	var dominoes_layout_centers : Array[Vector2] = []
 	var initial_x_offset = DominoLayoutArea.AREA_SIZE.x * (1 - dominoes_layout.size()) / 2
 	

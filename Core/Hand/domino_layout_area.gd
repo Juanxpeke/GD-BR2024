@@ -6,8 +6,6 @@ const AREA_SIZE : Vector2 = Vector2(120, 200)
 var last_domino_entered : Domino = null
 var last_domino_exited : Domino = null
 
-var time : float = 0.0
-
 @onready var collision_shape : CollisionShape2D = %CollisionShape
 
 # Called when the node enters the scene tree for the first time
@@ -29,8 +27,9 @@ func _on_area_entered(area : Area2D) -> void:
 
 # Called on area exited
 func _on_area_exited(area : Area2D) -> void:
+	return
 	var domino = area.get_parent()
 	if domino is Domino and domino.grabbed and domino != last_domino_entered:
 		print('Domino exited from area: ', get_index())
 		last_domino_exited = domino
-		get_parent().get_parent().extract_domino_from_layout(get_index())
+		# get_parent().get_parent().extract_domino_from_layout(get_index())

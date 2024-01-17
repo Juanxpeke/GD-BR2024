@@ -12,7 +12,7 @@ var deck : Array[Vector2i] = []
 
 # Called when the node enters the scene tree for the first time
 func _ready() -> void:
-	_init_deck()
+	_fill_deck()
 
 	deck.shuffle()
 	var new_domino = domino_scene.instantiate()
@@ -20,16 +20,14 @@ func _ready() -> void:
 	
 	area.input_event.connect(_on_area_input_event)
 
-
 # Called on input event within the area
-func _on_area_input_event(viewport : Node, event : InputEvent, shape_idx : int) -> void:
+func _on_area_input_event(_viewport : Node, event : InputEvent, _shape_idx : int) -> void:
 	if not GameManager.current_match.is_turn_owner(GameManager.current_player):
 		return
 	
 	if event.is_action_pressed("right_click"):
 		if deck.is_empty():
-			# TODO: Special end game logic (?)
-			return
+			_fill_deck()
 
 		deck.shuffle()
 		var new_domino = domino_scene.instantiate()
@@ -38,8 +36,8 @@ func _on_area_input_event(viewport : Node, event : InputEvent, shape_idx : int) 
 		
 		GameManager.current_match.end_turn()
 
-# Initializes the deck
-func _init_deck() -> void:
+# Fills the deck
+func _fill_deck() -> void:
 	for i in range(0, GameManager.MAX_DOTS + 1):
 		for j in range(0, GameManager.MAX_DOTS + 1):
 			if not Vector2i(j, i) in deck:

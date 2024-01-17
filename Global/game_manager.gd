@@ -1,6 +1,7 @@
 extends Node
 
 signal match_setted
+signal world_setted
 signal camera_setted
 signal board_setted
 signal player_setted
@@ -8,6 +9,7 @@ signal player_setted
 const MAX_DOTS : int = 6
 
 var current_match : Match = null
+var current_world : World = null
 var current_camera : Camera2D = null
 var current_board : Board = null
 var current_player : Player = null
@@ -25,9 +27,14 @@ func _ready() -> void:
 
 # Sets the game match
 func set_match(amatch : Match) -> void:
-	set_camera(amatch.camera)
 	current_match = amatch
 	match_setted.emit()
+
+# Sets the game world
+func set_world(world : World) -> void:
+	set_camera(world.camera)
+	current_world = world
+	world_setted.emit()
 
 # Sets the game camera
 func set_camera(camera : Camera2D) -> void:
