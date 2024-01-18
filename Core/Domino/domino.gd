@@ -35,20 +35,14 @@ func _input(event : InputEvent) -> void:
 
 # Called on input event within the node
 func _on_input_event(_viewport : Node, event : InputEvent, _shape_idx : int) -> void:
-	if event.is_action_pressed("right_click"):
-		print('RC in ', _viewport.name)
-	if event.is_action_released("right_click"):
-		print('UnRC in ', _viewport.name)
-	
 	if not GameManager.current_match.is_turn_owner(GameManager.current_player):
-		print('NOT TURN OWNER')
 		return
 	
-	if event.is_action_pressed("right_click") and not grabbing:
+	if event.is_action_pressed("left_click") and not grabbing:
 		grabbed = true
 		grabbing = true
 		GameManager.current_player.set_grabbed_domino(self)
-	elif event.is_action_released("right_click"):
+	elif event.is_action_released("left_click"):
 		grabbed = false
 		grabbing = false
 		GameManager.current_player.clear_grabbed_domino()
@@ -78,8 +72,8 @@ func set_dots_texture(dots : Vector2i) -> void:
 	sprite.texture.atlas = dominoes_atlas
 	sprite.texture.region = Rect2(texture_position, texture_size)
 
-# Sets the domino board state
-func set_board_state(value : bool) -> void:
+# Sets the domino world state
+func set_world_state(value : bool) -> void:
 	area.monitorable = not value
 	area.visible = not value
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://2bfvk1qmbvgr"]
 
-[ext_resource type="Script" path="res://Core/World/Tower/placement_area.gd" id="1_db43k"]
+[ext_resource type="Script" path="res://Core/World/Placement/placement_area.gd" id="1_6rp0o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jp6we"]
 size = Vector2(64, 64)
@@ -20,7 +20,7 @@ anti_aliasing = false
 [node name="PlacementArea" type="Area2D"]
 texture_filter = 1
 monitorable = false
-script = ExtResource("1_db43k")
+script = ExtResource("1_6rp0o")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(0, -16)

@@ -14,9 +14,9 @@ var deck : Array[Vector2i] = []
 func _ready() -> void:
 	_fill_deck()
 
-	deck.shuffle()
-	var new_domino = domino_scene.instantiate()
-	GameManager.current_board.add_initial_domino(new_domino, deck.pop_back())
+	# deck.shuffle()
+	# var new_domino = domino_scene.instantiate()
+	# GameManager.current_board.add_initial_domino(new_domino, deck.pop_back())
 	
 	area.input_event.connect(_on_area_input_event)
 
@@ -25,7 +25,7 @@ func _on_area_input_event(_viewport : Node, event : InputEvent, _shape_idx : int
 	if not GameManager.current_match.is_turn_owner(GameManager.current_player):
 		return
 	
-	if event.is_action_pressed("right_click"):
+	if event.is_action_pressed("left_click"):
 		if deck.is_empty():
 			_fill_deck()
 

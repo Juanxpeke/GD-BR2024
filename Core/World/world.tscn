@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://jqq8ueul6hen"]
+[gd_scene load_steps=8 format=3 uid="uid://jqq8ueul6hen"]
 
 [ext_resource type="Script" path="res://Core/World/world.gd" id="1_vxdio"]
-[ext_resource type="PackedScene" uid="uid://b3kbu23fy2cjm" path="res://Core/World/Tower/board.tscn" id="3_36ug3"]
+[ext_resource type="Script" path="res://Core/World/camera.gd" id="2_w6gb2"]
 [ext_resource type="PackedScene" uid="uid://p4kwvy8s0hs3" path="res://Core/World/Deck/deck.tscn" id="3_ivd2o"]
+[ext_resource type="PackedScene" uid="uid://b3kbu23fy2cjm" path="res://Core/World/Tower/tower.tscn" id="3_rdh5i"]
 [ext_resource type="Script" path="res://Core/World/camera_movement_area.gd" id="5_uh1ic"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btw54"]
@@ -17,10 +18,7 @@ script = ExtResource("1_vxdio")
 [node name="Camera" type="Camera2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(576, 324)
-
-[node name="Board" parent="." instance=ExtResource("3_36ug3")]
-unique_name_in_owner = true
-position = Vector2(111, 106)
+script = ExtResource("2_w6gb2")
 
 [node name="Deck" parent="." instance=ExtResource("3_ivd2o")]
 unique_name_in_owner = true
@@ -67,3 +65,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape" type="CollisionShape2D" parent="TopLayer/LeftMovementArea"]
 position = Vector2(-40, 0)
 shape = SubResource("RectangleShape2D_vlmx3")
+
+[node name="Tower" parent="." instance=ExtResource("3_rdh5i")]
+position = Vector2(293, 231)

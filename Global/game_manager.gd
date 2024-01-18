@@ -6,12 +6,13 @@ signal camera_setted
 signal board_setted
 signal player_setted
 
+enum ManaType { ARCANE, NATURE, DARK, INFERNO }
+
 const MAX_DOTS : int = 6
 
 var current_match : Match = null
 var current_world : World = null
-var current_camera : Camera2D = null
-var current_board : Board = null
+var current_camera : Camera = null
 var current_player : Player = null
 
 # Private
@@ -32,33 +33,17 @@ func set_match(amatch : Match) -> void:
 
 # Sets the game world
 func set_world(world : World) -> void:
-	set_camera(world.camera)
 	current_world = world
 	world_setted.emit()
 
 # Sets the game camera
-func set_camera(camera : Camera2D) -> void:
+func set_camera(camera : Camera) -> void:
 	current_camera = camera
 	camera_setted.emit()
-
-# Sets the game board
-func set_board(board : Board) -> void:
-	current_board = board
-	board_setted.emit()
 
 # Sets the game player
 func set_player(player : Player) -> void:
 	current_player = player
 	player_setted.emit()
-
-#endregion
-
-#region Misc
-
-# Gets the mouse world position
-func get_mouse_world_position() -> Vector2:
-	var viewport_offset = 0.5 * current_camera.get_viewport_rect().size * (Vector2(1, 1) - Vector2(1, 1) / current_camera.zoom)
-	return current_camera.get_viewport().get_mouse_position() / current_camera.zoom + viewport_offset
-
 
 #endregion
