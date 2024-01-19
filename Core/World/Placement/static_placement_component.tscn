@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi8sd1yy8rmhh"]
+
+[ext_resource type="Script" path="res://Core/World/Placement/static_placement_component.gd" id="1_26v2i"]
+[ext_resource type="PackedScene" uid="uid://2bfvk1qmbvgr" path="res://Core/World/Placement/placement_area.tscn" id="2_oigh7"]
+[ext_resource type="PackedScene" uid="uid://ba78ji7uuaebr" path="res://Core/World/Placement/dynamic_placement_component.tscn" id="2_smkun"]
+
+[node name="StaticPlacementComponent" type="Node2D"]
+script = ExtResource("1_26v2i")
+dynamic_placement_component_scene = ExtResource("2_smkun")
+
+[node name="PlacementAreaUp" parent="." instance=ExtResource("2_oigh7")]
+unique_name_in_owner = true
+
+[node name="PlacementAreaRight" parent="." instance=ExtResource("2_oigh7")]
+unique_name_in_owner = true
+
+[node name="PlacementAreaDown" parent="." instance=ExtResource("2_oigh7")]
+unique_name_in_owner = true
+
+[node name="PlacementAreaLeft" parent="." instance=ExtResource("2_oigh7")]
+unique_name_in_owner = true
+
+[node name="Dominoes" type="Node2D" parent="."]
+unique_name_in_owner = true

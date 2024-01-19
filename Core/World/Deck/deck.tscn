@@ -1,71 +1,71 @@
 [gd_scene load_steps=22 format=3 uid="uid://p4kwvy8s0hs3"]
 
-[ext_resource type="Script" path="res://Core/Match/deck.gd" id="1_recei"]
-[ext_resource type="PackedScene" uid="uid://lnky8im65wgg" path="res://Core/Domino/domino.tscn" id="2_xir6y"]
-[ext_resource type="Texture2D" uid="uid://cj0y3oam5unr" path="res://Assets/CustomPixelArt/PortalDispenser/DispenserPortalAnimation/DispenserBaseAnimation-Sheet.png" id="3_fn5k6"]
+[ext_resource type="Script" path="res://Core/World/Deck/deck.gd" id="1_crrof"]
+[ext_resource type="PackedScene" uid="uid://lnky8im65wgg" path="res://Core/Domino/domino.tscn" id="2_uah7y"]
+[ext_resource type="Texture2D" uid="uid://cj0y3oam5unr" path="res://Assets/CustomPixelArt/PortalDispenser/DispenserPortalAnimation/DispenserBaseAnimation-Sheet.png" id="3_u35eb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yw1go"]
-atlas = ExtResource("3_fn5k6")
+atlas = ExtResource("3_u35eb")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_51xmm"]
-atlas = ExtResource("3_fn5k6")
+atlas = ExtResource("3_u35eb")
 region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ptkhm"]
-atlas = ExtResource("3_fn5k6")
+atlas = ExtResource("3_u35eb")
 region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d0msu"]
-atlas = ExtResource("3_fn5k6")
+atlas = ExtResource("3_u35eb")
 region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b2dkr"]
-atlas = ExtResource("3_fn5k6")
+atlas = ExtResource("3_u35eb")
 region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qao6b"]
-atlas = ExtResource("3_fn5k6")
+atlas = ExtResource("3_u35eb")
 region = Rect2(640, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cp12n"]
-atlas = ExtResource("3_fn5k6")
+atlas = ExtResource("3_u35eb")
 region = Rect2(768, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qg77r"]
-atlas = ExtResource("3_fn5k6")
+atlas = ExtResource("3_u35eb")
 region = Rect2(896, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gpc7o"]
-atlas = ExtResource("3_fn5k6")
+atlas = ExtResource("3_u35eb")
 region = Rect2(1024, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nb65f"]
-atlas = ExtResource("3_fn5k6")
+atlas = ExtResource("3_u35eb")
 region = Rect2(1152, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dbpkx"]
-atlas = ExtResource("3_fn5k6")
+atlas = ExtResource("3_u35eb")
 region = Rect2(1280, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ispt5"]
-atlas = ExtResource("3_fn5k6")
+atlas = ExtResource("3_u35eb")
 region = Rect2(1408, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a87uq"]
-atlas = ExtResource("3_fn5k6")
+atlas = ExtResource("3_u35eb")
 region = Rect2(1536, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fpkda"]
-atlas = ExtResource("3_fn5k6")
+atlas = ExtResource("3_u35eb")
 region = Rect2(1664, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tkenm"]
-atlas = ExtResource("3_fn5k6")
+atlas = ExtResource("3_u35eb")
 region = Rect2(1792, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_klyy1"]
-atlas = ExtResource("3_fn5k6")
+atlas = ExtResource("3_u35eb")
 region = Rect2(1920, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jo1uw"]
@@ -128,8 +128,8 @@ animations = [{
 size = Vector2(150, 150)
 
 [node name="Deck" type="Node2D"]
-script = ExtResource("1_recei")
-domino_scene = ExtResource("2_xir6y")
+script = ExtResource("1_crrof")
+domino_scene = ExtResource("2_uah7y")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
@@ -137,7 +137,7 @@ texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_jo1uw")
 autoplay = "default"
-frame_progress = 0.895345
+frame_progress = 0.92243
 
 [node name="Area" type="Area2D" parent="."]
 unique_name_in_owner = true

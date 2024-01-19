@@ -1,31 +1,33 @@
 class_name Match
-extends Node2D
+extends Control
 
 signal turn_ended
 
-const CAMERA_ZOOM_SPEED : float = 0.1
-
 var turn : int = 0
 
-@onready var camera := %Camera
-@onready var board := %Board
-@onready var deck := %Deck
-
-@onready var entities := %Entities
-@onready var player := %Player
+@onready var world_viewport_container : SubViewportContainer = %WorldViewportContainer
+@onready var entities : Node2D = %Entities
 
 # Private
 
 # Called when the node enters the scene tree for the first time
 func _ready() -> void:
+	world_viewport_container.mouse_entered.connect(_on_world_viewport_container_mouse_entered)
+	world_viewport_container.mouse_exited.connect(_on_world_viewport_container_mouse_exited)
 	GameManager.set_match(self)
+	
+# Called when the mouse enters the world viewport container
+func _on_world_viewport_container_mouse_entered() -> void:
+	if GameManager.current_player.grabbed_domino == null: return
+	
+	GameManager.current_player.grabbed_domino.reparent(GameManager.current_world, false)
 
-# Called on any input event
-func _input(event : InputEvent) -> void:
-	if event.is_action_pressed('wheel_up'):
-		camera.zoom += Vector2(CAMERA_ZOOM_SPEED, CAMERA_ZOOM_SPEED)
-	if event.is_action_pressed('wheel_down'):
-		camera.zoom -= Vector2(CAMERA_ZOOM_SPEED, CAMERA_ZOOM_SPEED)
+# Called when the mouse exits the world viewport container
+func _on_world_viewport_container_mouse_exited() -> void:
+	if GameManager.current_player.grabbed_domino == null: return
+	
+	GameManager.current_player.grabbed_domino.reparent(GameManager.current_player.hand.dominoes, false)
+
 
 # Public
 
@@ -46,3 +48,4 @@ func is_turn_owner(entity : Entity) -> bool:
 	return get_turn_owner() == entity
 
 #endregion
+

@@ -1,13 +1,11 @@
 class_name Hand
 extends Node2D
 
-@export var domino_layout_area_scene : PackedScene
+const DOMINOES_SEPARATION_FACTOR : float = 0.5
 
-var dominoes_layout : Array[Domino] = []
-var health : int = 100
+var grabbed_domino_index : int
 
 @onready var dominoes := %Dominoes
-@onready var dominoes_layout_areas := %DominoesLayoutAreas
 
 # Private
 
@@ -15,61 +13,23 @@ var health : int = 100
 func _ready() -> void:
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame
-func _process(delta : float) -> void:
-	pass
-
 # Updates the dominoes layout
 func _update_dominoes_layout() -> void:
-	for do in dominoes_layout_areas.get_children():
-		do.time = 0.0
+	for i in range(dominoes.get_child_count()):
+		var domino = dominoes.get_child(i)
+		domino.position = Vector2(i * Domino.SPRITE_WIDTH * (1 + DOMINOES_SEPARATION_FACTOR), 0)
 	
-	var dominoes_layout_centers : Array[Vector2] = []
-	var initial_x_offset = DominoLayoutArea.AREA_SIZE.x * (1 - dominoes_layout.size()) / 2
-	
-	for i in range(dominoes_layout.size()):
-		var offset = Vector2(initial_x_offset + i * DominoLayoutArea.AREA_SIZE.x, 0)
-		dominoes_layout_centers.append(global_position + offset)
-
-	for i in range(dominoes_layout_centers.size()):
-		if i < dominoes_layout_areas.get_child_count():
-			dominoes_layout_areas.get_child(i).global_position = dominoes_layout_centers[i]
-		else:
-			var domino_layout_area = domino_layout_area_scene.instantiate()
-			dominoes_layout_areas.add_child(domino_layout_area)
-			domino_layout_area.global_position = dominoes_layout_centers[i]
-			
-	if dominoes_layout_areas.get_child_count() > dominoes_layout_centers.size():
-		var count_diff = dominoes_layout_areas.get_child_count() - dominoes_layout_centers.size()
-		for i in range(count_diff):
-			# ALERT: Possible error
-			dominoes_layout_areas.get_child(dominoes_layout_centers.size() + i).queue_free()
-
-	
-	for i in range(dominoes_layout.size()):
-		# TODO: Change this to support animations
-		# ALERT: This can lead to a board domino change of position, solve this please
-		dominoes_layout[i].global_position = dominoes_layout_areas.get_child(i).global_position
-
 # Public
 
 # Adds a domino to the hand
 func add_domino(domino : Domino) -> void:
 	dominoes.add_child(domino)
-	include_domino_to_layout(dominoes_layout.size() / 2, domino)
-
-# Moves the dominoes
-func move_dominoes() -> void:
-	pass
+	domino.being_grabbed.connect(func(): grabbed_domino_index = domino.get_index())
+	domino.world_state_changed.connect(_update_dominoes_layout)
+	_update_dominoes_layout()
 	
-# Extracts a domino from the hand layout
-func extract_domino_from_layout(layout_idx : int) -> void:
-	dominoes_layout.remove_at(layout_idx)
-	_update_dominoes_layout()
-
-# Includes a domino in the hand layout
-func include_domino_to_layout(layout_idx : int, domino : Domino) -> void:
-	dominoes_layout.insert(layout_idx, domino)
-	_update_dominoes_layout()
-
+# Handles a domino reset
+func handle_domino_reset(domino : Domino) -> void:
+	domino.reparent(dominoes, false)
+	dominoes.move_child(domino, grabbed_domino_index)
 

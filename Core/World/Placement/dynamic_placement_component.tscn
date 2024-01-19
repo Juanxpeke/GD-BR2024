@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba78ji7uuaebr"]
+
+[ext_resource type="Script" path="res://Core/World/Placement/dynamic_placement_component.gd" id="1_c1q2x"]
+[ext_resource type="PackedScene" uid="uid://2bfvk1qmbvgr" path="res://Core/World/Placement/placement_area.tscn" id="2_qy88j"]
+
+[node name="DynamicPlacementComponent" type="Node2D"]
+script = ExtResource("1_c1q2x")
+
+[node name="PlacementAreaUp" parent="." instance=ExtResource("2_qy88j")]
+unique_name_in_owner = true
+
+[node name="PlacementAreaRight" parent="." instance=ExtResource("2_qy88j")]
+unique_name_in_owner = true
+
+[node name="PlacementAreaLeft" parent="." instance=ExtResource("2_qy88j")]
+unique_name_in_owner = true
