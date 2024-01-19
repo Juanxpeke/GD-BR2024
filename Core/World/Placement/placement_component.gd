@@ -17,7 +17,7 @@ func handle_domino_placement(placement_area : PlacementArea) -> void:
 		GameManager.current_match.end_turn()
 	else:
 		# TODO: Domino reset logic
-		pass
+		domino.reset()
 
 # Places the given domino in the given placement area
 func place_domino(domino : Domino, placement_area : PlacementArea, inverted : bool = false) -> void:

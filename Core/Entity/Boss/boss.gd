@@ -15,4 +15,4 @@ func _on_turn_ended() -> void:
 
 # Calculates the best play
 func _calculate_best_play():
-	print('My best play xd')
+	pass

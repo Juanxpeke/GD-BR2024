@@ -12,5 +12,5 @@ unique_name_in_owner = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_fl8vd")

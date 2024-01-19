@@ -20,13 +20,14 @@ func _ready() -> void:
 func _on_world_viewport_container_mouse_entered() -> void:
 	if GameManager.current_player.grabbed_domino == null: return
 	
-	GameManager.current_player.grabbed_domino.reparent(GameManager.current_world)
+	GameManager.current_player.grabbed_domino.reparent(GameManager.current_world, false)
 
 # Called when the mouse exits the world viewport container
 func _on_world_viewport_container_mouse_exited() -> void:
 	if GameManager.current_player.grabbed_domino == null: return
 	
-	GameManager.current_player.grabbed_domino.reparent(GameManager.current_player)
+	GameManager.current_player.grabbed_domino.reparent(GameManager.current_player.hand.dominoes, false)
+
 
 # Public
 

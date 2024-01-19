@@ -14,7 +14,7 @@ func _ready() -> void:
 	GameManager.set_camera(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if grabbed and GameManager.current_player.grabbed_domino == null:
 		global_position = grab_position + (grab_mouse_position - get_viewport().get_mouse_position()) / zoom
 
