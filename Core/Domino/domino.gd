@@ -97,7 +97,7 @@ func is_over_placement_area() -> bool:
 
 # Resets the domino position in the hand
 func reset() -> void:
-	if get_parent() == GameManager.current_world:
+	if get_parent() != GameManager.current_player.hand.dominoes:
 		GameManager.current_player.hand.handle_domino_reset(self)
 	global_position = grab_position
 
