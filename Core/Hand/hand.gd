@@ -18,7 +18,8 @@ func _update_dominoes_layout() -> void:
 	for i in range(dominoes.get_child_count()):
 		var domino = dominoes.get_child(i)
 		domino.position = Vector2(i * Domino.SPRITE_WIDTH * (1 + DOMINOES_SEPARATION_FACTOR), 0)
-	
+
+
 # Public
 
 # Adds a domino to the hand

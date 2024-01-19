@@ -1,6 +1,8 @@
 class_name StaticPlacementComponent
 extends PlacementComponent
 
+signal domino_placed(domino : Domino, entity : Entity)
+
 @export var dynamic_placement_component_scene : PackedScene
 
 @onready var placement_area_up := %PlacementAreaUp
@@ -43,3 +45,16 @@ func place_domino(domino : Domino, placement_area : PlacementArea, inverted : bo
 	
 	PlacementManager.unqueue_placement_area(placement_area)
 	placement_area.queue_free()
+	
+	domino_placed.emit(domino, GameManager.current_match.get_turn_owner())
+
+# Blocks the placement area in the given direction
+func block_placement_area(direction : Direction) -> void:
+	if direction == Direction.UP and placement_area_up != null:
+		placement_area_up.queue_free()
+	elif direction == Direction.RIGHT and placement_area_right != null:
+		placement_area_right.queue_free()
+	elif direction == Direction.DOWN and placement_area_down != null:
+		placement_area_down.queue_free()
+	elif placement_area_left != null:
+		placement_area_left.queue_free()

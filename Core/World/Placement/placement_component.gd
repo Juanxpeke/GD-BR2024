@@ -1,6 +1,8 @@
 class_name PlacementComponent
 extends Node2D
 
+enum Direction { UP, RIGHT, DOWN, LEFT }
+
 var dot : int = 0
 
 # Public
@@ -21,4 +23,8 @@ func handle_domino_placement(placement_area : PlacementArea) -> void:
 
 # Places the given domino in the given placement area
 func place_domino(domino : Domino, placement_area : PlacementArea, inverted : bool = false) -> void:
+	pass
+
+# Blocks the placement area in the given direction
+func block_placement_area(direction : Direction) -> void:
 	pass

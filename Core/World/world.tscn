@@ -24,6 +24,11 @@ script = ExtResource("2_w6gb2")
 unique_name_in_owner = true
 position = Vector2(691, 316)
 
+[node name="Tower" parent="." instance=ExtResource("3_rdh5i")]
+position = Vector2(-495, 94)
+placement_area_up_blocked = true
+placement_area_left_blocked = true
+
 [node name="TopLayer" type="CanvasLayer" parent="."]
 
 [node name="TopMovementArea" type="Area2D" parent="TopLayer"]
@@ -65,6 +70,3 @@ metadata/_edit_group_ = true
 [node name="CollisionShape" type="CollisionShape2D" parent="TopLayer/LeftMovementArea"]
 position = Vector2(-40, 0)
 shape = SubResource("RectangleShape2D_vlmx3")
-
-[node name="Tower" parent="." instance=ExtResource("3_rdh5i")]
-position = Vector2(293, 231)

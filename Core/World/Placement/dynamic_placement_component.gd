@@ -37,6 +37,8 @@ func place_domino(domino : Domino, placement_area : PlacementArea, inverted : bo
 	if inverted: domino.rotate(PI)
 
 	bind_to_domino(domino, inverted)
+	
+	get_static_placement_component().domino_placed.emit(domino, GameManager.current_match.get_turn_owner())
 
 # Binds this component to the given domino
 func bind_to_domino(domino : Domino, inverted : bool = false) -> void:
@@ -46,3 +48,12 @@ func bind_to_domino(domino : Domino, inverted : bool = false) -> void:
 	global_transform = domino.global_transform
 	
 	if inverted: rotate(PI)
+
+# Blocks the placement area in the given direction
+func block_placement_area(direction : Direction) -> void:
+	if direction == Direction.UP and placement_area_up != null:
+		placement_area_up.queue_free()
+	elif direction == Direction.RIGHT and placement_area_right != null:
+		placement_area_right.queue_free()
+	elif placement_area_left != null:
+		placement_area_left.queue_free()
