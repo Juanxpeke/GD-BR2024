@@ -17,8 +17,17 @@ func _ready() -> void:
 	# deck.shuffle()
 	# var new_domino = domino_scene.instantiate()
 	# GameManager.current_board.add_initial_domino(new_domino, deck.pop_back())
-	
+	area.mouse_entered.connect(_on_area_mouse_entered)
+	area.mouse_exited.connect(_on_area_mouse_exited)
 	area.input_event.connect(_on_area_input_event)
+
+# Called when the mouse enters the area
+func _on_area_mouse_entered() -> void:
+	ConfigurationManager.add_cursor_shape("pointer")
+
+# Called when the mouse exits the area
+func _on_area_mouse_exited() -> void:
+	ConfigurationManager.remove_cursor_shape("pointer")
 
 # Called on input event within the area
 func _on_area_input_event(_viewport : Node, event : InputEvent, _shape_idx : int) -> void:
@@ -26,15 +35,7 @@ func _on_area_input_event(_viewport : Node, event : InputEvent, _shape_idx : int
 		return
 	
 	if event.is_action_pressed("left_click"):
-		if deck.is_empty():
-			_fill_deck()
-
-		deck.shuffle()
-		var new_domino = domino_scene.instantiate()
-		GameManager.current_player.hand.add_domino(new_domino)
-		new_domino.set_dots(deck.pop_back())
-		
-		GameManager.current_match.end_turn()
+		give_domino()
 
 # Fills the deck
 func _fill_deck() -> void:
@@ -42,3 +43,18 @@ func _fill_deck() -> void:
 		for j in range(0, GameManager.MAX_DOTS + 1):
 			if not Vector2i(j, i) in deck:
 				deck.append(Vector2i(i, j))
+
+
+# Public
+
+# Gives a domino to the current turn owner
+func give_domino() -> void:
+	if deck.is_empty():
+		_fill_deck()
+
+	deck.shuffle()
+	var new_domino = domino_scene.instantiate()
+	GameManager.current_match.get_turn_owner().hand.add_domino(new_domino)
+	new_domino.set_dots(deck.pop_back())
+
+	GameManager.current_match.end_turn()

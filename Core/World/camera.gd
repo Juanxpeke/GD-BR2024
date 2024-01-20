@@ -9,6 +9,8 @@ var grabbed : bool = false
 var grab_position : Vector2
 var grab_mouse_position : Vector2
 
+# Private
+
 # Called when the node enters the scene tree for the first time
 func _ready() -> void:
 	GameManager.set_camera(self)
@@ -33,3 +35,11 @@ func _input(event : InputEvent) -> void:
 	elif event.is_action_pressed('wheel_down'):
 		zoom.x = max(zoom.x - ZOOM_VELOCITY.x, ZOOM_MINIMUM.x)
 		zoom.y = max(zoom.y - ZOOM_VELOCITY.y, ZOOM_MINIMUM.y)
+
+
+# Public
+
+# Gets the camera rect
+func get_rect() -> Rect2:
+	var camera_size = get_viewport_rect().size * zoom
+	return Rect2(get_screen_center_position() - camera_size / 2, camera_size)
