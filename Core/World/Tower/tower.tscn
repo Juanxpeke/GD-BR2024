@@ -1,16 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3kbu23fy2cjm"]
+[gd_scene load_steps=5 format=3 uid="uid://b3kbu23fy2cjm"]
 
 [ext_resource type="Script" path="res://Core/World/Tower/tower.gd" id="1_3jabf"]
 [ext_resource type="PackedScene" uid="uid://bi8sd1yy8rmhh" path="res://Core/World/Placement/static_placement_component.tscn" id="2_5thyv"]
 [ext_resource type="Texture2D" uid="uid://jlryjbt7mgau" path="res://icon.svg" id="3_fl8vd"]
+[ext_resource type="PackedScene" uid="uid://dp2sbtwygdtt4" path="res://Core/World/Indicators/ooc_indicator_component.tscn" id="4_38pew"]
 
 [node name="Tower" type="Node2D"]
 script = ExtResource("1_3jabf")
-
-[node name="StaticPlacementComponent" parent="." instance=ExtResource("2_5thyv")]
-unique_name_in_owner = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_fl8vd")
+
+[node name="StaticPlacementComponent" parent="." instance=ExtResource("2_5thyv")]
+unique_name_in_owner = true
+
+[node name="OOCIndicatorComponent" parent="." instance=ExtResource("4_38pew")]
+indicator_texture = ExtResource("3_fl8vd")

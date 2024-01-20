@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://Global/game_manager.gd"
 PlacementManager="*res://Global/placement_manager.gd"
+ConfigurationManager="*res://Global/Configuration/configuration_manager.gd"
 
 [gui]
 
