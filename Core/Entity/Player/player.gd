@@ -22,6 +22,7 @@ func _input(event: InputEvent) -> void:
 		if not grabbed_domino.is_over_placement_area():
 			grabbed_domino.reset()
 		grabbed_domino = null
+		ConfigurationManager.remove_cursor_shape("grabbing")
 
 # Called when the current turn ends
 func _on_turn_ended() -> void:

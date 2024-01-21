@@ -4,6 +4,7 @@ extends Node2D
 @export var indicator_texture : Texture2D
 
 @onready var indicator_area := %IndicatorArea
+@onready var indicator_collision_shape := %IndicatorArea/CollisionShape
 @onready var indicator_sprite := %IndicatorSprite
 
 # Private
@@ -22,21 +23,24 @@ func _process(delta: float) -> void:
 	var camera_rect = GameManager.current_camera.get_rect()
 	
 	if _is_outside_rect(camera_rect):
+		# TODO: Use the world top layer instead of a layer for each indicator
+		var viewport_size = get_viewport_rect().size
 		var camera_position = camera_rect.position + camera_rect.size * 0.5
+		var indicator_padding = indicator_collision_shape.shape.radius
 		
 		if global_position.x == camera_position.x: return
 		
 		var slope = (camera_position.y - global_position.y) / (global_position.x - camera_position.x)
 		var indicator_position = Vector2()
-		
+
 		if global_position.y < camera_position.y:
-			indicator_position = Vector2(camera_rect.size.y  * 0.5 / slope + camera_position.x, camera_rect.position.y) 
+			indicator_position = Vector2((viewport_size.y * 0.5 - indicator_padding) / slope + viewport_size.x * 0.5, indicator_padding) 
 		else:
-			indicator_position = Vector2(-camera_rect.size.y  * 0.5 / slope + camera_position.x, camera_rect.position.y + camera_rect.size.y)
-		if indicator_position.x < camera_rect.position.x:
-			indicator_position = Vector2(camera_rect.position.x, camera_rect.size.x * 0.5 * slope + camera_position.y)
-		elif indicator_position.x > camera_rect.position.x + camera_rect.size.x:
-			indicator_position = Vector2(camera_rect.position.x + camera_rect.size.x, -camera_rect.size.x * 0.5 * slope + camera_position.y)
+			indicator_position = Vector2((-viewport_size.y * 0.5 + indicator_padding) / slope + viewport_size.x * 0.5, viewport_size.y - indicator_padding)
+		if indicator_position.x < indicator_padding:
+			indicator_position = Vector2(indicator_padding, (viewport_size.x * 0.5 - indicator_padding) * slope + viewport_size.y * 0.5)
+		elif indicator_position.x > viewport_size.x - indicator_padding:
+			indicator_position = Vector2(viewport_size.x - indicator_padding, (-viewport_size.x * 0.5 + indicator_padding) * slope + viewport_size.y * 0.5)
 		
 		indicator_area.global_position = indicator_position
 		

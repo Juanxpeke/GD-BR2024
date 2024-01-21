@@ -1,10 +1,10 @@
 extends Node
 
 # Load the custom images for the mouse cursor
-var default = load("res://icon.svg")
-var pointer = load("res://icon.svg")
-var grab = load("res://icon.svg")
-var grabbing = load("res://icon.svg")
+var default = load("res://Global/Configuration/CursorSprites/default.png")
+var pointer = load("res://Global/Configuration/CursorSprites/pointer.png")
+var grab = load("res://Global/Configuration/CursorSprites/grab.png")
+var grabbing = load("res://Global/Configuration/CursorSprites/grabbing.png")
 
 # Shapes counters
 var shape_counters = {
@@ -27,12 +27,10 @@ func _ready() -> void:
 func _update_cursor_shape() -> void:
 	var shapes = shape_counters.keys()
 	var cursor_shape = shapes[0]
-	
+
 	for shape in shapes:
 		if shape_counters[shape] > 0:
 			cursor_shape = shape
-	
-	print(cursor_shape)
 
 	match cursor_shape:
 		"default": Input.set_default_cursor_shape(Input.CURSOR_ARROW)
@@ -49,5 +47,5 @@ func add_cursor_shape(shape : String) -> void:
 
 # Removes a cursor shape
 func remove_cursor_shape(shape : String) -> void:
-	shape_counters[shape] = min(shape_counters[shape] - 1, 0)
+	shape_counters[shape] = max(shape_counters[shape] - 1, 0)
 	_update_cursor_shape()

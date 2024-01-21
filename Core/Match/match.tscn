@@ -12,18 +12,10 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 
-[node name="Match" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
+[node name="Match" type="Node"]
 script = ExtResource("1_4yfw0")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.185
 anchor_top = 0.2
@@ -62,3 +54,5 @@ position = Vector2(253, 590)
 
 [node name="Bob" parent="Entities" instance=ExtResource("4_21v77")]
 position = Vector2(893, 41)
+health = 50
+skills = Array[Resource("res://Global/Skills/skill.gd")]([])

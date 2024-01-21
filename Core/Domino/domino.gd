@@ -42,15 +42,16 @@ func _on_input_event(_viewport : Node, event : InputEvent, _shape_idx : int) -> 
 		grabbed = true
 		grab_position = global_position
 		GameManager.current_player.grabbed_domino = self
+		ConfigurationManager.add_cursor_shape("grabbing")
 		being_grabbed.emit()
 
 # Called when the mouse enters the node
 func _on_mouse_entered() -> void:
-	pass
+	ConfigurationManager.add_cursor_shape("grab")
 	
 # Called when the node exits the node
 func _on_mouse_exited() -> void:
-	pass
+	ConfigurationManager.remove_cursor_shape("grab")
 
 # Called when an area enters the node
 func _on_area_entered(area : Area2D) -> void:

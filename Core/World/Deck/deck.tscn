@@ -1,8 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://p4kwvy8s0hs3"]
+[gd_scene load_steps=24 format=3 uid="uid://p4kwvy8s0hs3"]
 
 [ext_resource type="Script" path="res://Core/World/Deck/deck.gd" id="1_crrof"]
 [ext_resource type="PackedScene" uid="uid://lnky8im65wgg" path="res://Core/Domino/domino.tscn" id="2_uah7y"]
+[ext_resource type="PackedScene" uid="uid://dp2sbtwygdtt4" path="res://Core/World/Indicators/ooc_indicator_component.tscn" id="3_owlyl"]
 [ext_resource type="Texture2D" uid="uid://cj0y3oam5unr" path="res://Assets/CustomPixelArt/PortalDispenser/DispenserPortalAnimation/DispenserBaseAnimation-Sheet.png" id="3_u35eb"]
+[ext_resource type="Texture2D" uid="uid://jlryjbt7mgau" path="res://icon.svg" id="4_26l5l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yw1go"]
 atlas = ExtResource("3_u35eb")
@@ -130,6 +132,9 @@ radius = 70.0
 [node name="Deck" type="Node2D"]
 script = ExtResource("1_crrof")
 domino_scene = ExtResource("2_uah7y")
+
+[node name="OOCIndicatorComponent" parent="." instance=ExtResource("3_owlyl")]
+indicator_texture = ExtResource("4_26l5l")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true

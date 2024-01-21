@@ -8,13 +8,15 @@ radius = 32.0
 [node name="OOCIndicatorComponent" type="Node2D"]
 script = ExtResource("1_17h3m")
 
-[node name="IndicatorArea" type="Area2D" parent="."]
+[node name="IndicatorLayer" type="CanvasLayer" parent="."]
+
+[node name="IndicatorArea" type="Area2D" parent="IndicatorLayer"]
 unique_name_in_owner = true
 monitoring = false
 monitorable = false
 
-[node name="CollisionShape" type="CollisionShape2D" parent="IndicatorArea"]
+[node name="CollisionShape" type="CollisionShape2D" parent="IndicatorLayer/IndicatorArea"]
 shape = SubResource("CircleShape2D_g8pq3")
 
-[node name="IndicatorSprite" type="Sprite2D" parent="IndicatorArea"]
+[node name="IndicatorSprite" type="Sprite2D" parent="IndicatorLayer/IndicatorArea"]
 unique_name_in_owner = true

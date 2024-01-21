@@ -1,5 +1,5 @@
 class_name Match
-extends Control
+extends Node
 
 signal turn_ended
 

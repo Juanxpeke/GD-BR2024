@@ -10,7 +10,7 @@ func _ready() -> void:
 # Called when the current turn ends
 func _on_turn_ended() -> void:
 	if GameManager.current_match.is_turn_owner(self):
-		pass
+		GameManager.current_match.end_turn()
 		# var best_plays = _calculate_best_play()
 		#var best_counter_plays = _calculate_best_counter_play()
 		

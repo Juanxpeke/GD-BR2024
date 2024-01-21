@@ -41,5 +41,5 @@ func _input(event : InputEvent) -> void:
 
 # Gets the camera rect
 func get_rect() -> Rect2:
-	var camera_size = get_viewport_rect().size * zoom
-	return Rect2(get_screen_center_position() - camera_size / 2, camera_size)
+	var camera_size = get_viewport_rect().size / zoom
+	return Rect2(get_screen_center_position() - camera_size * 0.5, camera_size)
