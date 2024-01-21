@@ -25,7 +25,7 @@ unique_name_in_owner = true
 position = Vector2(691, 316)
 
 [node name="Tower" parent="." instance=ExtResource("3_rdh5i")]
-position = Vector2(206, 208)
+position = Vector2(-538, -278)
 placement_area_up_blocked = true
 placement_area_left_blocked = true
 
