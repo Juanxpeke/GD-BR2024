@@ -9,22 +9,15 @@ func _ready() -> void:
 
 # Called when the current turn ends
 func _on_turn_ended() -> void:
+	super()
+	
 	if GameManager.current_match.is_turn_owner(self):
-		GameManager.current_match.end_turn()
-		# var best_plays = _calculate_best_play()
-		#var best_counter_plays = _calculate_best_counter_play()
-		
-		#if best_play.weight > best_counter_play.weight:
-		#	best_play.execute()
-		#else:
-		#	best_counter_play.execute() 
-		
-		#GameManager.current_match.end_turn()
+		get_best_play().execute()
 
-# Calculates the 3 best plays
-# func _calculate_best_plays() -> Array[Play]:
-#	return [Play.new()]
 
-# Calculates the 3 best counter plays
-#func _calculate_best_counter_plays() -> Array[Play]:
-#	return [Play.new()]
+# Public
+
+# Gets the best play
+func get_best_play() -> Play:
+	assert(false, 'This function need to be implemented in the child class')
+	return Play.new()

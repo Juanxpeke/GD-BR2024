@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Core/World/world.gd" id="1_vxdio"]
 [ext_resource type="Script" path="res://Core/World/camera.gd" id="2_w6gb2"]
 [ext_resource type="PackedScene" uid="uid://p4kwvy8s0hs3" path="res://Core/World/Deck/deck.tscn" id="3_ivd2o"]
-[ext_resource type="PackedScene" uid="uid://b3kbu23fy2cjm" path="res://Core/World/Tower/tower.tscn" id="3_rdh5i"]
+[ext_resource type="PackedScene" uid="uid://b3kbu23fy2cjm" path="res://Core/World/Tower/tower.tscn" id="4_oicnk"]
 [ext_resource type="Script" path="res://Core/World/camera_movement_area.gd" id="5_uh1ic"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btw54"]
@@ -24,8 +24,11 @@ script = ExtResource("2_w6gb2")
 unique_name_in_owner = true
 position = Vector2(691, 316)
 
-[node name="Tower" parent="." instance=ExtResource("3_rdh5i")]
-position = Vector2(-538, -278)
+[node name="Towers" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Tower" parent="Towers" instance=ExtResource("4_oicnk")]
+position = Vector2(-784, -517)
 placement_area_up_blocked = true
 placement_area_left_blocked = true
 

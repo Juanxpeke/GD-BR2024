@@ -39,3 +39,7 @@ func _update_placement_areas() -> void:
 
 
 # Public
+
+# Gets the free placement components that are children of this tower placement component
+func get_free_placement_components() -> Array[PlacementComponent]:
+	return placement_component.get_free_placement_components()

@@ -26,7 +26,7 @@ func _input(event: InputEvent) -> void:
 
 # Called when the current turn ends
 func _on_turn_ended() -> void:
-	pass
+	super()
 
 
 # Public

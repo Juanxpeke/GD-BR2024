@@ -8,16 +8,28 @@
 script = ExtResource("1_26v2i")
 dynamic_placement_component_scene = ExtResource("2_smkun")
 
-[node name="PlacementAreaUp" parent="." instance=ExtResource("2_oigh7")]
+[node name="PlacementAreas" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="PlacementAreaRight" parent="." instance=ExtResource("2_oigh7")]
+[node name="PlacementAreaUp" parent="PlacementAreas" instance=ExtResource("2_oigh7")]
 unique_name_in_owner = true
 
-[node name="PlacementAreaDown" parent="." instance=ExtResource("2_oigh7")]
+[node name="PlacementAreaRight" parent="PlacementAreas" instance=ExtResource("2_oigh7")]
+unique_name_in_owner = true
+direction = 1
+
+[node name="PlacementAreaDown" parent="PlacementAreas" instance=ExtResource("2_oigh7")]
+unique_name_in_owner = true
+direction = 2
+
+[node name="PlacementAreaLeft" parent="PlacementAreas" instance=ExtResource("2_oigh7")]
+unique_name_in_owner = true
+direction = 3
+
+[node name="DynamicPlacementComponents" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="PlacementAreaLeft" parent="." instance=ExtResource("2_oigh7")]
+[node name="StaticPlacementComponents" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="Dominoes" type="Node2D" parent="."]

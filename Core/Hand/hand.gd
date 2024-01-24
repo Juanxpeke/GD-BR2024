@@ -1,6 +1,7 @@
 class_name Hand
 extends Node2D
 
+const MAX_DOMINOES : int = 7
 const DOMINOES_SEPARATION_FACTOR : float = 0.5
 
 var grabbed_domino_index : int

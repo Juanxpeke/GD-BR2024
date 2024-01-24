@@ -1,6 +1,10 @@
 class_name PlacementArea
 extends Area2D
 
+@export var direction : PlacementComponent.Direction
+
+var blocked : bool = false
+var placement_component : PlacementComponent = null
 var last_domino_entered : Domino = null
 
 @onready var placement_border := %PlacementBorder
@@ -30,6 +34,10 @@ func _on_area_exited(area : Area2D) -> void:
 
 # Public
 
+# Sets the related placement component
+func set_placement_component(placement_component : PlacementComponent) -> void:
+	self.placement_component = placement_component
+
 # Shows the area hint
 func show_hint() -> void:
 	placement_border.show()
@@ -38,6 +46,13 @@ func show_hint() -> void:
 func hide_hint() -> void:
 	placement_border.hide()
 
+# Blocks this area
+func block() -> void:
+	visible = false
+	monitorable = false
+	monitoring = false
+	blocked = true
+
 # Places the domino inside this area
 func place() -> void:
-	get_parent().handle_domino_placement(self)
+	placement_component.handle_domino_placement(self)

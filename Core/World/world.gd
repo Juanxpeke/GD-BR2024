@@ -3,6 +3,7 @@ extends Node2D
 
 @onready var camera := %Camera
 @onready var deck := %Deck
+@onready var towers := %Towers
 
 # Private
 

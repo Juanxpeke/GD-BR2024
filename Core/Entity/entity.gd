@@ -10,8 +10,10 @@ signal dead
 @export var skills : Array[Skill] = []
 
 var current_health : int = health
-
 var current_manas : Array[int] = []
+
+# Cache for the priority of manas needed in the current turn
+var manas_needed : Array[int] = [] 
 
 @onready var hand : Hand = %Hand
 
@@ -20,6 +22,7 @@ var current_manas : Array[int] = []
 # Called when the node enters the scene tree for the first time
 func _ready() -> void:
 	current_manas.resize(GameManager.ManaType.size())
+	manas_needed.resize(GameManager.ManaType.size())
 	
 	GameManager.match_setted.connect(_on_match_setted)
 
@@ -29,7 +32,13 @@ func _on_match_setted() -> void:
 
 # Called when the current turn ends
 func _on_turn_ended() -> void:
-	pass
+	manas_needed.fill(0)
+
+# Updates the manas needed
+func _update_manas_needed() -> void:
+	for skill in skills:
+		for mana_type in range(manas_needed.size()):
+			manas_needed[mana_type] += max(current_manas[mana_type] - skill.manas_needed[mana_type], 0)
 
 # Public
 
@@ -80,6 +89,12 @@ func subtract_current_mana(amount : int, mana_type : GameManager.ManaType) -> vo
 	set_current_mana(current_manas[mana_type] - amount, mana_type)
 	# TODO: Floating number and animation logic (apart from world or skill stuff)
 
+# Gets the manas needed by the entity given the current skills in possesion
+func get_manas_needed() -> Array[int]:
+	if manas_needed == []:
+		_update_manas_needed()
+	return manas_needed
+
 #endregion
 
 #region Skills
@@ -90,3 +105,31 @@ func add_skill(skill : Skill) -> void:
 	skills_changed.emit()
 
 #endregion Skills
+
+#region Plays
+
+# Gets all the tower placement plays
+func get_tower_placement_plays() -> Array[Play]:
+	var tower_placement_plays : Array[Play] = []
+	var manas_weights = get_manas_needed()
+	
+	for tower in GameManager.current_world.towers.get_children():
+		for placement_component in tower.get_free_placement_components():
+			for domino in hand.dominoes.get_children():
+				if domino.dots.x == placement_component.dot:
+					var tower_placement_play = TowerPlacementPlay.new(placement_component, domino, false)
+					tower_placement_play.value = manas_weights[tower.mana_type]
+					tower_placement_plays.append(tower_placement_play)
+				elif domino.dots.y == placement_component.dot:
+					var tower_placement_play = TowerPlacementPlay.new(placement_component, domino, true)
+					tower_placement_play.value = manas_weights[tower.mana_type]
+					tower_placement_plays.append(tower_placement_play)
+	
+	return tower_placement_plays
+
+# Gets all the store plays
+func get_store_placement_plays() -> Array[Play]:
+	var store_placement_plays : Array[Play] = []
+	return store_placement_plays
+
+#endregion

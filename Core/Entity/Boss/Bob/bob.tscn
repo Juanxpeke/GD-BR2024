@@ -1,12 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhpj4gs6e4p0f"]
 
-[ext_resource type="Script" path="res://Core/Entity/Boss/boss.gd" id="1_7q8ok"]
+[ext_resource type="Script" path="res://Core/Entity/Boss/Bob/bob.gd" id="1_0226v"]
 [ext_resource type="PackedScene" uid="uid://blhlb0sx0g14t" path="res://Core/Hand/hand.tscn" id="2_781at"]
 
 [node name="Bob" type="Node2D"]
-script = ExtResource("1_7q8ok")
-health = null
-skills = null
+script = ExtResource("1_0226v")
 
 [node name="Hand" parent="." instance=ExtResource("2_781at")]
 unique_name_in_owner = true

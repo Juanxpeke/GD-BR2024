@@ -151,3 +151,6 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Area"]
 shape = SubResource("CircleShape2D_p34xj")
+
+[node name="TemporalDominoes" type="Node2D" parent="."]
+unique_name_in_owner = true

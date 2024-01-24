@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dp2sbtwygdtt4"]
+[gd_scene load_steps=4 format=3 uid="uid://dp2sbtwygdtt4"]
 
 [ext_resource type="Script" path="res://Core/World/Indicators/ooc_indicator_component.gd" id="1_17h3m"]
+[ext_resource type="Texture2D" uid="uid://dwxrl3d3tk2da" path="res://Core/World/Indicators/indicator_background.png" id="2_6ge0j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g8pq3"]
-radius = 48.0
+radius = 36.0
 
 [node name="OOCIndicatorComponent" type="Node2D"]
 script = ExtResource("1_17h3m")
@@ -18,20 +19,23 @@ monitorable = false
 [node name="CollisionShape" type="CollisionShape2D" parent="IndicatorLayer/IndicatorArea"]
 shape = SubResource("CircleShape2D_g8pq3")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="IndicatorLayer/IndicatorArea"]
+[node name="Background" type="TextureRect" parent="IndicatorLayer/IndicatorArea"]
+texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
+texture = ExtResource("2_6ge0j")
 
-[node name="IndicatorSprite" type="TextureRect" parent="IndicatorLayer/IndicatorArea/NinePatchRect"]
+[node name="IndicatorSprite" type="TextureRect" parent="IndicatorLayer/IndicatorArea/Background"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 1
