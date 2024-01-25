@@ -18,7 +18,6 @@ func handle_domino_placement(placement_area : PlacementArea) -> void:
 	elif domino.dots.y == dot:
 		place_domino(domino, placement_area, true)
 	else:
-		print('Reset, comp. dot is ', dot, ' and domino dots are ', domino.dots)
 		domino.reset()
 
 # Places the given domino in the given placement area

@@ -18,6 +18,8 @@ script = ExtResource("1_vxdio")
 [node name="Camera" type="Camera2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(576, 324)
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
 script = ExtResource("2_w6gb2")
 
 [node name="Deck" parent="." instance=ExtResource("3_ivd2o")]

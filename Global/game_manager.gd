@@ -10,6 +10,8 @@ enum ManaType { ARCANE, NATURE, DARK, INFERNO }
 
 const MAX_DOTS : int = 6
 
+var rng : RandomNumberGenerator = RandomNumberGenerator.new()
+
 var current_match : Match = null
 var current_world : World = null
 var current_camera : Camera = null
@@ -19,7 +21,7 @@ var current_player : Player = null
 
 # Called when the node enters the scene tree for the first time
 func _ready() -> void:
-	pass # Replace with function body
+	rng.randomize()
 
 
 # Public

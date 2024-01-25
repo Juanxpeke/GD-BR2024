@@ -63,6 +63,7 @@ func _on_indicator_area_input(_viewport : Node, event : InputEvent, _shape_idx :
 	if event.is_action_pressed("left_click"):
 		GameManager.current_camera.grabbed = false
 		GameManager.current_camera.global_position = global_position
+		GameManager.current_camera.zoom = GameManager.current_camera.ZOOM_DEFAULT
 
 # Returns true if the indicator is outside the given rect, false otherwise
 func _is_outside_rect(rect : Rect2) -> bool:

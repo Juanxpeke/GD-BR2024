@@ -4,6 +4,7 @@ extends Camera2D
 const ZOOM_VELOCITY : Vector2 = Vector2(0.1, 0.1)
 const ZOOM_MINIMUM : Vector2 = Vector2(0.1, 0.1)
 const ZOOM_MAXIMUM : Vector2 = Vector2(7.0, 7.0) 
+const ZOOM_DEFAULT : Vector2 = Vector2(1.5, 1.5)
 
 var grabbed : bool = false
 var grab_position : Vector2
@@ -14,6 +15,7 @@ var grab_mouse_position : Vector2
 # Called when the node enters the scene tree for the first time
 func _ready() -> void:
 	GameManager.set_camera(self)
+	zoom = ZOOM_DEFAULT
 
 # Called every frame. 'delta' is the elapsed time since the previous frame
 func _process(_delta: float) -> void:
