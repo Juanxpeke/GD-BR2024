@@ -7,7 +7,6 @@ extends Play
 func get_play_position() -> Vector2:
 	return GameManager.current_world.deck.global_position
 
-# Executes the play
-func execute() -> void:
-	await super()
+# Core execution logic
+func core_execute() -> void:
 	GameManager.current_world.deck.give_domino()

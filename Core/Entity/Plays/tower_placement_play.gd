@@ -23,7 +23,6 @@ func _init(placement_component : PlacementComponent, domino : Domino, inverted :
 func get_play_position() -> Vector2:
 	return placement_component.get_free_placement_areas()[placement_area_index].global_position
 
-# Executes the play
-func execute() -> void:
-	await super()
+# Core execution logic
+func core_execute() -> void:
 	placement_component.place_domino(domino, placement_component.get_free_placement_areas()[placement_area_index], inverted)

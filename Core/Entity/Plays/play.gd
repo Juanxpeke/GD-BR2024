@@ -1,7 +1,8 @@
 class_name Play
 extends Object
 
-const CAMERA_WAIT_TIME : float = 1.2
+const CAMERA_FOCUS_WAIT_TIME : float = 1.2
+const CAMERA_POST_BLOCK_TIME : float = 0.8
 
 # Static
 
@@ -31,7 +32,19 @@ func get_play_position() -> Vector2:
 func execute() -> void:
 	assert(not disabled, 'Play is disabled as turn has been passed')
 	
-	GameManager.current_camera.global_position = get_play_position()
-	await GameManager.current_camera.get_tree().create_timer(CAMERA_WAIT_TIME).timeout
+	GameManager.current_camera.blocked = true
+	GameManager.current_camera.focus(get_play_position())
+	await GameManager.current_camera.get_tree().create_timer(CAMERA_FOCUS_WAIT_TIME).timeout
+	
+	core_execute()
+	
+	await GameManager.current_camera.get_tree().create_timer(CAMERA_POST_BLOCK_TIME).timeout
+	GameManager.current_camera.blocked = false
+
+# Core execution logic
+func core_execute() -> void:
+	assert(false, 'This function needs to be implemented in the child class')
+	pass
+
 
 

@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 	if hovered:
 		time_hovered += delta
 
-	if time_hovered > ACTIVATION_TIME:
+	if time_hovered > ACTIVATION_TIME and not GameManager.current_camera.blocked:
 		var mouse_distance_speed_factor = pow(get_local_mouse_position().project(movement_direction.normalized()).length(), DISTANCE_ACCELERATION_FACTOR)
 		var time_speed_factor = min(TIME_ACCELERATION_FACTOR * (time_hovered - ACTIVATION_TIME), 7.0)
 		var speed = BASE_SPEED * mouse_distance_speed_factor * time_speed_factor

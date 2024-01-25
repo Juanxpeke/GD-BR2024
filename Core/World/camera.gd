@@ -4,8 +4,9 @@ extends Camera2D
 const ZOOM_VELOCITY : Vector2 = Vector2(0.1, 0.1)
 const ZOOM_MINIMUM : Vector2 = Vector2(0.1, 0.1)
 const ZOOM_MAXIMUM : Vector2 = Vector2(7.0, 7.0) 
-const ZOOM_DEFAULT : Vector2 = Vector2(1.5, 1.5)
+const ZOOM_DEFAULT : Vector2 = Vector2(1.7, 1.7)
 
+var blocked : bool = false
 var grabbed : bool = false
 var grab_position : Vector2
 var grab_mouse_position : Vector2
@@ -19,7 +20,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame
 func _process(_delta: float) -> void:
-	if grabbed and GameManager.current_player.grabbed_domino == null:
+	if grabbed and not blocked and GameManager.current_player.grabbed_domino == null:
 		global_position = grab_position + (grab_mouse_position - get_viewport().get_mouse_position()) / zoom
 
 # Called on any input event
@@ -45,3 +46,9 @@ func _input(event : InputEvent) -> void:
 func get_rect() -> Rect2:
 	var camera_size = get_viewport_rect().size / zoom
 	return Rect2(get_screen_center_position() - camera_size * 0.5, camera_size)
+
+# Focuses the gamera on the given position
+func focus(focus_position : Vector2) -> void:
+	grabbed = false
+	global_position = focus_position
+	zoom = ZOOM_DEFAULT
