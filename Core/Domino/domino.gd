@@ -92,7 +92,7 @@ func set_world_state(value : bool) -> void:
 
 	if value:
 		grabbed = false
-		
+	
 	world_state_changed.emit()
 
 # Returns true if the domino is over a placement area, false otherwise

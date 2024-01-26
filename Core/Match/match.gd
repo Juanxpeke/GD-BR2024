@@ -39,6 +39,10 @@ func end_turn() -> void:
 	turn += 1
 	turn_ended.emit()
 
+# Gets the previous turn owner
+func get_previous_turn_owner() -> Entity:
+	return entities.get_child((turn - 1) % entities.get_child_count())
+
 # Gets the current turn owner
 func get_turn_owner() -> Entity:
 	return entities.get_child(turn % entities.get_child_count())

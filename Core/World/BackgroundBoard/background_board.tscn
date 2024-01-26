@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhocyg0fa2g7q"]
+
+[ext_resource type="TileSet" uid="uid://bta527cl0lvt3" path="res://Core/World/BackgroundBoard/background_board.tres" id="1_6jgad"]
+[ext_resource type="Script" path="res://Core/World/BackgroundBoard/background_board.gd" id="1_nngj1"]
+
+[node name="BackgroundBoard" type="TileMap"]
+tile_set = ExtResource("1_6jgad")
+format = 2
+layer_0/name = "World Visual Layer"
+layer_1/name = "World Free Layer"
+layer_1/z_index = -1
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "Domino Layer"
+layer_2/tile_data = PackedInt32Array()
+script = ExtResource("1_nngj1")

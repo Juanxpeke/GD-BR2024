@@ -1,7 +1,6 @@
 class_name Hand
 extends Node2D
 
-const MAX_DOMINOES : int = 7
 const DOMINOES_SEPARATION_FACTOR : float = 0.5
 
 var grabbed_domino_index : int
@@ -25,11 +24,11 @@ func _update_dominoes_layout() -> void:
 
 # Adds a domino to the hand
 func add_domino(domino : Domino) -> void:
-	dominoes.add_child(domino)
+	domino.reparent(dominoes, false)
 	domino.being_grabbed.connect(func(): grabbed_domino_index = domino.get_index())
 	domino.world_state_changed.connect(_update_dominoes_layout)
 	_update_dominoes_layout()
-	
+
 # Handles a domino reset
 func handle_domino_reset(domino : Domino) -> void:
 	domino.reparent(dominoes, false)

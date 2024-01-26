@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dofg2y01ecigr"]
+
+[ext_resource type="Script" path="res://Core/World/PassGuy/pass_guy.gd" id="1_w3y4l"]
+[ext_resource type="PackedScene" uid="uid://dp2sbtwygdtt4" path="res://Core/World/Indicators/ooc_indicator_component.tscn" id="2_u4osy"]
+[ext_resource type="Texture2D" uid="uid://jlryjbt7mgau" path="res://icon.svg" id="3_7vcji"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rtsqs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7vcji")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_37v78"]
+radius = 120.0
+
+[node name="PassGuy" type="Node2D"]
+script = ExtResource("1_w3y4l")
+
+[node name="OOCIndicatorComponent" parent="." instance=ExtResource("2_u4osy")]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rtsqs")
+
+[node name="Area" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Area"]
+shape = SubResource("CircleShape2D_37v78")

@@ -39,6 +39,6 @@ func get_free_placement_areas() -> Array[PlacementArea]:
 func block_placement_area(direction : Direction) -> void:
 	for placement_area in placement_areas.get_children():
 		if placement_area.direction == direction:
-			placement_area.block()
+			placement_area.set_blocked(true)
 
 

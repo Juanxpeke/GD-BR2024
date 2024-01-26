@@ -1,10 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://p4kwvy8s0hs3"]
+[gd_scene load_steps=26 format=3 uid="uid://p4kwvy8s0hs3"]
 
 [ext_resource type="Script" path="res://Core/World/Deck/deck.gd" id="1_crrof"]
 [ext_resource type="PackedScene" uid="uid://lnky8im65wgg" path="res://Core/Domino/domino.tscn" id="2_uah7y"]
 [ext_resource type="PackedScene" uid="uid://dp2sbtwygdtt4" path="res://Core/World/Indicators/ooc_indicator_component.tscn" id="3_owlyl"]
 [ext_resource type="Texture2D" uid="uid://daayyu4557uy1" path="res://Core/World/Deck/deck_icon.png" id="4_jynjv"]
 [ext_resource type="Texture2D" uid="uid://bdhh2uoaeksbv" path="res://Core/World/Deck/deck_sheet.png" id="5_6ee6j"]
+[ext_resource type="PackedScene" uid="uid://5svqcy4l02ge" path="res://Core/World/BackgroundBoard/blocked_area_component.tscn" id="6_l87kl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rh0my"]
 atlas = ExtResource("5_6ee6j")
@@ -129,6 +130,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_p34xj"]
 radius = 70.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21rvn"]
+size = Vector2(320, 320)
+
 [node name="Deck" type="Node2D"]
 script = ExtResource("1_crrof")
 domino_scene = ExtResource("2_uah7y")
@@ -154,3 +158,8 @@ shape = SubResource("CircleShape2D_p34xj")
 
 [node name="TemporalDominoes" type="Node2D" parent="."]
 unique_name_in_owner = true
+
+[node name="BlockedAreaComponent" parent="." instance=ExtResource("6_l87kl")]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="BlockedAreaComponent"]
+shape = SubResource("RectangleShape2D_21rvn")

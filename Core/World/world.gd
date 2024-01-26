@@ -2,7 +2,9 @@ class_name World
 extends Node2D
 
 @onready var camera := %Camera
+@onready var background_board := %BackgroundBoard
 @onready var deck := %Deck
+@onready var pass_guy := %PassGuy
 @onready var towers := %Towers
 
 # Private

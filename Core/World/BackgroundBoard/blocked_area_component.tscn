@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://5svqcy4l02ge"]
+
+[ext_resource type="Script" path="res://Core/World/BackgroundBoard/blocked_area_component.gd" id="1_q0qgt"]
+
+[node name="BlockedAreaComponent" type="Area2D"]
+visible = false
+monitoring = false
+monitorable = false
+script = ExtResource("1_q0qgt")

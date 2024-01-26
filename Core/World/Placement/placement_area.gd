@@ -46,12 +46,12 @@ func show_hint() -> void:
 func hide_hint() -> void:
 	placement_border.hide()
 
-# Blocks this area
-func block() -> void:
-	visible = false
-	monitorable = false
-	monitoring = false
-	blocked = true
+# Sets the placement area blocked state
+func set_blocked(value : bool) -> void:
+	visible = not value
+	monitorable = not value
+	monitoring = not value
+	blocked = value
 
 # Places the domino inside this area
 func place() -> void:
