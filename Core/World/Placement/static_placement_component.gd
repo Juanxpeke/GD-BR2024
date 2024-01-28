@@ -68,7 +68,8 @@ func get_free_placement_components() -> Array[PlacementComponent]:
 		free_placement_components.append(self)
 	
 	for dynamic_placement_component in dynamic_placement_components.get_children():
-		free_placement_components.append(dynamic_placement_component)
+		if dynamic_placement_component.is_free():
+			free_placement_components.append(dynamic_placement_component)
 	
 	for static_placement_component in static_placement_components.get_children():
 		free_placement_components.append_array(static_placement_component.get_free_placement_components())

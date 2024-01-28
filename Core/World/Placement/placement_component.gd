@@ -32,7 +32,7 @@ func is_free() -> bool:
 func get_free_placement_areas() -> Array[PlacementArea]:
 	var free_placement_areas : Array[PlacementArea]
 	free_placement_areas.assign(placement_areas.get_children().filter(
-		func(placement_area): return not placement_area.blocked))
+			func(placement_area): return not placement_area.blocked))
 	return free_placement_areas
 
 # Blocks the placement area in the given direction
