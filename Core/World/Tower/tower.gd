@@ -1,5 +1,5 @@
 class_name Tower
-extends Node2D
+extends Structure
 
 @export var mana_type : GameManager.ManaType = GameManager.ManaType.ARCANE
 
@@ -15,6 +15,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time
 func _ready() -> void:
+	super()
+	
 	_update_mana_type_data()
 	_update_placement_areas()
 	
@@ -24,7 +26,6 @@ func _ready() -> void:
 func _on_domino_placed(domino : Domino, entity : Entity) -> void:
 	print('Tower domino placed by ', entity.name)
 	entity.add_current_mana(1, mana_type)
-	print(entity.current_manas)
 
 # Updates the tower data from its mana type
 func _update_mana_type_data() -> void:

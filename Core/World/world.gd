@@ -14,3 +14,7 @@ func _ready() -> void:
 	GameManager.set_world(self)
 
 # Public
+
+# Returns all the world structures
+func get_structures() -> Array[Node2D]:
+	return [deck, pass_guy, towers]

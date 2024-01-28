@@ -42,8 +42,8 @@ func _ready() -> void:
 func place_domino(domino : Domino, placement_area : PlacementArea, inverted : bool = false, from_entity : bool = true) -> void:
 	domino.global_transform = placement_area.global_transform
 	domino.reparent(dominoes)
-	domino.set_world_state(true)
 	if inverted: domino.rotate(PI)
+	domino.set_world_state(true)
 
 	var dynamic_placement_component = dynamic_placement_component_scene.instantiate()
 	dynamic_placement_components.add_child(dynamic_placement_component)

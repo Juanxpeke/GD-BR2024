@@ -22,6 +22,7 @@ texture_filter = 1
 script = ExtResource("1_6rp0o")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_jp6we")
 

@@ -15,8 +15,8 @@ var grab_mouse_position : Vector2
 
 # Called when the node enters the scene tree for the first time
 func _ready() -> void:
-	GameManager.set_camera(self)
 	zoom = ZOOM_DEFAULT
+	GameManager.set_camera(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame
 func _process(_delta: float) -> void:

@@ -38,8 +38,8 @@ func set_static_placement_component(static_placement_component : StaticPlacement
 func place_domino(domino : Domino, placement_area : PlacementArea, inverted : bool = false, from_entity : bool = true) -> void:
 	domino.global_transform = placement_area.global_transform
 	domino.reparent(static_placement_component.dominoes)
-	domino.set_world_state(true)
 	if inverted: domino.rotate(PI)
+	domino.set_world_state(true)
 
 	bind_to_domino(domino, inverted)
 	

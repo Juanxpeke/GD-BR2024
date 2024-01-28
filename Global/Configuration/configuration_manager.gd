@@ -38,6 +38,16 @@ func _update_cursor_shape() -> void:
 		"grab": Input.set_default_cursor_shape(Input.CURSOR_DRAG)
 		"grabbing": Input.set_default_cursor_shape(Input.CURSOR_CROSS)
 
+# Called on any input
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("debug_shorcut_1"):
+		for world_structure in GameManager.current_world.get_structures():
+			world_structure.hide()
+	elif event.is_action_pressed("debug_shorcut_2"):
+		for world_structure in GameManager.current_world.get_structures():
+			world_structure.show()
+
+
 # Public
 
 # Adds a cursor shape

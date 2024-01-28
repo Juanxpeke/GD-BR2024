@@ -1,5 +1,5 @@
 class_name Deck
-extends Node2D
+extends Structure
 
 @export var domino_scene : PackedScene
 

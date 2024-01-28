@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bdhh2uoaeksbv" path="res://Core/World/Deck/deck_sheet.png" id="5_6ee6j"]
 [ext_resource type="PackedScene" uid="uid://5svqcy4l02ge" path="res://Core/World/BackgroundBoard/blocked_area_component.tscn" id="6_l87kl"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21rvn"]
+size = Vector2(320, 320)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_rh0my"]
 atlas = ExtResource("5_6ee6j")
 region = Rect2(1920, 0, 128, 128)
@@ -130,15 +133,17 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_p34xj"]
 radius = 70.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_21rvn"]
-size = Vector2(320, 320)
-
 [node name="Deck" type="Node2D"]
 script = ExtResource("1_crrof")
 domino_scene = ExtResource("2_uah7y")
 
 [node name="OOCIndicatorComponent" parent="." instance=ExtResource("3_owlyl")]
 indicator_texture = ExtResource("4_jynjv")
+
+[node name="BlockedAreaComponent" parent="." instance=ExtResource("6_l87kl")]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="BlockedAreaComponent"]
+shape = SubResource("RectangleShape2D_21rvn")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
@@ -158,8 +163,3 @@ shape = SubResource("CircleShape2D_p34xj")
 
 [node name="TemporalDominoes" type="Node2D" parent="."]
 unique_name_in_owner = true
-
-[node name="BlockedAreaComponent" parent="." instance=ExtResource("6_l87kl")]
-
-[node name="CollisionShape" type="CollisionShape2D" parent="BlockedAreaComponent"]
-shape = SubResource("RectangleShape2D_21rvn")

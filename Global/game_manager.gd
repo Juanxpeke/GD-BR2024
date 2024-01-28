@@ -3,7 +3,7 @@ extends Node
 signal match_setted
 signal world_setted
 signal camera_setted
-signal board_setted
+signal background_board_setted
 signal player_setted
 
 enum ManaType { ARCANE, NATURE, DARK, INFERNO }
@@ -17,6 +17,7 @@ var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 var current_match : Match = null
 var current_world : World = null
 var current_camera : Camera = null
+var current_background_board : BackgroundBoard = null
 var current_player : Player = null
 
 # Private
@@ -44,6 +45,11 @@ func set_world(world : World) -> void:
 func set_camera(camera : Camera) -> void:
 	current_camera = camera
 	camera_setted.emit()
+
+# Sets the game background board
+func set_background_board(background_board : BackgroundBoard) -> void:
+	current_background_board = background_board
+	background_board_setted.emit()
 
 # Sets the game player
 func set_player(player : Player) -> void:

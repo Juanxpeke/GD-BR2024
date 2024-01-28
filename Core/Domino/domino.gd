@@ -85,6 +85,7 @@ func set_dots_texture(dots : Vector2i) -> void:
 	sprite.texture.region = Rect2(texture_position, texture_size)
 
 # Sets the domino world state
+# ALERT: You can't modify the domino transform after calling this method
 func set_world_state(value : bool) -> void:
 	area.monitoring = not value
 	area.monitorable = not value
@@ -92,6 +93,7 @@ func set_world_state(value : bool) -> void:
 
 	if value:
 		grabbed = false
+		GameManager.current_background_board.block_domino_region(self)
 	
 	world_state_changed.emit()
 
