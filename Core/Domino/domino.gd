@@ -7,7 +7,7 @@ signal world_state_changed
 const SPRITE_WIDTH : int = 32
 const SPRITE_HEIGHT : int = 64
 
-static var dominoes_atlas : Texture2D = load("res://Core/Domino/Dominos2x.png")
+static var dominoes_atlas : Texture2D = load("res://Core/Domino/Dominos2x RuneVersion.png")
 static var grabbing : bool = false
 
 var grabbed : bool = false

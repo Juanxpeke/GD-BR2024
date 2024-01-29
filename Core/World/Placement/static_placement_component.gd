@@ -4,6 +4,7 @@ extends PlacementComponent
 signal domino_placed(domino : Domino, entity : Entity)
 
 @export var dynamic_placement_component_scene : PackedScene
+@export var placement_areas_offset : float
 
 @onready var placement_area_up := %PlacementAreaUp
 @onready var placement_area_right := %PlacementAreaRight
@@ -21,19 +22,19 @@ signal domino_placed(domino : Domino, entity : Entity)
 func _ready() -> void:
 	# Up placement area
 	placement_area_up.set_placement_component(self)
-	placement_area_up.translate(Vector2.UP * Domino.SPRITE_HEIGHT * 0.75)
+	placement_area_up.translate(Vector2.UP * (Domino.SPRITE_HEIGHT * 0.75 + placement_areas_offset))
 	# Right placement area
 	placement_area_right.set_placement_component(self)
 	placement_area_right.rotate(PI / 2)
-	placement_area_right.translate(Vector2.RIGHT * Domino.SPRITE_WIDTH * 1.5)
+	placement_area_right.translate(Vector2.RIGHT * (Domino.SPRITE_WIDTH * 1.5 + placement_areas_offset))
 	# Down placement area
 	placement_area_down.set_placement_component(self)
 	placement_area_down.rotate(PI)
-	placement_area_down.translate(Vector2.DOWN * Domino.SPRITE_HEIGHT * 0.75)
+	placement_area_down.translate(Vector2.DOWN * (Domino.SPRITE_HEIGHT * 0.75 + placement_areas_offset))
 	# Left placement area
 	placement_area_left.set_placement_component(self)
 	placement_area_left.rotate(-PI / 2)
-	placement_area_left.translate(Vector2.LEFT * Domino.SPRITE_WIDTH * 1.5)
+	placement_area_left.translate(Vector2.LEFT * (Domino.SPRITE_WIDTH * 1.5 + placement_areas_offset))
 
 
 # Public

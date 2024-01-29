@@ -7,10 +7,10 @@ signal skills_changed()
 signal dead
 
 @export var health : int = 50
-@export var skills : Array[Skill] = []
 
 var current_health : int = health
 var current_manas : Array[int] = []
+var current_skills : Array[Skill] = []
 
 # Cache for the priority of manas needed in the current turn
 var manas_needed : Array[int] = [] 
@@ -36,7 +36,7 @@ func _on_turn_ended() -> void:
 
 # Updates the manas needed
 func _update_manas_needed() -> void:
-	for skill in skills:
+	for skill in current_skills:
 		for mana_type in range(manas_needed.size()):
 			manas_needed[mana_type] += max(current_manas[mana_type] - skill.manas_needed[mana_type], 0)
 
@@ -99,9 +99,14 @@ func get_manas_needed() -> Array[int]:
 
 #region Skills
 
+# Sets the given skills to the player
+func set_current_skills(skills : Array[Skill]) -> void:
+	current_skills = skills
+	skills_changed.emit()
+
 # Adds a skill to the player
 func add_skill(skill : Skill) -> void:
-	skills.append(skill)
+	current_skills.append(skill)
 	skills_changed.emit()
 
 #endregion Skills
@@ -120,7 +125,7 @@ func get_tower_placement_plays() -> Array[Play]:
 					var tower_placement_play = TowerPlacementPlay.new(placement_component, domino, false)
 					tower_placement_play.value = manas_weights[tower.mana_type]
 					tower_placement_plays.append(tower_placement_play)
-				elif domino.dots.y == placement_component.dot:
+				if domino.dots.y == placement_component.dot:
 					var tower_placement_play = TowerPlacementPlay.new(placement_component, domino, true)
 					tower_placement_play.value = manas_weights[tower.mana_type]
 					tower_placement_plays.append(tower_placement_play)

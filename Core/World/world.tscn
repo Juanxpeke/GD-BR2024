@@ -40,10 +40,28 @@ position = Vector2(1440, 178)
 [node name="Towers" type="Node2D" parent="Structures"]
 unique_name_in_owner = true
 
-[node name="Tower" parent="Structures/Towers" instance=ExtResource("4_oicnk")]
-position = Vector2(-946, -578)
+[node name="ArcaneTower" parent="Structures/Towers" instance=ExtResource("4_oicnk")]
+position = Vector2(-1200, -600)
 placement_area_up_blocked = true
 placement_area_left_blocked = true
+
+[node name="NatureTower" parent="Structures/Towers" instance=ExtResource("4_oicnk")]
+position = Vector2(-1200, 600)
+mana_type = 1
+placement_area_down_blocked = true
+placement_area_left_blocked = true
+
+[node name="DarkTower" parent="Structures/Towers" instance=ExtResource("4_oicnk")]
+position = Vector2(1200, -600)
+mana_type = 2
+placement_area_up_blocked = true
+placement_area_right_blocked = true
+
+[node name="InfernoTower" parent="Structures/Towers" instance=ExtResource("4_oicnk")]
+position = Vector2(1200, 600)
+mana_type = 3
+placement_area_right_blocked = true
+placement_area_down_blocked = true
 
 [node name="TopLayer" type="CanvasLayer" parent="."]
 
