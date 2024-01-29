@@ -24,6 +24,17 @@ func _ready() -> void:
 
 # Public
 
+# Global version of get_used_rect
+func get_global_used_rect() -> Rect2:
+	var global_used_rect : Rect2
+	var used_rect = get_used_rect()
+	
+	var rect_position = Vector2(used_rect.position * Domino.SPRITE_WIDTH)
+	var rect_size = Vector2(used_rect.size * Domino.SPRITE_WIDTH)
+	
+	return Rect2(rect_position, rect_size)
+	
+
 #region Base Cell Methods
 
 # Given a cell center, returns a unique identifier. It uses improved Szudzik pair 
