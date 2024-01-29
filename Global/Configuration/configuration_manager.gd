@@ -41,11 +41,9 @@ func _update_cursor_shape() -> void:
 # Called on any input
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_shorcut_1"):
-		for world_structure in GameManager.current_world.get_structures():
-			world_structure.hide()
+		GameManager.current_background_board.set_layer_enabled(GameManager.current_background_board.Layer.WORLD_VISUAL_LAYER, not GameManager.current_background_board.is_layer_enabled(GameManager.current_background_board.Layer.WORLD_VISUAL_LAYER))
 	elif event.is_action_pressed("debug_shorcut_2"):
-		for world_structure in GameManager.current_world.get_structures():
-			world_structure.show()
+		GameManager.current_world.structures.visible = not GameManager.current_world.structures.visible
 
 
 # Public

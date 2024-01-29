@@ -4,4 +4,6 @@
 
 [resource]
 script = ExtResource("1_rvk3j")
+name = ""
+description = ""
 manas_needed = Array[int]([0, 0, 0, 0])

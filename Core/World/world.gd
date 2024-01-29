@@ -3,6 +3,7 @@ extends Node2D
 
 @onready var camera := %Camera
 @onready var background_board := %BackgroundBoard
+@onready var structures := %Structures
 @onready var deck := %Deck
 @onready var pass_guy := %PassGuy
 @onready var towers := %Towers
@@ -13,8 +14,5 @@ extends Node2D
 func _ready() -> void:
 	GameManager.set_world(self)
 
-# Public
 
-# Returns all the world structures
-func get_structures() -> Array[Node2D]:
-	return [deck, pass_guy, towers]
+# Public
