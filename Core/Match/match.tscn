@@ -51,10 +51,10 @@ render_target_update_mode = 4
 unique_name_in_owner = true
 
 [node name="Player" parent="Entities" instance=ExtResource("3_b6cyj")]
-position = Vector2(253, 590)
+position = Vector2(572, 630)
 
 [node name="Bob" parent="Entities" instance=ExtResource("4_21v77")]
-position = Vector2(893, 41)
+position = Vector2(578, 19)
 rotation = 3.14159
 
 [node name="Control" type="Control" parent="."]
