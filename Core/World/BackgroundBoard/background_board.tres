@@ -1,18 +1,9 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bta527cl0lvt3"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bta527cl0lvt3"]
 
-[ext_resource type="Texture2D" uid="uid://b1tjm77nlex6t" path="res://Core/World/BackgroundBoard/background_board.png" id="1_q6hy6"]
-[ext_resource type="Texture2D" uid="uid://cb1cn38hsv6sp" path="res://Core/World/BackgroundBoard/TileSet.png" id="2_gh4fl"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2inm0"]
-texture = ExtResource("1_q6hy6")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
+[ext_resource type="Texture2D" uid="uid://cb1cn38hsv6sp" path="res://Core/World/BackgroundBoard/background_board.png" id="1_q6hy6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27exo"]
-texture = ExtResource("2_gh4fl")
+texture = ExtResource("1_q6hy6")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -93,9 +84,6 @@ texture_region_size = Vector2i(32, 32)
 9:4/0 = 0
 9:4/0/terrain_set = 0
 9:4/0/terrain = 4
-10:4/0 = 0
-10:4/0/terrain_set = 0
-10:4/0/terrain = 4
 11:4/0 = 0
 11:4/0/terrain_set = 0
 11:4/0/terrain = 4
@@ -249,9 +237,10 @@ texture_region_size = Vector2i(32, 32)
 7:7/0 = 0
 8:7/0 = 0
 9:7/0 = 0
-10:7/0 = 0
 11:7/0 = 0
 0:7/0 = 0
+10:4/0 = 0
+10:7/0 = 0
 
 [resource]
 tile_size = Vector2i(32, 32)
@@ -267,4 +256,3 @@ terrain_set_0/terrain_3/color = Color(0.27451, 0.270588, 0.811765, 1)
 terrain_set_0/terrain_4/name = "Rock"
 terrain_set_0/terrain_4/color = Color(0.537255, 0.419608, 0, 1)
 sources/1 = SubResource("TileSetAtlasSource_27exo")
-sources/0 = SubResource("TileSetAtlasSource_2inm0")
