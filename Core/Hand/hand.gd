@@ -15,9 +15,13 @@ func _ready() -> void:
 
 # Updates the dominoes layout
 func _update_dominoes_layout() -> void:
+	var initial_position = Vector2.LEFT * (GameManager.HAND_MAX_DOMINOES * 0.5 * Domino.SPRITE_WIDTH * (1 + DOMINOES_SEPARATION_FACTOR) - Domino.SPRITE_WIDTH * 0.5) + \
+			Vector2.UP * Domino.SPRITE_WIDTH
+	
 	for i in range(dominoes.get_child_count()):
 		var domino = dominoes.get_child(i)
-		domino.position = Vector2(i * Domino.SPRITE_WIDTH * (1 + DOMINOES_SEPARATION_FACTOR), 0)
+		var domino_offset = Vector2.RIGHT * i * Domino.SPRITE_WIDTH * (1 + DOMINOES_SEPARATION_FACTOR)
+		domino.position = initial_position + domino_offset
 
 
 # Public

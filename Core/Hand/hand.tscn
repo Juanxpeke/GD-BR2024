@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Core/Hand/hand.gd" id="1_b8gfl"]
 
 [node name="Hand" type="Node2D"]
+scale = Vector2(0.9, 0.9)
 script = ExtResource("1_b8gfl")
 
 [node name="Dominoes" type="Node2D" parent="."]

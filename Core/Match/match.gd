@@ -58,7 +58,7 @@ func is_turn_owner(entity : Entity) -> bool:
 # Swaps the skills of the entities
 func swap_skills() -> void:
 	var skills_cache = get_turn_owner().current_skills
-	get_turn_owner().set_current_skills(get_previous_turn_owner().skills)
+	get_turn_owner().set_current_skills(get_previous_turn_owner().current_skills)
 	get_previous_turn_owner().set_current_skills(skills_cache)
 
 #endregion
