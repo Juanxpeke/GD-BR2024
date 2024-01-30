@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://lnky8im65wgg"]
 
 [ext_resource type="Script" path="res://Core/Domino/domino.gd" id="1_0ifoe"]
-[ext_resource type="Texture2D" uid="uid://cpsquyp2ijebv" path="res://Core/Domino/Dominos2x.png" id="2_xu6ud"]
+[ext_resource type="Texture2D" uid="uid://cvbs4nfpgin3y" path="res://Core/Domino/Dominos2x.png" id="2_xu6ud"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tqsw4"]
 atlas = ExtResource("2_xu6ud")
