@@ -22,6 +22,10 @@ PlacementManager="*res://Global/placement_manager.gd"
 ConfigurationManager="*res://Global/Configuration/configuration_manager.gd"
 SkillManager="*res://Global/Skills/skill_manager.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [gui]
 
 theme/custom="res://Themes/main_theme.tres"
