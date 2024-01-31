@@ -1,11 +1,18 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=3 format=3 uid="uid://d30dpm2id3036"]
+[gd_resource type="Resource" script_class="Skill" load_steps=5 format=3 uid="uid://d30dpm2id3036"]
 
+[ext_resource type="Script" path="res://Global/Skills/Effects/damage_effect.gd" id="1_15ksu"]
 [ext_resource type="Script" path="res://Global/Skills/skill.gd" id="1_rvk3j"]
 [ext_resource type="Texture2D" uid="uid://chld1mwu7sbc5" path="res://Global/Skills/Fireball/fireball.png" id="2_0qtje"]
+
+[sub_resource type="Resource" id="Resource_fmrvn"]
+script = ExtResource("1_15ksu")
+value = 3.0
 
 [resource]
 script = ExtResource("1_rvk3j")
 name = "Fireball"
-description = ""
-manas_needed = Array[int]([1, 1, 0, 2])
 sprite = ExtResource("2_0qtje")
+description = ""
+effects = Array[Resource("res://Global/Skills/Effects/effect.gd")]([SubResource("Resource_fmrvn")])
+manas_needed = Array[int]([1, 1, 1, 1])
+maximum_repetitions = -1

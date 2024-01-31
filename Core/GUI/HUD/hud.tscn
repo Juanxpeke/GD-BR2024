@@ -1,11 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://jh607gdfdrer"]
+[gd_scene load_steps=5 format=3 uid="uid://jh607gdfdrer"]
 
 [ext_resource type="Script" path="res://Core/GUI/HUD/hud.gd" id="1_qpqr3"]
 [ext_resource type="Script" path="res://Core/GUI/HUD/player_interface.gd" id="2_ld556"]
+[ext_resource type="Texture2D" uid="uid://b42ltriordeip" path="res://Core/Match/match_background.png" id="2_xj4la"]
 [ext_resource type="PackedScene" uid="uid://b7i2ovwmia6ng" path="res://Core/GUI/HUD/SkillCard/skills_container.tscn" id="3_6ceub"]
 
 [node name="HUD" type="CanvasLayer"]
+layer = -1
 script = ExtResource("1_qpqr3")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_xj4la")
+expand_mode = 1
 
 [node name="PlayerInterface" type="Control" parent="." node_paths=PackedStringArray("skills_container")]
 unique_name_in_owner = true

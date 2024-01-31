@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://0obyr33apul1"]
+
+[ext_resource type="Script" path="res://Core/GUI/HUD/SkillCard/skill_effects_container.gd" id="1_an7m6"]
+[ext_resource type="PackedScene" uid="uid://vgmelqryf1ru" path="res://Core/GUI/HUD/SkillCard/skill_effect_information.tscn" id="2_wymml"]
+
+[node name="SkillEffectsContainer" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 24)
+theme_override_constants/separation = 12
+alignment = 1
+script = ExtResource("1_an7m6")
+effect_information_scene = ExtResource("2_wymml")

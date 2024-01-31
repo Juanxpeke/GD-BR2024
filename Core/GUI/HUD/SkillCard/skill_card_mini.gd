@@ -6,6 +6,7 @@ var skill_index : int
 
 @onready var skill_name := %SkillName
 @onready var skill_sprite := %SkillSprite
+@onready var skill_effects_container := %SkillEffectsContainer
 @onready var skill_manas_container := %SkillManasContainer
 
 # Private
@@ -33,6 +34,7 @@ func _update_layout() -> void:
 	var skill = entity.current_skills[skill_index]
 	skill_name.text = skill.name
 	skill_sprite.texture = skill.sprite
+	skill_effects_container.set_skill(skill)
 	skill_manas_container.set_skill(skill)
 
 

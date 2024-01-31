@@ -3,5 +3,5 @@
 [ext_resource type="Script" path="res://Core/GUI/HUD/SkillCard/skill_manas_container.gd" id="1_yop3l"]
 
 [node name="SkillManasContainer" type="HBoxContainer"]
-alignment = 2
+alignment = 1
 script = ExtResource("1_yop3l")

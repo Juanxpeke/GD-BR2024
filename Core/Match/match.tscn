@@ -11,8 +11,8 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Match" type="Node"]
 script = ExtResource("1_4yfw0")
-metadata/_edit_vertical_guides_ = [247.0, -74.0]
-metadata/_edit_horizontal_guides_ = [137.0, 510.0, 240.0]
+metadata/_edit_vertical_guides_ = [246.0]
+metadata/_edit_horizontal_guides_ = [138.0, 510.0]
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchors_preset = 8

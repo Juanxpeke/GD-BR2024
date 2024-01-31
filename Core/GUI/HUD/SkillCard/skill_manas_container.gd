@@ -14,7 +14,7 @@ func _ready() -> void:
 
 # Public
 
-# Sets the manas icons container related skill
+# Sets the manas container related skill
 func set_skill(skill : Skill) -> void:
 	for mana_icon in get_children():
 		remove_child(mana_icon)
@@ -25,5 +25,5 @@ func set_skill(skill : Skill) -> void:
 	for mana_type in range(manas.size()):
 		for mana_count in range(manas[mana_type]):
 			var mana_icon = mana_icon_scene.instantiate()
-			mana_icon.texture = manas_icons[mana_type]
 			add_child(mana_icon)
+			mana_icon.texture = manas_icons[mana_type]

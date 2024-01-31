@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://vgmelqryf1ru"]
+
+[ext_resource type="Script" path="res://Core/GUI/HUD/SkillCard/skill_effect_information.gd" id="1_pl0q2"]
+
+[node name="SkillEffectInformation" type="HBoxContainer"]
+script = ExtResource("1_pl0q2")
+
+[node name="SkillEffectIcon" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_vertical = 8
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SkillEffectValue" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 17)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
