@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Core/GUI/HUD/SkillCard/skill_effect_information.gd" id="1_pl0q2"]
 
 [node name="SkillEffectInformation" type="HBoxContainer"]
+theme_override_constants/separation = 4
 script = ExtResource("1_pl0q2")
 
 [node name="SkillEffectIcon" type="TextureRect" parent="."]
@@ -15,6 +16,6 @@ stretch_mode = 5
 
 [node name="SkillEffectValue" type="Label" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(16, 17)
+custom_minimum_size = Vector2(0, 17)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
