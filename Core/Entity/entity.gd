@@ -24,6 +24,8 @@ func _ready() -> void:
 	current_manas.resize(GameManager.ManaType.size())
 	manas_needed.resize(GameManager.ManaType.size())
 	
+	_refill_current_skills()
+	
 	GameManager.match_setted.connect(_on_match_setted)
 
 # Called when the game match is setted
@@ -33,12 +35,18 @@ func _on_match_setted() -> void:
 # Called when the current turn ends
 func _on_turn_ended() -> void:
 	manas_needed.fill(0)
+	_refill_current_skills()
 
 # Updates the manas needed
 func _update_manas_needed() -> void:
 	for skill in current_skills:
 		for mana_type in range(manas_needed.size()):
 			manas_needed[mana_type] += max(current_manas[mana_type] - skill.manas_needed[mana_type], 0)
+
+# Refills the entity current skills
+func _refill_current_skills() -> void:
+	for i in range(GameManager.SKILLS_MAX_AMOUNT - current_skills.size()):
+		add_current_skill(SkillManager.get_random_skill())
 
 # Public
 
@@ -99,15 +107,44 @@ func get_manas_needed() -> Array[int]:
 
 #region Skills
 
-# Sets the given skills to the player
+# Sets the given skills to the entity current skills
 func set_current_skills(skills : Array[Skill]) -> void:
 	current_skills = skills
 	skills_changed.emit()
 
-# Adds a skill to the player
-func add_skill(skill : Skill) -> void:
+# Adds a skill to the entity current skills
+func add_current_skill(skill : Skill) -> void:
 	current_skills.append(skill)
 	skills_changed.emit()
+
+# Removes the given skill from the entity current skills
+func remove_current_skill(skill : Skill) -> void:
+	current_skills.erase(skill)
+	skills_changed.emit()
+	
+# Handles the skill in the given index activation
+func handle_skill_activation(skill_index : int) -> void:
+	print('Handling skill activation')
+	var skill = current_skills[skill_index]
+	
+	print('Current manas: ', current_manas)
+	
+	var mana_consumption_calls = []
+	for mana_type in range(skill.manas_needed.size()):
+		if current_manas[mana_type] >= skill.manas_needed[mana_type]:
+			print('Added mcc: ', skill.manas_needed[mana_type], ' - ', mana_type)
+			var mana_consumption_call = Callable(func(): subtract_current_mana(skill.manas_needed[mana_type], mana_type))
+			mana_consumption_calls.append(mana_consumption_call)
+		else:
+			# TODO: Unable sound
+			return
+	
+	for mana_consumption_call in mana_consumption_calls:
+		mana_consumption_call.call()
+	
+	skill.apply_effect()
+	
+	remove_current_skill(skill)
 
 #endregion Skills
 

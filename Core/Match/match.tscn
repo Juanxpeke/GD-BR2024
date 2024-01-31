@@ -4,13 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://jqq8ueul6hen" path="res://Core/World/world.tscn" id="2_stmx5"]
 [ext_resource type="PackedScene" uid="uid://c44laowkuxfc4" path="res://Core/Entity/Player/player.tscn" id="3_b6cyj"]
 [ext_resource type="PackedScene" uid="uid://dhpj4gs6e4p0f" path="res://Core/Entity/Boss/Bob/bob.tscn" id="4_21v77"]
-[ext_resource type="PackedScene" uid="uid://ix8vw4kq00jr" path="res://Core/GUI/HUD/SkillCard/skill_card.tscn" id="5_oagnp"]
+[ext_resource type="PackedScene" uid="uid://jh607gdfdrer" path="res://Core/GUI/HUD/hud.tscn" id="5_7q6vf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqamv"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Match" type="Node"]
 script = ExtResource("1_4yfw0")
+metadata/_edit_vertical_guides_ = [247.0, -74.0]
+metadata/_edit_horizontal_guides_ = [137.0, 510.0, 240.0]
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchors_preset = 8
@@ -52,16 +54,4 @@ position = Vector2(576, 636)
 position = Vector2(576, 12)
 rotation = 3.14159
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchor_right = 0.183
-anchor_bottom = 0.885
-offset_right = 13.184
-offset_bottom = -2.48004
-
-[node name="SkillCard" parent="Control" instance=ExtResource("5_oagnp")]
-layout_mode = 1
-offset_left = 49.0
-offset_top = 88.0
-offset_right = 169.0
-offset_bottom = 288.0
+[node name="HUD" parent="." instance=ExtResource("5_7q6vf")]
