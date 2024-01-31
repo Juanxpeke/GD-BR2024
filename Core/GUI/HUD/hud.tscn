@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://jh607gdfdrer"]
+
+[ext_resource type="Script" path="res://Core/GUI/HUD/hud.gd" id="1_qpqr3"]
+[ext_resource type="Script" path="res://Core/GUI/HUD/player_interface.gd" id="2_ld556"]
+[ext_resource type="PackedScene" uid="uid://b7i2ovwmia6ng" path="res://Core/GUI/HUD/SkillCard/skills_container.tscn" id="3_6ceub"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_qpqr3")
+
+[node name="PlayerInterface" type="Control" parent="." node_paths=PackedStringArray("skills_container")]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 247.0
+grow_vertical = 2
+script = ExtResource("2_ld556")
+skills_container = NodePath("SkillsContainer")
+
+[node name="SkillsContainer" parent="PlayerInterface" instance=ExtResource("3_6ceub")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2

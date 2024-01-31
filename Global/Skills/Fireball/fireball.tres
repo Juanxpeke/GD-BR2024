@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://d30dpm2id3036"]
+[gd_resource type="Resource" script_class="Skill" load_steps=3 format=3 uid="uid://d30dpm2id3036"]
 
 [ext_resource type="Script" path="res://Global/Skills/skill.gd" id="1_rvk3j"]
+[ext_resource type="Texture2D" uid="uid://chld1mwu7sbc5" path="res://Global/Skills/Fireball/fireball.png" id="2_0qtje"]
 
 [resource]
 script = ExtResource("1_rvk3j")
 name = "Fireball"
 description = ""
-manas_needed = Array[int]([0, 0, 0, 0])
+manas_needed = Array[int]([1, 1, 0, 2])
+sprite = ExtResource("2_0qtje")

@@ -11,6 +11,7 @@ enum ManaType { ARCANE, NATURE, DARK, INFERNO }
 const DOMINO_MAX_DOTS : int = 6
 const HAND_INITIAL_DOMINOES : int = 3
 const HAND_MAX_DOMINOES : int = 7
+const SKILLS_MAX_AMOUNT : int = 2
 
 var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://2s25gm30b2bh"]
+
+[ext_resource type="Texture2D" uid="uid://jlryjbt7mgau" path="res://icon.svg" id="1_nxmse"]
+
+[node name="SkillManaIcon" type="TextureRect"]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 11.0
+offset_bottom = 11.0
+texture = ExtResource("1_nxmse")
+expand_mode = 1

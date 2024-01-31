@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://dj013gmicpep1"]
+
+[ext_resource type="Script" path="res://Core/GUI/HUD/SkillCard/skill_card_mini.gd" id="1_q0p3j"]
+[ext_resource type="Texture2D" uid="uid://jlryjbt7mgau" path="res://icon.svg" id="2_27xj0"]
+[ext_resource type="PackedScene" uid="uid://crbi86vm6gtgj" path="res://Core/GUI/HUD/SkillCard/skill_manas_container.tscn" id="3_5mcqm"]
+[ext_resource type="PackedScene" uid="uid://2s25gm30b2bh" path="res://Core/GUI/HUD/SkillCard/skill_mana_icon.tscn" id="4_e82dp"]
+[ext_resource type="Texture2D" uid="uid://sfvu44a2mvcy" path="res://Core/GUI/HUD/SkillCard/ManaSprites/arcane_mana_gem_mini.png" id="5_okfsc"]
+[ext_resource type="Texture2D" uid="uid://c60yeykxpogiq" path="res://Core/GUI/HUD/SkillCard/ManaSprites/dark_mana_gem_mini.png" id="6_hp1ks"]
+[ext_resource type="Texture2D" uid="uid://dedaudi2mejdw" path="res://Core/GUI/HUD/SkillCard/ManaSprites/inferno_mana_gem_mini.png" id="7_2bq70"]
+[ext_resource type="Texture2D" uid="uid://s44vcqkqyv1y" path="res://Core/GUI/HUD/SkillCard/ManaSprites/nature_mana_gem_mini.png" id="8_ts2ab"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7hrrv"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.133333, 0.133333, 0.133333, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.647059, 0.647059, 0.647059, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g56n0"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.458824, 0.458824, 0.458824, 1)
+
+[node name="SkillCardMini" type="PanelContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(120, 160)
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7hrrv")
+script = ExtResource("1_q0p3j")
+
+[node name="SkillCardMiniContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_constants/separation = 10
+
+[node name="SkillName" type="Label" parent="SkillCardMiniContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
+text = "Skill Name"
+text_overrun_behavior = 3
+
+[node name="SkillSpriteContainer" type="PanelContainer" parent="SkillCardMiniContainer"]
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g56n0")
+
+[node name="SkillSprite" type="TextureRect" parent="SkillCardMiniContainer/SkillSpriteContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(98, 52)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture = ExtResource("2_27xj0")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="SkillManasContainer" parent="SkillCardMiniContainer" instance=ExtResource("3_5mcqm")]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_default_cursor_shape = 2
+mana_icon_scene = ExtResource("4_e82dp")
+manas_icons = Array[Texture2D]([ExtResource("5_okfsc"), ExtResource("8_ts2ab"), ExtResource("6_hp1ks"), ExtResource("7_2bq70")])
+manas_icons_separation = 6
