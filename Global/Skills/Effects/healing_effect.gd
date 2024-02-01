@@ -11,5 +11,5 @@ func _init() -> void:
 # Public
 
 # Applies this effect
-func apply() -> void:
-	GameManager.current_match.get_turn_owner().add_current_health(int(value))
+func apply(caller : Entity) -> void:
+	caller.add_current_health(int(value))

@@ -50,6 +50,16 @@ func _refill_current_skills() -> void:
 
 # Public
 
+#region Enemy
+
+# Gets the entity enemy
+func get_enemy() -> Entity:
+	if self == GameManager.current_player:
+		return GameManager.current_boss
+	return GameManager.current_player
+
+#endregion
+
 #region Health
 
 # Gets the current health
@@ -131,7 +141,9 @@ func handle_skill_activation(skill_index : int) -> void:
 	
 	var mana_consumption_calls = []
 	for mana_type in range(skill.manas_needed.size()):
-		if current_manas[mana_type] >= skill.manas_needed[mana_type]:
+		if skill.manas_needed[mana_type] == 0:
+			continue
+		elif current_manas[mana_type] >= skill.manas_needed[mana_type]:
 			print('Added mcc: ', skill.manas_needed[mana_type], ' - ', mana_type)
 			var mana_consumption_call = Callable(func(): subtract_current_mana(skill.manas_needed[mana_type], mana_type))
 			mana_consumption_calls.append(mana_consumption_call)
@@ -142,7 +154,7 @@ func handle_skill_activation(skill_index : int) -> void:
 	for mana_consumption_call in mana_consumption_calls:
 		mana_consumption_call.call()
 	
-	skill.apply_effect()
+	skill.apply_effects(self)
 	
 	remove_current_skill(skill)
 

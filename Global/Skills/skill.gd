@@ -13,6 +13,6 @@ var current_repetitions : int = 0
 # Public
 
 # Applies the skill effects
-func apply_effects() -> void:
+func apply_effects(caller : Entity) -> void:
 	for effect in effects:
-		effect.apply()
+		effect.apply(caller)

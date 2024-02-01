@@ -8,6 +8,7 @@ const REACTION_TIME : float = 0.4
 # Called when the node enters the scene tree for the first time
 func _ready() -> void:
 	super()
+	GameManager.set_boss(self)
 
 # Called when the current turn ends
 func _on_turn_ended() -> void:

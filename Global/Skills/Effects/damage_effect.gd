@@ -11,5 +11,5 @@ func _init() -> void:
 # Public
 
 # Applies this effect
-func apply() -> void:
-	GameManager.current_match.get_previous_turn_owner().subtract_current_health(int(value))
+func apply(caller : Entity) -> void:
+	caller.get_enemy().subtract_current_health(int(value))

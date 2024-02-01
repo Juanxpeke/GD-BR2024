@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=5 format=3 uid="uid://byieqmhcqmo4t"]
+
+[ext_resource type="Script" path="res://Global/Skills/skill.gd" id="1_gcvuf"]
+[ext_resource type="Script" path="res://Global/Skills/Effects/damage_effect.gd" id="1_okqtn"]
+[ext_resource type="Texture2D" uid="uid://b4l3oltvyhanc" path="res://Global/Skills/ThunderStrike/thunder_strike.png" id="2_skxee"]
+
+[sub_resource type="Resource" id="Resource_mw21p"]
+script = ExtResource("1_okqtn")
+value = 3.0
+
+[resource]
+script = ExtResource("1_gcvuf")
+name = "Thunder Strike"
+sprite = ExtResource("2_skxee")
+description = ""
+effects = Array[Resource("res://Global/Skills/Effects/effect.gd")]([SubResource("Resource_mw21p")])
+manas_needed = Array[int]([0, 2, 0, 0])
+maximum_repetitions = -1

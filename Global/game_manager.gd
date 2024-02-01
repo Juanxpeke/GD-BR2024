@@ -5,6 +5,7 @@ signal world_setted
 signal camera_setted
 signal background_board_setted
 signal player_setted
+signal boss_setted
 
 enum ManaType { ARCANE, NATURE, DARK, INFERNO }
 
@@ -20,6 +21,7 @@ var current_world : World = null
 var current_camera : Camera = null
 var current_background_board : BackgroundBoard = null
 var current_player : Player = null
+var current_boss : Boss = null
 
 # Private
 
@@ -56,5 +58,10 @@ func set_background_board(background_board : BackgroundBoard) -> void:
 func set_player(player : Player) -> void:
 	current_player = player
 	player_setted.emit()
+
+# Sets the game boss
+func set_boss(boss : Boss) -> void:
+	current_boss = boss
+	boss_setted.emit()
 
 #endregion

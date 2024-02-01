@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=5 format=3 uid="uid://d3umtme7tulag"]
+
+[ext_resource type="Script" path="res://Global/Skills/skill.gd" id="1_j8rc3"]
+[ext_resource type="Script" path="res://Global/Skills/Effects/damage_effect.gd" id="1_qs2i7"]
+[ext_resource type="Texture2D" uid="uid://bpv5jd3gi702k" path="res://Global/Skills/ManaLance/mana_lance.png" id="2_uycwj"]
+
+[sub_resource type="Resource" id="Resource_xj6sc"]
+script = ExtResource("1_qs2i7")
+value = 3.0
+
+[resource]
+script = ExtResource("1_j8rc3")
+name = "Mana Lance"
+sprite = ExtResource("2_uycwj")
+description = ""
+effects = Array[Resource("res://Global/Skills/Effects/effect.gd")]([SubResource("Resource_xj6sc")])
+manas_needed = Array[int]([2, 0, 0, 0])
+maximum_repetitions = -1
