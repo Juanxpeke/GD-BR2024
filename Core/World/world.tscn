@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://jqq8ueul6hen"]
+[gd_scene load_steps=15 format=3 uid="uid://jqq8ueul6hen"]
 
 [ext_resource type="Script" path="res://Core/World/world.gd" id="1_vxdio"]
 [ext_resource type="Script" path="res://Core/World/camera.gd" id="2_w6gb2"]
@@ -7,6 +7,27 @@
 [ext_resource type="PackedScene" uid="uid://dofg2y01ecigr" path="res://Core/World/PassGuy/pass_guy.tscn" id="4_nv1wp"]
 [ext_resource type="PackedScene" uid="uid://b3kbu23fy2cjm" path="res://Core/World/Tower/tower.tscn" id="4_oicnk"]
 [ext_resource type="Script" path="res://Core/World/camera_movement_area.gd" id="5_uh1ic"]
+[ext_resource type="Shader" path="res://Core/Domino/domino_glow.gdshader" id="7_3j5iv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rujer"]
+shader = ExtResource("7_3j5iv")
+shader_parameter/glow_color = Color(0, 0, 0.929412, 1)
+shader_parameter/intensity_threshold = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_84cwu"]
+shader = ExtResource("7_3j5iv")
+shader_parameter/glow_color = Color(0.117647, 0.635294, 0.164706, 1)
+shader_parameter/intensity_threshold = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3kmbt"]
+shader = ExtResource("7_3j5iv")
+shader_parameter/glow_color = null
+shader_parameter/intensity_threshold = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1kjav"]
+shader = ExtResource("7_3j5iv")
+shader_parameter/glow_color = null
+shader_parameter/intensity_threshold = 0.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btw54"]
 size = Vector2(1152, 32)
@@ -45,24 +66,28 @@ unique_name_in_owner = true
 position = Vector2(-1200, -600)
 placement_area_up_blocked = true
 placement_area_left_blocked = true
+threshold_material = SubResource("ShaderMaterial_rujer")
 
 [node name="NatureTower" parent="Structures/Towers" instance=ExtResource("4_oicnk")]
 position = Vector2(-1200, 596)
 mana_type = 1
 placement_area_down_blocked = true
 placement_area_left_blocked = true
+threshold_material = SubResource("ShaderMaterial_84cwu")
 
 [node name="DarkTower" parent="Structures/Towers" instance=ExtResource("4_oicnk")]
 position = Vector2(1200, -600)
 mana_type = 2
 placement_area_up_blocked = true
 placement_area_right_blocked = true
+threshold_material = SubResource("ShaderMaterial_3kmbt")
 
 [node name="InfernoTower" parent="Structures/Towers" instance=ExtResource("4_oicnk")]
 position = Vector2(1200, 618)
 mana_type = 3
 placement_area_right_blocked = true
 placement_area_down_blocked = true
+threshold_material = SubResource("ShaderMaterial_1kjav")
 
 [node name="TopLayer" type="CanvasLayer" parent="."]
 

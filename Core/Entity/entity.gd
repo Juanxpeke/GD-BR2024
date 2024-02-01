@@ -24,12 +24,11 @@ func _ready() -> void:
 	current_manas.resize(GameManager.ManaType.size())
 	manas_needed.resize(GameManager.ManaType.size())
 	
-	_refill_current_skills()
-	
 	GameManager.match_setted.connect(_on_match_setted)
 
 # Called when the game match is setted
 func _on_match_setted() -> void:
+	_refill_current_skills()
 	GameManager.current_match.turn_ended.connect(_on_turn_ended)
 
 # Called when the current turn ends

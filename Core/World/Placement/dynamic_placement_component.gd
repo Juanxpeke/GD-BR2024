@@ -44,6 +44,7 @@ func place_domino(domino : Domino, placement_area : PlacementArea, inverted : bo
 	bind_to_domino(domino, inverted)
 	
 	if from_entity:
+		AudioManager.play_sound(Domino.domino_placing_sound)
 		static_placement_component.domino_placed.emit(domino, GameManager.current_match.get_turn_owner())
 		GameManager.current_match.end_turn()
 

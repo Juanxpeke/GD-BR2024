@@ -3,6 +3,8 @@ extends Node
 
 signal turn_ended
 
+static var skill_swapping_sound : AudioStream = load("res://SFX/skill_swapping.wav")
+
 var turn : int = 0
 
 @onready var world_viewport_container : SubViewportContainer = %WorldViewportContainer
@@ -53,12 +55,19 @@ func is_turn_owner(entity : Entity) -> bool:
 
 #endregion
 
-#region Skill Swapping
+#region Skills Logic
+
+# Gets all the usable skills in this match
+func get_usable_skills() -> Array[Skill]:
+	return GameManager.current_player.current_skills + GameManager.current_boss.current_skills
 
 # Swaps the skills of the entities
 func swap_skills() -> void:
 	var skills_cache = get_turn_owner().current_skills
 	get_turn_owner().set_current_skills(get_turn_owner().get_enemy().current_skills)
 	get_turn_owner().get_enemy().set_current_skills(skills_cache)
+	
+	print('xd')
+	AudioManager.play_sound(skill_swapping_sound)
 
 #endregion

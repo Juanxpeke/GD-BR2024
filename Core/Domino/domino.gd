@@ -8,6 +8,8 @@ const SPRITE_WIDTH : int = 32
 const SPRITE_HEIGHT : int = 64
 
 static var dominoes_atlas : Texture2D = load("res://Core/Domino/Dominos2x RuneVersion.png")
+static var domino_grabbing_sound : AudioStream = load("res://SFX/domino_grabbing.wav")
+static var domino_placing_sound : AudioStream = load("res://SFX/domino_placing.wav")
 static var grabbing : bool = false
 
 var grabbed : bool = false
@@ -45,7 +47,10 @@ func _on_input_event(_viewport : Node, event : InputEvent, _shape_idx : int) -> 
 		grabbed = true
 		grab_position = global_position
 		GameManager.current_player.grabbed_domino = self
+		
 		ConfigurationManager.add_cursor_shape("grabbing")
+		AudioManager.play_sound(domino_grabbing_sound)
+		
 		being_grabbed.emit()
 
 # Called when the mouse enters the node

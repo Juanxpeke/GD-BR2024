@@ -21,6 +21,7 @@ GameManager="*res://Global/game_manager.gd"
 PlacementManager="*res://Global/placement_manager.gd"
 ConfigurationManager="*res://Global/Configuration/configuration_manager.gd"
 SkillManager="*res://Global/Skills/skill_manager.gd"
+AudioManager="*res://Global/audio_manager.gd"
 
 [display]
 

@@ -15,9 +15,11 @@ static var tower_sprites = [
 @export var placement_area_down_blocked : bool = false
 @export var placement_area_left_blocked : bool = false
 
+@export var threshold_material : ShaderMaterial
+
 var extractions : int = 0
 var accumulated_extractions : int = 0
-var accumulated_extractions_treshold : int = 5
+var accumulated_extractions_threshold : int = 5
 
 @onready var placement_component := %StaticPlacementComponent
 @onready var indicator_component := %OOCIndicatorComponent
@@ -40,7 +42,14 @@ func _on_domino_placed(domino : Domino, entity : Entity) -> void:
 	extractions += 1
 	accumulated_extractions += 1
 	
-	if accumulated_extractions == accumulated_extractions_treshold:
+	if accumulated_extractions == accumulated_extractions_threshold - 1 and threshold_material:
+		for placed_domino in placement_component.dominoes.get_children():
+			placed_domino.sprite.set_material(threshold_material)
+	
+	elif accumulated_extractions == accumulated_extractions_threshold:
+		for placed_domino in placement_component.dominoes.get_children():
+			placed_domino.sprite.set_material(null)
+			
 		accumulated_extractions = 0
 		GameManager.current_match.swap_skills()
 

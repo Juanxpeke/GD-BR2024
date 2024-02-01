@@ -30,6 +30,10 @@ func get_random_skill() -> Skill:
 	var random_index = GameManager.rng.randi_range(0, skills.size() - 1)
 	var random_skill = skills[random_index]
 	
+	while GameManager.current_match and random_skill in GameManager.current_match.get_usable_skills():
+		random_index = GameManager.rng.randi_range(0, skills.size() - 1)
+		random_skill = skills[random_index]
+	
 	random_skill.current_repetitions += 1
 	
 	if random_skill.current_repetitions == random_skill.maximum_repetitions:
