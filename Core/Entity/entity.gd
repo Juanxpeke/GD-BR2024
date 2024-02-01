@@ -29,12 +29,16 @@ func _ready() -> void:
 # Called when the game match is setted
 func _on_match_setted() -> void:
 	_refill_current_skills()
+	
 	GameManager.current_match.turn_ended.connect(_on_turn_ended)
 
 # Called when the current turn ends
 func _on_turn_ended() -> void:
-	manas_needed.fill(0)
 	_refill_current_skills()
+	
+	manas_needed.fill(0)
+	
+	if GameManager.frozen: await GameManager.being_unfrozen
 
 # Updates the manas needed
 func _update_manas_needed() -> void:

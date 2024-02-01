@@ -39,6 +39,7 @@ func _on_world_viewport_container_mouse_exited() -> void:
 func end_turn() -> void:
 	print('Turn ended: ', turn)
 	turn += 1
+	
 	turn_ended.emit()
 
 # Gets the previous turn owner
@@ -67,7 +68,6 @@ func swap_skills() -> void:
 	get_turn_owner().set_current_skills(get_turn_owner().get_enemy().current_skills)
 	get_turn_owner().get_enemy().set_current_skills(skills_cache)
 	
-	print('xd')
 	AudioManager.play_sound(skill_swapping_sound)
 
 #endregion

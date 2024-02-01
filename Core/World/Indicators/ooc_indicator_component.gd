@@ -60,7 +60,7 @@ func _on_indicator_area_mouse_exited() -> void:
 
 # Called when the indicator area receives an input
 func _on_indicator_area_input(_viewport : Node, event : InputEvent, _shape_idx : int) -> void:
-	if event.is_action_pressed("left_click"):
+	if event.is_action_pressed("left_click") and not GameManager.current_camera.is_blocked():
 		GameManager.current_camera.focus(global_position)
 
 # Returns true if the indicator is outside the given rect, false otherwise

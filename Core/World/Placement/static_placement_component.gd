@@ -60,7 +60,6 @@ func place_domino(domino : Domino, placement_area : PlacementArea, inverted : bo
 	if from_entity:
 		AudioManager.play_sound(Domino.domino_placing_sound)
 		domino_placed.emit(domino, GameManager.current_match.get_turn_owner())
-		GameManager.current_match.end_turn()
 
 # Gets the free placement components that are children of this one
 func get_free_placement_components() -> Array[PlacementComponent]:

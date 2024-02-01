@@ -1,7 +1,10 @@
 class_name Tower
 extends Structure
 
-static var tower_sprites = [
+const DEFAULT_MANA_REWARD : int = 1
+const EXPLOSION_MANA_REWARD : int = 2
+
+static var tower_sprites : Array[Texture2D] = [
 	load("res://Core/World/Tower/TowerSprites/arcane_well.png"),
 	load("res://Core/World/Tower/TowerSprites/nature_well.png"),
 	load("res://Core/World/Tower/TowerSprites/dark_well.png"),
@@ -15,11 +18,11 @@ static var tower_sprites = [
 @export var placement_area_down_blocked : bool = false
 @export var placement_area_left_blocked : bool = false
 
-@export var threshold_material : ShaderMaterial
+@export var charged_domino_material : ShaderMaterial
 
 var extractions : int = 0
-var accumulated_extractions : int = 0
-var accumulated_extractions_threshold : int = 5
+var explosions : int = 0
+var explosions_needed_extractions : Array[int] = [4, 3, 2]
 
 @onready var placement_component := %StaticPlacementComponent
 @onready var indicator_component := %OOCIndicatorComponent
@@ -38,20 +41,46 @@ func _ready() -> void:
 
 # Called when a domino is placed in the tower placement component
 func _on_domino_placed(domino : Domino, entity : Entity) -> void:
-	entity.add_current_mana(1, mana_type)
 	extractions += 1
-	accumulated_extractions += 1
 	
-	if accumulated_extractions == accumulated_extractions_threshold - 1 and threshold_material:
-		for placed_domino in placement_component.dominoes.get_children():
-			placed_domino.sprite.set_material(threshold_material)
+	var explosion_needed_extractions = explosions_needed_extractions[min(explosions, explosions_needed_extractions.size() - 1)]
 	
-	elif accumulated_extractions == accumulated_extractions_threshold:
+	print('Domino placed in ', name, ' with ', extractions, ' and ', explosion_needed_extractions, ' exp. ext.')
+	
+	if extractions < explosion_needed_extractions:
+		entity.add_current_mana(DEFAULT_MANA_REWARD, mana_type)
+		
+		print(name, ' da solo mana')
+		
+		if extractions == explosion_needed_extractions - 1:
+			print(name, ' a punto de explotar')
+			for placed_domino in placement_component.dominoes.get_children():
+				placed_domino.sprite.set_material(charged_domino_material)
+	
+	elif extractions >= explosion_needed_extractions:
+		print(name, ' exploto')
+		entity.add_current_mana(EXPLOSION_MANA_REWARD, mana_type)
+		
 		for placed_domino in placement_component.dominoes.get_children():
 			placed_domino.sprite.set_material(null)
 			
-		accumulated_extractions = 0
+		extractions = 0
+		explosions += 1
+		
+		GameManager.current_camera.block()
+		GameManager.current_camera.focus(global_position, Camera.ZOOM_MAXIMUM)
+		
+		await GameManager.freeze(1.0)
+	
+		GameManager.current_camera.shake()
 		GameManager.current_match.swap_skills()
+		
+		await GameManager.freeze(1.0)
+		
+		GameManager.current_camera.focus(global_position, Camera.ZOOM_DEFAULT)
+		GameManager.current_camera.unblock()
+	
+	GameManager.current_match.end_turn()
 
 # Updates the tower data from its mana type
 func _update_mana_type_data() -> void:

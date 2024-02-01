@@ -18,6 +18,9 @@ func _ready() -> void:
 
 # Called on any input within this control node
 func _gui_input(event: InputEvent) -> void:
+	if not GameManager.current_match.is_turn_owner(GameManager.current_player) or GameManager.frozen:
+		return
+	
 	if event.is_action_pressed("left_click"):
 		entity.handle_skill_activation(skill_index)
 

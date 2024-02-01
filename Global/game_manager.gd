@@ -7,6 +7,8 @@ signal background_board_setted
 signal player_setted
 signal boss_setted
 
+signal being_unfrozen
+
 enum ManaType { ARCANE, NATURE, DARK, INFERNO }
 
 const DOMINO_MAX_DOTS : int = 6
@@ -22,6 +24,8 @@ var current_camera : Camera = null
 var current_background_board : BackgroundBoard = null
 var current_player : Player = null
 var current_boss : Boss = null
+
+var frozen : bool = false
 
 # Private
 
@@ -63,5 +67,18 @@ func set_player(player : Player) -> void:
 func set_boss(boss : Boss) -> void:
 	current_boss = boss
 	boss_setted.emit()
+
+#endregion
+
+#region Freezing
+
+# Freezes the game by the given amount of time
+func freeze(time : float) -> void:
+	print('freeze')
+	frozen = true
+	await get_tree().create_timer(time).timeout
+	frozen = false
+	print('Unfreeze')
+	being_unfrozen.emit()
 
 #endregion

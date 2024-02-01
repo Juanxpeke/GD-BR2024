@@ -1,23 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3kbu23fy2cjm"]
+[gd_scene load_steps=7 format=3 uid="uid://b3kbu23fy2cjm"]
 
 [ext_resource type="Script" path="res://Core/World/Tower/tower.gd" id="1_3jabf"]
-[ext_resource type="Shader" path="res://Core/Domino/domino_glow.gdshader" id="2_5aur6"]
 [ext_resource type="PackedScene" uid="uid://bi8sd1yy8rmhh" path="res://Core/World/Placement/static_placement_component.tscn" id="2_5thyv"]
 [ext_resource type="Texture2D" uid="uid://jlryjbt7mgau" path="res://icon.svg" id="3_fl8vd"]
 [ext_resource type="PackedScene" uid="uid://dp2sbtwygdtt4" path="res://Core/World/Indicators/ooc_indicator_component.tscn" id="4_38pew"]
 [ext_resource type="PackedScene" uid="uid://5svqcy4l02ge" path="res://Core/World/BackgroundBoard/blocked_area_component.tscn" id="5_q53so"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_72ohx"]
-shader = ExtResource("2_5aur6")
-shader_parameter/glow_color = Color(0, 0, 0.964706, 1)
-shader_parameter/intensity_threshold = 0.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8kng7"]
 size = Vector2(96, 96)
 
 [node name="Tower" type="Node2D"]
 script = ExtResource("1_3jabf")
-threshold_material = SubResource("ShaderMaterial_72ohx")
 
 [node name="StaticPlacementComponent" parent="." instance=ExtResource("2_5thyv")]
 unique_name_in_owner = true

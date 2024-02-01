@@ -36,10 +36,9 @@ func _process(_delta: float) -> void:
 
 # Called on input event within the node
 func _on_input_event(_viewport : Node, event : InputEvent, _shape_idx : int) -> void:
-	if get_parent().get_parent().get_parent() != GameManager.current_player:
-		return
-	
-	if not GameManager.current_match.is_turn_owner(GameManager.current_player):
+	if not self in GameManager.current_player.hand.dominoes.get_children() or \
+			not GameManager.current_match.is_turn_owner(GameManager.current_player) or \
+			GameManager.frozen:
 		return
 	
 	if event.is_action_pressed("left_click") and not grabbing:

@@ -19,7 +19,12 @@ var disabled : bool = false
 
 # Constructor
 func _init() -> void:
-	GameManager.current_match.turn_ended.connect(func(): self.disabled = true)
+	GameManager.current_match.turn_ended.connect(_on_turn_ended)
+
+# Called when the current turn ends
+func _on_turn_ended() -> void:
+	disabled = true
+
 
 # Public
 
@@ -32,14 +37,14 @@ func get_play_position() -> Vector2:
 func execute() -> void:
 	assert(not disabled, 'Play is disabled as turn has been passed')
 	
-	GameManager.current_camera.blocked = true
+	GameManager.current_camera.block()
 	GameManager.current_camera.focus(get_play_position())
 	await GameManager.current_camera.get_tree().create_timer(CAMERA_FOCUS_WAIT_TIME).timeout
 	
 	core_execute()
 	
 	await GameManager.current_camera.get_tree().create_timer(CAMERA_POST_BLOCK_TIME).timeout
-	GameManager.current_camera.blocked = false
+	GameManager.current_camera.unblock()
 
 # Core execution logic
 func core_execute() -> void:
