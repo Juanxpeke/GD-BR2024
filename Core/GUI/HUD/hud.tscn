@@ -1,16 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://jh607gdfdrer"]
+[gd_scene load_steps=7 format=3 uid="uid://jh607gdfdrer"]
 
 [ext_resource type="Script" path="res://Core/GUI/HUD/hud.gd" id="1_qpqr3"]
 [ext_resource type="Script" path="res://Core/GUI/HUD/entity_interface.gd" id="2_ld556"]
 [ext_resource type="Texture2D" uid="uid://b42ltriordeip" path="res://Core/Match/match_background.png" id="2_xj4la"]
-[ext_resource type="PackedScene" uid="uid://b7i2ovwmia6ng" path="res://Core/GUI/HUD/SkillCard/skills_container.tscn" id="3_6ceub"]
+[ext_resource type="PackedScene" uid="uid://b7i2ovwmia6ng" path="res://Core/GUI/HUD/SkillsContainer/skills_container.tscn" id="3_6ceub"]
+[ext_resource type="PackedScene" uid="uid://d3uccs432dhjc" path="res://Core/GUI/HUD/ManasContainer/manas_container.tscn" id="5_8ujv3"]
+[ext_resource type="PackedScene" uid="uid://cxuaqhfgjlku8" path="res://Core/GUI/HUD/HealthContainer/health_container.tscn" id="5_gf0k0"]
 
 [node name="HUD" type="CanvasLayer"]
 layer = -1
 script = ExtResource("1_qpqr3")
 
 [node name="Background" type="TextureRect" parent="."]
-texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -20,7 +21,7 @@ mouse_filter = 2
 texture = ExtResource("2_xj4la")
 expand_mode = 1
 
-[node name="PlayerInterface" type="Control" parent="." node_paths=PackedStringArray("skills_container")]
+[node name="PlayerInterface" type="Control" parent="." node_paths=PackedStringArray("health_container", "manas_container", "skills_container")]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 9
@@ -28,7 +29,24 @@ anchor_bottom = 1.0
 offset_right = 247.0
 grow_vertical = 2
 script = ExtResource("2_ld556")
+health_container = NodePath("HealthContainer")
+manas_container = NodePath("ManasContainer")
 skills_container = NodePath("SkillsContainer")
+
+[node name="HealthContainer" parent="PlayerInterface" instance=ExtResource("5_gf0k0")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -36.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ManasContainer" parent="PlayerInterface" instance=ExtResource("5_8ujv3")]
+layout_mode = 0
 
 [node name="SkillsContainer" parent="PlayerInterface" instance=ExtResource("3_6ceub")]
 layout_mode = 1
@@ -40,7 +58,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BossInterface" type="Control" parent="." node_paths=PackedStringArray("skills_container")]
+[node name="BossInterface" type="Control" parent="." node_paths=PackedStringArray("health_container", "manas_container", "skills_container")]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 11
@@ -51,7 +69,19 @@ offset_left = -247.0
 grow_horizontal = 0
 grow_vertical = 2
 script = ExtResource("2_ld556")
+health_container = NodePath("HealthContainer")
+manas_container = NodePath("ManasContainer")
 skills_container = NodePath("SkillsContainer")
+
+[node name="HealthContainer" parent="BossInterface" instance=ExtResource("5_gf0k0")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="ManasContainer" parent="BossInterface" instance=ExtResource("5_8ujv3")]
+layout_mode = 0
 
 [node name="SkillsContainer" parent="BossInterface" instance=ExtResource("3_6ceub")]
 layout_mode = 1

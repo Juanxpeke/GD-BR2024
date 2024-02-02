@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7i2ovwmia6ng"]
+
+[ext_resource type="Script" path="res://Core/GUI/HUD/SkillsContainer/skills_container.gd" id="1_k6efj"]
+[ext_resource type="PackedScene" uid="uid://dj013gmicpep1" path="res://Core/GUI/HUD/SkillsContainer/skill_card_mini.tscn" id="2_cyhg2"]
+
+[node name="SkillsContainer" type="VBoxContainer"]
+theme_override_constants/separation = 24
+script = ExtResource("1_k6efj")
+skill_card_mini_scene = ExtResource("2_cyhg2")

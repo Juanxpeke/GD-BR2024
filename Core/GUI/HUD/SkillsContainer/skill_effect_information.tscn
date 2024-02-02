@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://vgmelqryf1ru"]
 
-[ext_resource type="Script" path="res://Core/GUI/HUD/SkillCard/skill_effect_information.gd" id="1_pl0q2"]
+[ext_resource type="Script" path="res://Core/GUI/HUD/SkillsContainer/skill_effect_information.gd" id="1_pl0q2"]
 
 [node name="SkillEffectInformation" type="HBoxContainer"]
 theme_override_constants/separation = 4

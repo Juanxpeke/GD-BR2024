@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://pkpsvreensab"]
+
+[ext_resource type="Script" path="res://Core/GUI/HUD/ManasContainer/mana_information.gd" id="1_mdcvh"]
+
+[node name="ManaInformation" type="HBoxContainer"]
+offset_right = 21.0
+offset_bottom = 19.0
+script = ExtResource("1_mdcvh")
+
+[node name="ManaIcon" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="ManaAmount" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 17)
+layout_mode = 2

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://crbi86vm6gtgj"]
 
-[ext_resource type="Script" path="res://Core/GUI/HUD/SkillCard/skill_manas_container.gd" id="1_yop3l"]
+[ext_resource type="Script" path="res://Core/GUI/HUD/SkillsContainer/skill_manas_container.gd" id="1_yop3l"]
 
 [node name="SkillManasContainer" type="HBoxContainer"]
 alignment = 1

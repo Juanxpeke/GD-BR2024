@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3uccs432dhjc"]
+
+[ext_resource type="Script" path="res://Core/GUI/HUD/ManasContainer/manas_container.gd" id="1_fg380"]
+[ext_resource type="PackedScene" uid="uid://pkpsvreensab" path="res://Core/GUI/HUD/ManasContainer/mana_information.tscn" id="2_npgfx"]
+
+[node name="ManasContainer" type="HFlowContainer"]
+custom_minimum_size = Vector2(80, 40)
+offset_right = 80.0
+offset_bottom = 40.0
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+script = ExtResource("1_fg380")
+
+[node name="ArcaneManaInformation" parent="." instance=ExtResource("2_npgfx")]
+layout_mode = 2
+
+[node name="NatureManaInformation" parent="." instance=ExtResource("2_npgfx")]
+layout_mode = 2
+
+[node name="DarkManaInformation" parent="." instance=ExtResource("2_npgfx")]
+layout_mode = 2
+
+[node name="InfernoManaInformation" parent="." instance=ExtResource("2_npgfx")]
+layout_mode = 2
