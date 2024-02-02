@@ -6,17 +6,17 @@ var skill_index : int
 # Private
 
 # Constructor
-func _init(skill_index : int) -> void:
+func _init(owner : Entity, skill_index : int) -> void:
+	super(owner)
+	
 	self.skill_index = skill_index
-	GameManager.current_match.turn_ended.connect(_on_turn_ended)
-
-# Called when the current turn ends
-func _on_turn_ended() -> void:
-	disabled = true
+	
+	var skill = owner.current_skills[skill_index]
+	self.priority = skill.get_priority()
 
 
 # Public
 
 # Executes the play
 func execute() -> void:
-	var skill = GameManager.current_match.get_turn_owner().current_skills[skill_index]
+	owner.handle_skill_activation(skill_index)

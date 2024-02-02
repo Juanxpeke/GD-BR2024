@@ -6,14 +6,11 @@ signal mana_changed(mana_type : GameManager.ManaType)
 signal skills_changed()
 signal dead
 
-@export var health : int = 50
+@export var health : int = 20
 
 var current_health : int = health
 var current_manas : Array[int] = []
 var current_skills : Array[Skill] = []
-
-# Cache for the priority of manas needed in the current turn
-var manas_needed : Array[int] = [] 
 
 @onready var hand : Hand = %Hand
 
@@ -22,7 +19,6 @@ var manas_needed : Array[int] = []
 # Called when the node enters the scene tree for the first time
 func _ready() -> void:
 	current_manas.resize(GameManager.ManaType.size())
-	manas_needed.resize(GameManager.ManaType.size())
 	
 	GameManager.match_setted.connect(_on_match_setted)
 
@@ -36,15 +32,7 @@ func _on_match_setted() -> void:
 func _on_turn_ended() -> void:
 	_refill_current_skills()
 	
-	manas_needed.fill(0)
-	
 	if GameManager.frozen: await GameManager.being_unfrozen
-
-# Updates the manas needed
-func _update_manas_needed() -> void:
-	for skill in current_skills:
-		for mana_type in range(manas_needed.size()):
-			manas_needed[mana_type] += max(current_manas[mana_type] - skill.manas_needed[mana_type], 0)
 
 # Refills the entity current skills
 func _refill_current_skills() -> void:
@@ -110,11 +98,19 @@ func subtract_current_mana(amount : int, mana_type : GameManager.ManaType) -> vo
 	set_current_mana(current_manas[mana_type] - amount, mana_type)
 	# TODO: Floating number and animation logic (apart from world or skill stuff)
 
-# Gets the manas needed by the entity given the current skills in possesion
-func get_manas_needed() -> Array[int]:
-	if manas_needed == []:
-		_update_manas_needed()
-	return manas_needed
+# Gets the given mana priority
+func get_mana_priority(mana_type : GameManager.ManaType) -> float:
+	var mana_priority = 0.0
+	
+	for skill in current_skills:
+		var skill_left_cost = get_skill_left_cost(skill)
+		assert(skill_left_cost != 0, "Free skill was not activated")
+		
+		if skill.manas_needed[mana_type] > 0:
+			var skill_priority_factor = 1.0 / skill_left_cost
+			mana_priority += skill.get_priority() * skill_priority_factor
+	
+	return mana_priority
 
 #endregion
 
@@ -134,20 +130,34 @@ func add_current_skill(skill : Skill) -> void:
 func remove_current_skill(skill : Skill) -> void:
 	current_skills.erase(skill)
 	skills_changed.emit()
+
+# Gets the given skill left cost
+func get_skill_left_cost(skill : Skill) -> int:
+	var skill_left_cost = 0
 	
-# Handles the skill in the given index activation
-func handle_skill_activation(skill_index : int) -> void:
-	print('Handling skill activation')
+	for mana_type in range(skill.manas_needed.size()):
+		skill_left_cost += max(skill.manas_needed[mana_type] - current_manas[mana_type], 0)
+	
+	return skill_left_cost
+
+# Returns true if the entity can activates the skill in the given index, false otherwise
+func can_activate_skill(skill_index : int) -> bool:
 	var skill = current_skills[skill_index]
 	
-	print('Current manas: ', current_manas)
+	for mana_type in range(skill.manas_needed.size()):
+		if current_manas[mana_type] < skill.manas_needed[mana_type]:
+			return false
+	return true
+
+# Handles the activation of the skill in the given index
+func handle_skill_activation(skill_index : int) -> void:
+	var skill = current_skills[skill_index]
 	
 	var mana_consumption_calls = []
 	for mana_type in range(skill.manas_needed.size()):
 		if skill.manas_needed[mana_type] == 0:
 			continue
 		elif current_manas[mana_type] >= skill.manas_needed[mana_type]:
-			print('Added mcc: ', skill.manas_needed[mana_type], ' - ', mana_type)
 			var mana_consumption_call = Callable(func(): subtract_current_mana(skill.manas_needed[mana_type], mana_type))
 			mana_consumption_calls.append(mana_consumption_call)
 		else:
@@ -165,21 +175,30 @@ func handle_skill_activation(skill_index : int) -> void:
 
 #region Plays
 
+# Gets all the skill plays
+func get_skill_plays() -> Array[SkillPlay]:
+	var skill_plays : Array[SkillPlay] = []
+	
+	for skill_index in range(current_skills.size()):
+		if not can_activate_skill(skill_index): continue
+		
+		var skill_play = SkillPlay.new(self, skill_index)
+		skill_plays.append(skill_play)
+	
+	return skill_plays
+
 # Gets all the tower placement plays
 func get_tower_placement_plays() -> Array[WorldPlay]:
 	var tower_placement_plays : Array[WorldPlay] = []
-	var manas_weights = get_manas_needed()
 	
 	for tower in GameManager.current_world.towers.get_children():
 		for placement_component in tower.get_free_placement_components():
 			for domino in hand.dominoes.get_children():
 				if domino.dots.x == placement_component.dot:
-					var tower_placement_play = TowerPlacementPlay.new(placement_component, domino, false)
-					tower_placement_play.value = manas_weights[tower.mana_type]
+					var tower_placement_play = TowerPlacementPlay.new(self, tower, placement_component, domino, false)
 					tower_placement_plays.append(tower_placement_play)
 				if domino.dots.y == placement_component.dot:
-					var tower_placement_play = TowerPlacementPlay.new(placement_component, domino, true)
-					tower_placement_play.value = manas_weights[tower.mana_type]
+					var tower_placement_play = TowerPlacementPlay.new(self, tower, placement_component, domino, true)
 					tower_placement_plays.append(tower_placement_play)
 	
 	return tower_placement_plays

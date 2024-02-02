@@ -44,6 +44,10 @@ func apply(caller : Entity) -> void:
 func apply_activation(caller : Entity) -> void:
 	assert(false, 'This function needs to be implemented in the child class')
 
+# Gets this effect priority
+func get_priority() -> float:
+	return value * duration
+
 
 # Class representing a temporal effect activation
 class Activation:

@@ -1,6 +1,14 @@
 class_name PassPlay
 extends WorldPlay
 
+# Private
+
+# Constructor
+func _init(owner : Entity) -> void:
+	super(owner)
+	self.priority = 0.0001
+
+
 # Public
 
 # Gets the play position

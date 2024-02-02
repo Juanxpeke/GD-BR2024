@@ -19,3 +19,12 @@ func apply_effects(caller : Entity) -> void:
 	
 	for effect in effects:
 		effect.apply(caller)
+
+# Gets this skill priority
+func get_priority() -> float:
+	var priority = 0.0
+	
+	for effect in effects:
+		priority += effect.get_priority()
+	
+	return priority
