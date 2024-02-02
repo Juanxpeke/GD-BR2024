@@ -2,8 +2,8 @@ extends Node
 
 var skills = [
 	# Arcane
+	load("res://Global/Skills/ArcaneLance/arcane_lance.tres"),
 	load("res://Global/Skills/MagicMissiles/magic_missiles.tres"),
-	load("res://Global/Skills/ManaLance/mana_lance.tres"),
 	# Nature
 	load("res://Global/Skills/ElectroBolt/electro_bolt.tres"),
 	load("res://Global/Skills/ThunderStrike/thunder_strike.tres"),

@@ -7,8 +7,6 @@ signal background_board_setted
 signal player_setted
 signal boss_setted
 
-signal being_unfrozen
-
 enum ManaType { ARCANE, NATURE, DARK, INFERNO }
 
 const DOMINO_MAX_DOTS : int = 6
@@ -72,13 +70,12 @@ func set_boss(boss : Boss) -> void:
 
 #region Freezing
 
-# Freezes the game by the given amount of time
-func freeze(time : float) -> void:
-	print('freeze')
+# Freezes the game
+func freeze() -> void:
 	frozen = true
-	await get_tree().create_timer(time).timeout
+
+# Unfreezes the game
+func unfreeze() -> void:
 	frozen = false
-	print('Unfreeze')
-	being_unfrozen.emit()
 
 #endregion

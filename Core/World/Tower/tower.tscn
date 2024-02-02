@@ -11,6 +11,12 @@ size = Vector2(96, 96)
 
 [node name="Tower" type="Node2D"]
 script = ExtResource("1_3jabf")
+mana_type = null
+placement_area_up_blocked = null
+placement_area_right_blocked = null
+placement_area_down_blocked = null
+placement_area_left_blocked = null
+cell_centered = null
 
 [node name="StaticPlacementComponent" parent="." instance=ExtResource("2_5thyv")]
 unique_name_in_owner = true

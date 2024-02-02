@@ -37,7 +37,6 @@ func _on_world_viewport_container_mouse_exited() -> void:
 
 # Ends the current turn
 func end_turn() -> void:
-	print('Turn ended: ', turn)
 	turn += 1
 	
 	turn_ended.emit()

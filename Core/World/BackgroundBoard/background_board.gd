@@ -9,7 +9,7 @@ enum Layer {
 }
 
 const TILES = {
-	'DEBUG_TILE': Vector2(1, 1),
+	'DEBUG_TILE': Vector2(0, 0),
 }
 
 var astar : AStar2D = AStar2D.new()
@@ -20,7 +20,7 @@ var astar : AStar2D = AStar2D.new()
 func _ready() -> void:
 	# NOTE: tile_set.tile_size = Vector2i(Domino.SPRITE_WIDTH, Domino.SPRITE_WIDTH)
 	for cell in get_used_cells(Layer.WORLD_VISUAL_LAYER):
-		set_cell(Layer.WORLD_FREE_LAYER, cell, 0, TILES.DEBUG_TILE)
+		set_cell(Layer.WORLD_FREE_LAYER, cell, 1, TILES.DEBUG_TILE)
 	
 	GameManager.set_background_board(self)
 

@@ -1,6 +1,10 @@
 class_name Tower
 extends Structure
 
+const EXPLOSION_FOCUS_WAIT_TIME : float = 1.0
+const POST_SWAP_WAIT_TIME : float = 1.0
+const EXPLOSION_UNFOCUS_WAIT_TIME : float = 1.0
+
 const DEFAULT_MANA_REWARD : int = 1
 const EXPLOSION_MANA_REWARD : int = 2
 
@@ -45,20 +49,14 @@ func _on_domino_placed(domino : Domino, entity : Entity) -> void:
 	
 	var explosion_needed_extractions = explosions_needed_extractions[min(explosions, explosions_needed_extractions.size() - 1)]
 	
-	print('Domino placed in ', name, ' with ', extractions, ' and ', explosion_needed_extractions, ' exp. ext.')
-	
 	if extractions < explosion_needed_extractions:
 		entity.add_current_mana(DEFAULT_MANA_REWARD, mana_type)
 		
-		print(name, ' da solo mana')
-		
 		if extractions == explosion_needed_extractions - 1:
-			print(name, ' a punto de explotar')
 			for placed_domino in placement_component.dominoes.get_children():
 				placed_domino.sprite.set_material(charged_domino_material)
 	
 	elif extractions >= explosion_needed_extractions:
-		print(name, ' exploto')
 		entity.add_current_mana(EXPLOSION_MANA_REWARD, mana_type)
 		
 		for placed_domino in placement_component.dominoes.get_children():
@@ -67,18 +65,21 @@ func _on_domino_placed(domino : Domino, entity : Entity) -> void:
 		extractions = 0
 		explosions += 1
 		
+		GameManager.freeze()
 		GameManager.current_camera.block()
-		GameManager.current_camera.focus(global_position, Camera.ZOOM_MAXIMUM)
 		
-		await GameManager.freeze(1.0)
+		GameManager.current_camera.focus(global_position, Camera.ZOOM_MAXIMUM)
+		await GameManager.current_camera.get_tree().create_timer(EXPLOSION_FOCUS_WAIT_TIME).timeout
 	
 		GameManager.current_camera.shake()
 		GameManager.current_match.swap_skills()
-		
-		await GameManager.freeze(1.0)
+		await GameManager.current_camera.get_tree().create_timer(POST_SWAP_WAIT_TIME).timeout
 		
 		GameManager.current_camera.focus(global_position, Camera.ZOOM_DEFAULT)
+		await GameManager.current_camera.get_tree().create_timer(EXPLOSION_UNFOCUS_WAIT_TIME).timeout
+		
 		GameManager.current_camera.unblock()
+		GameManager.unfreeze()
 	
 	GameManager.current_match.end_turn()
 

@@ -1,6 +1,8 @@
 class_name Deck
 extends Structure
 
+static var domino_giving_sound : AudioStream = load("res://SFX/domino_placing.wav")
+
 @export var domino_scene : PackedScene
 
 var deck : Array[Vector2i] = []
@@ -77,4 +79,5 @@ func add_domino(entity : Entity) -> void:
 # Gives a domino to the current turn owner
 func give_domino() -> void:
 	add_domino(GameManager.current_match.get_turn_owner())
+	AudioManager.play_sound(domino_giving_sound)
 	GameManager.current_match.end_turn()

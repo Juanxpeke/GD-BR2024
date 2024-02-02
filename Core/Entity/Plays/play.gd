@@ -2,7 +2,10 @@ class_name Play
 extends Object
 
 const CAMERA_FOCUS_WAIT_TIME : float = 1.2
-const CAMERA_POST_BLOCK_TIME : float = 0.8
+const POST_EXECUTION_WAIT_TIME : float = 1.0
+
+var value : float = 0.0
+var disabled : bool = false
 
 # Static
 
@@ -11,9 +14,6 @@ static func sort(plays : Array[Play])-> Array[Play]:
 	plays.sort_custom(func(p1, p2): return p1.value < p2.value)
 	return plays
 
-
-var value : float = 0.0
-var disabled : bool = false
 
 # Private
 
@@ -43,7 +43,7 @@ func execute() -> void:
 	
 	core_execute()
 	
-	await GameManager.current_camera.get_tree().create_timer(CAMERA_POST_BLOCK_TIME).timeout
+	await GameManager.current_camera.get_tree().create_timer(POST_EXECUTION_WAIT_TIME).timeout
 	GameManager.current_camera.unblock()
 
 # Core execution logic
