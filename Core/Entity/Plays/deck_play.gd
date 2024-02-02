@@ -1,5 +1,5 @@
 class_name DeckPlay
-extends Play
+extends WorldPlay
 
 # Public
 

@@ -5,6 +5,7 @@ extends TemporalEffect
 
 # Constructor
 func _init() -> void:
+	super()
 	icon = load("res://Global/Skills/Effects/TemporalEffects/poison_effect_icon.png")
 
 

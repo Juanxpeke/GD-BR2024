@@ -1,5 +1,5 @@
 class_name PassPlay
-extends Play
+extends WorldPlay
 
 # Public
 

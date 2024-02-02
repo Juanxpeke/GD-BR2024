@@ -16,12 +16,12 @@ func _on_turn_ended() -> void:
 	
 	if GameManager.current_match.is_turn_owner(self):
 		await get_tree().create_timer(REACTION_TIME).timeout
-		get_best_play().execute()
+		get_best_world_play().execute()
 
 
 # Public
 
-# Gets the best play
-func get_best_play() -> Play:
+# Gets the best world play
+func get_best_world_play() -> WorldPlay:
 	assert(false, 'This function needs to be implemented in the child class')
-	return Play.new()
+	return WorldPlay.new()

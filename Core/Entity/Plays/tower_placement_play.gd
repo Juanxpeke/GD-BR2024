@@ -1,5 +1,5 @@
 class_name TowerPlacementPlay
-extends Play
+extends WorldPlay
 
 var placement_component : PlacementComponent
 var placement_area_index : int

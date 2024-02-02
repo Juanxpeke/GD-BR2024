@@ -166,8 +166,8 @@ func handle_skill_activation(skill_index : int) -> void:
 #region Plays
 
 # Gets all the tower placement plays
-func get_tower_placement_plays() -> Array[Play]:
-	var tower_placement_plays : Array[Play] = []
+func get_tower_placement_plays() -> Array[WorldPlay]:
+	var tower_placement_plays : Array[WorldPlay] = []
 	var manas_weights = get_manas_needed()
 	
 	for tower in GameManager.current_world.towers.get_children():
@@ -183,10 +183,5 @@ func get_tower_placement_plays() -> Array[Play]:
 					tower_placement_plays.append(tower_placement_play)
 	
 	return tower_placement_plays
-
-# Gets all the store plays
-func get_store_placement_plays() -> Array[Play]:
-	var store_placement_plays : Array[Play] = []
-	return store_placement_plays
 
 #endregion

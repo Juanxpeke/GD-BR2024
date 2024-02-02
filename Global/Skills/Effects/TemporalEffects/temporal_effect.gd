@@ -17,6 +17,9 @@ func _on_match_setted() -> void:
 
 # Called when the current turn ends
 func _on_turn_ended() -> void:
+	if GameManager.current_match.turn % 2 == 1:
+		return
+	
 	var dead_activations = []
 	
 	for activation in activations:
@@ -50,4 +53,4 @@ class Activation:
 	# Constructor
 	func _init(lifetime : int, time_call : Callable) -> void:
 		self.lifetime = lifetime
-		self.time_call = call
+		self.time_call = time_call

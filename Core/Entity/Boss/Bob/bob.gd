@@ -2,8 +2,8 @@ extends Boss
 
 # Public
 
-# Gets the best play
-func get_best_play() -> Play:
+# Gets the best world play
+func get_best_world_play() -> WorldPlay:
 	var tower_placement_plays_ordered = Play.sort(get_tower_placement_plays())
 	
 	if not tower_placement_plays_ordered.is_empty():
