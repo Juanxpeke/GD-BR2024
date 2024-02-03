@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=5 format=3 uid="uid://ci8ws4k87gxal"]
+[gd_resource type="Resource" script_class="Skill" load_steps=6 format=3 uid="uid://ci8ws4k87gxal"]
 
 [ext_resource type="Script" path="res://Global/Skills/skill.gd" id="1_ha7j0"]
 [ext_resource type="Script" path="res://Global/Skills/Effects/TemporalEffects/poison_effect.gd" id="1_nvxky"]
 [ext_resource type="Texture2D" uid="uid://c3pt5sj48lv33" path="res://Global/Skills/PoolOfPoison/pool_of_poison.png" id="2_yvhon"]
+[ext_resource type="AudioStream" uid="uid://dwnb3733obuam" path="res://Global/Skills/PoolOfPoison/pool_of_poison.wav" id="3_kijsp"]
 
 [sub_resource type="Resource" id="Resource_ap7xk"]
 script = ExtResource("1_nvxky")
@@ -13,6 +14,7 @@ value = 1.0
 script = ExtResource("1_ha7j0")
 name = "Pool Of Poison"
 sprite = ExtResource("2_yvhon")
+sound = ExtResource("3_kijsp")
 description = ""
 effects = Array[Resource("res://Global/Skills/Effects/effect.gd")]([SubResource("Resource_ap7xk")])
 manas_needed = Array[int]([0, 1, 1, 0])

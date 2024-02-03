@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Global/Skills/Effects/damage_effect.gd" id="1_hgmgs"]
 [ext_resource type="Script" path="res://Global/Skills/skill.gd" id="2_sf3sj"]
-[ext_resource type="AudioStream" uid="uid://cgwawspe4smsh" path="res://Global/Skills/ArcaneLance/arcane_lance.wav" id="3_bfoup"]
+[ext_resource type="AudioStream" uid="uid://cf26slqdehuac" path="res://Global/Skills/ArcaneLance/arcane_lance.wav" id="3_bfoup"]
 [ext_resource type="Texture2D" uid="uid://bpv5jd3gi702k" path="res://Global/Skills/ArcaneLance/arcane_lance.png" id="4_lxbbj"]
 
 [sub_resource type="Resource" id="Resource_xj6sc"]
