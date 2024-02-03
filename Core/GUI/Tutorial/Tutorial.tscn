@@ -1,0 +1,140 @@
+[gd_scene load_steps=13 format=3 uid="uid://d358edlipqpy2"]
+
+[ext_resource type="Script" path="res://Core/GUI/Tutorial/tutorial.gd" id="1_006v4"]
+[ext_resource type="Texture2D" uid="uid://cb68oem440ujv" path="res://Assets/CustomPixelArt/SpellCardArt/CardArts/CurseDomino.png" id="1_ljs1v"]
+[ext_resource type="Script" path="res://Core/GUI/Tutorial/tutorial_panel_resource.gd" id="2_108x0"]
+[ext_resource type="Texture2D" uid="uid://c5cykccwshgp8" path="res://Assets/BrickTextures/Brickwall5_Texture.png" id="3_6vf3s"]
+
+[sub_resource type="Resource" id="Resource_qhsx6"]
+script = ExtResource("2_108x0")
+panel_text = "[center]In [color]THE GAME, you are playing a game on a magical table. This table contains an entire world within it, which you have to explore by dragging your mouse. It’s through this world that you will acquire power with which you have to defeat your opponent by reducing their life total to 0. If instead, your life total reaches 0 before theirs, you will [color=#060608]lose the game. "
+
+[sub_resource type="Resource" id="Resource_q7wy8"]
+script = ExtResource("2_108x0")
+panel_text = "[center]In [color=#20d6c7]THE GAME[/color], you and your opponent are trying to defeat each other by casting powerful spells using mana, the very essence of magic. Mana comes in four varieties in this game:
+
+[color=#bc4a9b]Dark[/color]		[color=#b23e23]Inferno[/color]		[color=#1a7a3e]Nature[/color]		[color=#285cc4]Arcane[/color]
+
+This [color]mana emerges from the land itself, through the [color=#92dcba]mana wells[/color], each one aligned with one of the four varieties of mana. These [color=#92dcba]wells[/color] give the player the possibility to access mana.
+"
+
+[sub_resource type="Resource" id="Resource_dm44f"]
+script = ExtResource("2_108x0")
+panel_text = "[center]To access this mana, you are equipped with powerful [color=#f9a31b]RUNE DOMINOS[/color], summoned from a [color=#f17716]mystical portal[/color] which sits at the middle of the battlefield..
+
+To get mana, the player must drag their [color=#f9a31b]dominos[/color] next to a [color=#f9a31b]domino[/color] in the battlefield that has a matching symbol, connecting the [color=#f9a31b]domino[/color] to the mana well. When the player does this, they will get 1 mana of the corresponding [color=#92dcba]well’s variety[/color]. Once a player plays a [color=#f9a31b]domino, their turn will end immediately.
+
+"
+
+[sub_resource type="Resource" id="Resource_0kv5c"]
+script = ExtResource("2_108x0")
+panel_text = "[center]If you are out of [color=#f9a31b]dominos[/color], or none of the available spots please you, you can always click the [color=#f17716]mystical portal[/color] instead of playing a [color=#f9a31b]domino[/color], summoning a brand new [color=#f9a31b]rune domino[/color] to your hand."
+
+[sub_resource type="Resource" id="Resource_0ignb"]
+script = ExtResource("2_108x0")
+panel_text = "[center]Now that you have mana, you can cast spells! With these spells you can [color=#14a02e]poison[/color], [color=#b9bffb]hurl lightning[/color], [color=#fa6a0a]fireballs[/color] and even [color=#060608]black holes[/color] at your opponent, helping you reach your goal of reducing them to 0 HP! 
+These spells are represented by spell cards, which show the player the amount and varieties of mana required to cast them, as well as their effect."
+
+[sub_resource type="Resource" id="Resource_0x27m"]
+script = ExtResource("2_108x0")
+panel_text = "[center]Each player has access to a maximum of two spell cards at a time, and can cast as many spells as they want in a turn, as long as they are in your hand and you have the mana to cast them. The spell cards are refilled back to their maximum at turn end. [u]You can only cast spells during your turn, so make sure you cast your spells before playing your dominos. 
+"
+
+[sub_resource type="Resource" id="Resource_r3avx"]
+script = ExtResource("2_108x0")
+panel_text = "[center]Now, mana is not simply something you can farm to your heart’s content without a care in the world! Sometimes [color=#92dcba]wells will start glowing[/color]. This means the [color=#92dcba]well[/color] is about to become unstable and have a [color=#e86a73]chaos reaction[/color]. The next [color=#f9a31b]domino[/color] placed in this line will cause the [color=#e86a73]reaction[/color], [u]granting an extra mana of the corresponding color[/u] and [color=#a6fcdb]causing the player’s spells to be exchanged![/color] As the game progresses, the [color=#92dcba]wells[/color] will start becoming increasingly unstable, and [color=#e86a73]chaos reactions[/color] will start happening more and more often. Make sure to play around them!"
+
+[sub_resource type="Resource" id="Resource_haxrb"]
+script = ExtResource("2_108x0")
+panel_text = "[center]In the [color=#fa6a0a]boss rush[/color] mode, you will be seated in front of a specially powerful opponent, one of the game’s [color=#fa6a0a]bosses![/color] These enemies have special abilities that might alter the way the game is played, or simply annoy you. Keep your eyes open! 
+
+Well, that is about everything you need to know about [color]THE GAME. Now it's time to go get them!"
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_006v4")
+tutorial_panels = Array[ExtResource("2_108x0")]([SubResource("Resource_qhsx6"), SubResource("Resource_q7wy8"), SubResource("Resource_dm44f"), SubResource("Resource_0kv5c"), SubResource("Resource_0ignb"), SubResource("Resource_0x27m"), SubResource("Resource_r3avx"), SubResource("Resource_haxrb")])
+
+[node name="Background" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_6vf3s")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -392.5
+offset_top = -280.0
+offset_right = 392.5
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_top = 45
+theme_override_constants/margin_right = 45
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Background/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 40
+
+[node name="Texture" type="TextureRect" parent="Background/MarginContainer/VBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_ljs1v")
+
+[node name="Label" type="RichTextLabel" parent="Background/MarginContainer/VBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(700, 190)
+layout_mode = 2
+size_flags_vertical = 8
+bbcode_enabled = true
+text = "[center]In the [color=#fa6a0a]boss rush[/color] mode, you will be seated in front of a specially powerful opponent, one of the game’s [color=#fa6a0a]bosses![/color] These enemies have special abilities that might alter the way the game is played, or simply annoy you. Keep your eyes open! 
+
+Well, that is about everything you need to know about [color]THE GAME. Now it's time to go get them!"
+fit_content = true
+scroll_active = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 250
+
+[node name="Previous" type="Button" parent="Background/MarginContainer/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Previous"
+
+[node name="Next" type="Button" parent="Background/MarginContainer/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Next"
