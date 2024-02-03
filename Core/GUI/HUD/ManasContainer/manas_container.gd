@@ -1,6 +1,13 @@
 class_name ManasContainer
 extends Control
 
+static var icons = [
+	load("res://Core/GUI/HUD/ManasContainer/pearl_1b.png"),
+	load("res://Core/GUI/HUD/ManasContainer/pearl_01d.png"),
+	load("res://Core/GUI/HUD/ManasContainer/pearl_01c.png"),
+	load("res://Core/GUI/HUD/ManasContainer/pearl_01a.png")
+]
+
 var entity : Entity
 
 # Private
@@ -11,6 +18,7 @@ func _ready() -> void:
 
 # Updates this manas container layout
 func _update_layout(mana_type : GameManager.ManaType) -> void:
+	get_child(mana_type).mana_icon.texture = icons[mana_type]
 	get_child(mana_type).mana_amount.text = str(entity.current_manas[mana_type])
 
 

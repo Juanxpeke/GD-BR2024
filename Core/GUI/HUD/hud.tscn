@@ -29,24 +29,32 @@ anchor_bottom = 1.0
 offset_right = 247.0
 grow_vertical = 2
 script = ExtResource("2_ld556")
-health_container = NodePath("HealthContainer")
-manas_container = NodePath("ManasContainer")
+health_container = NodePath("MainInfoContainer/HealthContainer")
+manas_container = NodePath("MainInfoContainer/ManasContainer")
 skills_container = NodePath("SkillsContainer")
 
-[node name="HealthContainer" parent="PlayerInterface" instance=ExtResource("5_gf0k0")]
+[node name="MainInfoContainer" type="HBoxContainer" parent="PlayerInterface"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = -1
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -36.0
-offset_bottom = -36.0
-grow_horizontal = 2
+offset_left = 40.0
+offset_top = -120.0
+offset_right = -40.0
+offset_bottom = -20.0
 grow_vertical = 0
+pivot_offset = Vector2(0, 100)
+theme_override_constants/separation = 20
 
-[node name="ManasContainer" parent="PlayerInterface" instance=ExtResource("5_8ujv3")]
-layout_mode = 0
+[node name="HealthContainer" parent="PlayerInterface/MainInfoContainer" instance=ExtResource("5_gf0k0")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="ManasContainer" parent="PlayerInterface/MainInfoContainer" instance=ExtResource("5_8ujv3")]
+layout_mode = 2
+size_flags_vertical = 4
 
 [node name="SkillsContainer" parent="PlayerInterface" instance=ExtResource("3_6ceub")]
 layout_mode = 1
@@ -69,19 +77,30 @@ offset_left = -247.0
 grow_horizontal = 0
 grow_vertical = 2
 script = ExtResource("2_ld556")
-health_container = NodePath("HealthContainer")
-manas_container = NodePath("ManasContainer")
+health_container = NodePath("MainInfoContainer/HealthContainer")
+manas_container = NodePath("MainInfoContainer/ManasContainer")
 skills_container = NodePath("SkillsContainer")
 
-[node name="HealthContainer" parent="BossInterface" instance=ExtResource("5_gf0k0")]
+[node name="MainInfoContainer" type="HBoxContainer" parent="BossInterface"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 40.0
+offset_top = 20.0
+offset_right = -40.0
+offset_bottom = 120.0
 grow_horizontal = 2
+pivot_offset = Vector2(167, 0)
+theme_override_constants/separation = 20
+alignment = 2
 
-[node name="ManasContainer" parent="BossInterface" instance=ExtResource("5_8ujv3")]
-layout_mode = 0
+[node name="ManasContainer" parent="BossInterface/MainInfoContainer" instance=ExtResource("5_8ujv3")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HealthContainer" parent="BossInterface/MainInfoContainer" instance=ExtResource("5_gf0k0")]
+layout_mode = 2
+size_flags_vertical = 4
 
 [node name="SkillsContainer" parent="BossInterface" instance=ExtResource("3_6ceub")]
 layout_mode = 1

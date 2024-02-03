@@ -36,6 +36,7 @@ layout_mode = 2
 
 [node name="WorldViewport" type="SubViewport" parent="PanelContainer/WorldViewportContainer"]
 handle_input_locally = false
+audio_listener_enable_2d = true
 physics_object_picking = true
 size = Vector2i(658, 370)
 size_2d_override = Vector2i(1152, 648)

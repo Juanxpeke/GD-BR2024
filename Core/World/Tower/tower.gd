@@ -16,6 +16,7 @@ static var tower_sprites : Array[Texture2D] = [
 ] 
 
 @export var mana_type : GameManager.ManaType = GameManager.ManaType.ARCANE
+@export var place_domino_sound : AudioStream
 
 @export var placement_area_up_blocked : bool = false
 @export var placement_area_right_blocked : bool = false
@@ -45,6 +46,7 @@ func _ready() -> void:
 
 # Called when a domino is placed in the tower placement component
 func _on_domino_placed(domino : Domino, entity : Entity) -> void:
+	AudioManager.play_sound(place_domino_sound, false, 0.2)
 	extractions += 1
 	
 	var explosion_needed_extractions = explosions_needed_extractions[min(explosions, explosions_needed_extractions.size() - 1)]

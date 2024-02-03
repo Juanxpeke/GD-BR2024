@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://p4kwvy8s0hs3"]
+[gd_scene load_steps=27 format=3 uid="uid://p4kwvy8s0hs3"]
 
 [ext_resource type="Script" path="res://Core/World/Deck/deck.gd" id="1_crrof"]
 [ext_resource type="PackedScene" uid="uid://lnky8im65wgg" path="res://Core/Domino/domino.tscn" id="2_uah7y"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://daayyu4557uy1" path="res://Core/World/Deck/deck_icon.png" id="4_jynjv"]
 [ext_resource type="Texture2D" uid="uid://bdhh2uoaeksbv" path="res://Core/World/Deck/deck_sheet.png" id="5_6ee6j"]
 [ext_resource type="PackedScene" uid="uid://5svqcy4l02ge" path="res://Core/World/BackgroundBoard/blocked_area_component.tscn" id="6_l87kl"]
+[ext_resource type="AudioStream" uid="uid://dngy0oiif6do0" path="res://Core/World/Deck/deck.wav" id="7_gg85p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21rvn"]
 size = Vector2(320, 320)
@@ -162,3 +163,9 @@ shape = SubResource("CircleShape2D_p34xj")
 
 [node name="TemporalDominoes" type="Node2D" parent="."]
 unique_name_in_owner = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_gg85p")
+volume_db = 2.0
+autoplay = true
+max_distance = 800.0

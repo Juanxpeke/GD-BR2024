@@ -3,6 +3,7 @@ extends Control
 
 var entity : Entity
 
+@onready var health_bar := %HealthBar
 @onready var health_amount := %HealthAmount
 
 # Private
@@ -13,6 +14,8 @@ func _ready() -> void:
 
 # Updates this health container layout
 func _update_layout() -> void:
+	health_bar.max_value = entity.health
+	health_bar.value = entity.current_health
 	health_amount.text = str(entity.current_health) + "/" + str(entity.health) 
 
 

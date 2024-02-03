@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://jqq8ueul6hen"]
+[gd_scene load_steps=16 format=3 uid="uid://jqq8ueul6hen"]
 
 [ext_resource type="Script" path="res://Core/World/world.gd" id="1_vxdio"]
 [ext_resource type="Script" path="res://Core/World/camera.gd" id="2_w6gb2"]
@@ -6,7 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://bhocyg0fa2g7q" path="res://Core/World/BackgroundBoard/background_board.tscn" id="3_wqx2r"]
 [ext_resource type="PackedScene" uid="uid://dofg2y01ecigr" path="res://Core/World/PassGuy/pass_guy.tscn" id="4_nv1wp"]
 [ext_resource type="PackedScene" uid="uid://b3kbu23fy2cjm" path="res://Core/World/Tower/tower.tscn" id="4_oicnk"]
+[ext_resource type="AudioStream" uid="uid://4aukqxv7q8gh" path="res://SFX/arcane_mana.wav" id="7_mcmbn"]
 [ext_resource type="Shader" path="res://Core/Domino/domino_charged.gdshader" id="7_prheb"]
+[ext_resource type="AudioStream" uid="uid://daeslwam43iyp" path="res://SFX/nature_mana.wav" id="9_1og6j"]
+[ext_resource type="AudioStream" uid="uid://d0kmrnnle7gy6" path="res://SFX/dark_mana.wav" id="10_0yfp8"]
+[ext_resource type="AudioStream" uid="uid://b5ggygaigxquy" path="res://SFX/inferno_mana.wav" id="11_2drgu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7j6xm"]
 shader = ExtResource("7_prheb")
@@ -57,27 +61,44 @@ unique_name_in_owner = true
 
 [node name="ArcaneTower" parent="Structures/Towers" instance=ExtResource("4_oicnk")]
 position = Vector2(-1200, -592)
+mana_type = 0
+place_domino_sound = ExtResource("7_mcmbn")
 placement_area_up_blocked = true
+placement_area_right_blocked = false
+placement_area_down_blocked = false
 placement_area_left_blocked = true
 charged_domino_material = SubResource("ShaderMaterial_7j6xm")
+cell_centered = true
 
 [node name="NatureTower" parent="Structures/Towers" instance=ExtResource("4_oicnk")]
 position = Vector2(-1200, 592)
 mana_type = 1
+place_domino_sound = ExtResource("9_1og6j")
+placement_area_up_blocked = false
+placement_area_right_blocked = false
 placement_area_down_blocked = true
 placement_area_left_blocked = true
 charged_domino_material = SubResource("ShaderMaterial_edrrx")
+cell_centered = true
 
 [node name="DarkTower" parent="Structures/Towers" instance=ExtResource("4_oicnk")]
 position = Vector2(1200, -592)
 mana_type = 2
+place_domino_sound = ExtResource("10_0yfp8")
 placement_area_up_blocked = true
 placement_area_right_blocked = true
+placement_area_down_blocked = false
+placement_area_left_blocked = false
 charged_domino_material = SubResource("ShaderMaterial_uodm6")
+cell_centered = true
 
 [node name="InfernoTower" parent="Structures/Towers" instance=ExtResource("4_oicnk")]
 position = Vector2(1200, 592)
 mana_type = 3
+place_domino_sound = ExtResource("11_2drgu")
+placement_area_up_blocked = false
 placement_area_right_blocked = true
 placement_area_down_blocked = true
+placement_area_left_blocked = false
 charged_domino_material = SubResource("ShaderMaterial_611ag")
+cell_centered = true

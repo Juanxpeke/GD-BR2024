@@ -1,14 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxuaqhfgjlku8"]
+[gd_scene load_steps=4 format=3 uid="uid://cxuaqhfgjlku8"]
 
 [ext_resource type="Script" path="res://Core/GUI/HUD/HealthContainer/health_container.gd" id="1_lnwry"]
+[ext_resource type="Texture2D" uid="uid://nkxidcqh8odl" path="res://Core/GUI/HUD/HealthContainer/health_sprite_under.png" id="2_33kd0"]
+[ext_resource type="Texture2D" uid="uid://b5yq0teep3yai" path="res://Core/GUI/HUD/HealthContainer/health_sprite_progress.png" id="3_gf1ng"]
 
-[node name="HealthContainer" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="HealthContainer" type="VBoxContainer"]
+theme_override_constants/separation = 4
 script = ExtResource("1_lnwry")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(38, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("2_33kd0")
+texture_progress = ExtResource("3_gf1ng")
 
 [node name="HealthAmount" type="Label" parent="."]
 unique_name_in_owner = true
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 19.0
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
