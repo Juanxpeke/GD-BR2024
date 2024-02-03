@@ -104,11 +104,14 @@ func get_mana_priority(mana_type : GameManager.ManaType) -> float:
 	
 	for skill in current_skills:
 		var skill_left_cost = get_skill_left_cost(skill)
-		assert(skill_left_cost != 0, "Free skill was not activated")
+		assert(skill_left_cost != 0, "Entity free skill was not activated")
 		
 		if skill.manas_needed[mana_type] > 0:
 			var skill_priority_factor = 1.0 / skill_left_cost
-			mana_priority += skill.get_priority() * skill_priority_factor
+			mana_priority = max(mana_priority, skill.get_priority() * skill_priority_factor)
+	
+	if mana_priority > 0.0:
+		mana_priority = max(mana_priority, Play.MINIMUM_USEFUL_MANA_PRIORITY)
 	
 	return mana_priority
 
