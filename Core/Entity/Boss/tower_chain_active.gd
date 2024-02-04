@@ -10,4 +10,4 @@ func core_activate(caller : Boss) -> void:
 			tower.chains(0)
 	
 	var random_tower_index = GameManager.rng.randi_range(0, 3)
-	GameManager.current_world.towers.get_child(random_tower_index).chain(3)
+	await GameManager.current_world.towers.get_child(random_tower_index).chain(3)

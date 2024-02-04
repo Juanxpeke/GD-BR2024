@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://batrv7xfuijib"]
 
-[ext_resource type="Script" path="res://Core/GUI/Cutscene/cutscene_component.gd" id="1_q3e6p"]
+[ext_resource type="Script" path="res://Core/GUI/Cutscene/cutscene_component.gd" id="1_dhyly"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8s3i"]
 bg_color = Color(0, 0, 0, 1)
 
 [node name="CutsceneComponent" type="CanvasLayer"]
-script = ExtResource("1_q3e6p")
+script = ExtResource("1_dhyly")
 
 [node name="CutsceneBackground" type="Panel" parent="."]
 anchors_preset = 15

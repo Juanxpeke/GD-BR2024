@@ -126,5 +126,16 @@ func get_free_placement_components() -> Array[PlacementComponent]:
 
 # Chains this tower
 func chain(duration : int) -> void:
+	if duration == 0: return
+	
+	GameManager.current_camera.block()
+	GameManager.current_camera.focus(global_position)
+	await GameManager.current_camera.get_tree().create_timer(EXPLOSION_FOCUS_WAIT_TIME).timeout
+	
 	chains_duration = duration
 	chains_duration_changed.emit()
+	
+	await GameManager.current_camera.get_tree().create_timer(POST_SWAP_WAIT_TIME).timeout
+	GameManager.current_camera.unblock()
+	
+	

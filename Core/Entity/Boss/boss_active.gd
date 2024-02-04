@@ -35,7 +35,7 @@ func activate(caller : Boss) -> void:
 	caller.sprite.animation = animation_name
 	await caller.sprite.animation_finished
 	
-	core_activate(caller)
+	await core_activate(caller)
 	
 	caller.sprite.animation = IDLE_ANIMATION_NAME
 	caller.sprite.play()
