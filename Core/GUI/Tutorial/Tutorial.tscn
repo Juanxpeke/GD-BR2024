@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d358edlipqpy2"]
+[gd_scene load_steps=20 format=3 uid="uid://d358edlipqpy2"]
 
 [ext_resource type="Script" path="res://Core/GUI/Tutorial/tutorial.gd" id="1_b4ggd"]
 [ext_resource type="Texture2D" uid="uid://bml7hdpmsri4y" path="res://Core/GUI/Tutorial/TutorialPictures/GameBoard.PNG" id="2_jvs2r"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://77l8hqqghe6x" path="res://Core/GUI/Tutorial/TutorialPictures/glowing_portal.PNG" id="9_iqt6t"]
 [ext_resource type="Texture2D" uid="uid://cult28inkqnjm" path="res://Core/GUI/Tutorial/TutorialPictures/hands_rogue.png" id="10_bktua"]
 [ext_resource type="Texture2D" uid="uid://c5cykccwshgp8" path="res://Assets/BrickTextures/Brickwall5_Texture.png" id="11_yud1w"]
-[ext_resource type="Texture2D" uid="uid://cb68oem440ujv" path="res://Assets/CustomPixelArt/SpellCardArt/CardArts/CurseDomino.png" id="12_g02qx"]
 
 [sub_resource type="Resource" id="Resource_qhsx6"]
 script = ExtResource("3_fk6es")
@@ -126,7 +125,6 @@ custom_minimum_size = Vector2(267, 150)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("12_g02qx")
 expand_mode = 1
 
 [node name="Label" type="RichTextLabel" parent="Background/MarginContainer/VBoxContainer2/VBoxContainer"]
