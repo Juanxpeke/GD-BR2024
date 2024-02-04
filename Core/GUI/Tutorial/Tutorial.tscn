@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d358edlipqpy2"]
+[gd_scene load_steps=21 format=3 uid="uid://d358edlipqpy2"]
 
 [ext_resource type="Script" path="res://Core/GUI/Tutorial/tutorial.gd" id="1_006v4"]
 [ext_resource type="Texture2D" uid="uid://cb68oem440ujv" path="res://Assets/CustomPixelArt/SpellCardArt/CardArts/CurseDomino.png" id="1_ljs1v"]
@@ -10,7 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://b8rxhfkb3id0u" path="res://Core/GUI/Tutorial/TutorialPictures/hand_of_dominos.png" id="6_nbtd8"]
 [ext_resource type="Texture2D" uid="uid://bi441d4a07suw" path="res://Core/GUI/Tutorial/TutorialPictures/Skillcards.png" id="7_u2s4f"]
 [ext_resource type="Texture2D" uid="uid://77l8hqqghe6x" path="res://Core/GUI/Tutorial/TutorialPictures/glowing_portal.PNG" id="8_0obun"]
-[ext_resource type="Texture2D" uid="uid://bd5m2x3okwvys" path="res://Core/GUI/Tutorial/TutorialPictures/timmy_hands.PNG" id="9_hxf0d"]
+[ext_resource type="Texture2D" uid="uid://buqa3gxqkvifl" path="res://Core/GUI/Tutorial/TutorialPictures/Skillcards image.PNG" id="8_c2oee"]
+[ext_resource type="Texture2D" uid="uid://cult28inkqnjm" path="res://Core/GUI/Tutorial/TutorialPictures/hands_rogue.png" id="9_376q4"]
 
 [sub_resource type="Resource" id="Resource_qhsx6"]
 script = ExtResource("2_108x0")
@@ -51,6 +52,7 @@ panel_image = ExtResource("7_u2s4f")
 script = ExtResource("2_108x0")
 panel_text = "[center]Each player has access to a maximum of two spell cards at a time, and can cast as many spells as they want in a turn, as long as they are in your hand and you have the mana to cast them. The spell cards are refilled back to their maximum at turn end. [u]You can only cast spells during your turn, so make sure you cast your spells before playing your dominos. 
 "
+panel_image = ExtResource("8_c2oee")
 
 [sub_resource type="Resource" id="Resource_r3avx"]
 script = ExtResource("2_108x0")
@@ -62,7 +64,7 @@ script = ExtResource("2_108x0")
 panel_text = "[center]In the [color=#fa6a0a]boss rush[/color] mode, you will be seated in front of a specially powerful opponent, one of the game’s [color=#fa6a0a]bosses![/color] These enemies have special abilities that might alter the way the game is played, or simply annoy you. Keep your eyes open! 
 
 Well, that is about everything you need to know about [color]THE GAME. Now it's time to go get them!"
-panel_image = ExtResource("9_hxf0d")
+panel_image = ExtResource("9_376q4")
 
 [node name="Tutorial" type="Control"]
 layout_mode = 3
@@ -106,6 +108,13 @@ theme_override_constants/margin_bottom = 0
 layout_mode = 2
 theme_override_constants/separation = 0
 
+[node name="ExitButton" type="Button" parent="Background/MarginContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "X"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 0
@@ -113,7 +122,7 @@ theme_override_constants/separation = 40
 
 [node name="Texture" type="TextureRect" parent="Background/MarginContainer/VBoxContainer2/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(266, 150)
+custom_minimum_size = Vector2(267, 150)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
