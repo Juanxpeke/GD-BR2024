@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="GD-BR2024"
+config/name="Master of Mana"
+config/description="Strategy game in which you have to place runes in an inner world magic wells in order to get mana for skills and defeat your opponent"
 run/main_scene="res://Core/GUI/MainMenu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"

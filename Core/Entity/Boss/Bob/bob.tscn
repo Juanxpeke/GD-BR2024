@@ -1,6 +1,7 @@
-[gd_scene load_steps=43 format=3 uid="uid://dhpj4gs6e4p0f"]
+[gd_scene load_steps=44 format=3 uid="uid://dhpj4gs6e4p0f"]
 
 [ext_resource type="Script" path="res://Core/Entity/Boss/Bob/bob.gd" id="1_0226v"]
+[ext_resource type="Resource" uid="uid://bjrjlaibujxbm" path="res://Core/Entity/Boss/Bob/bob_active.tres" id="2_73qdi"]
 [ext_resource type="PackedScene" uid="uid://blhlb0sx0g14t" path="res://Core/Hand/hand.tscn" id="2_781at"]
 [ext_resource type="Texture2D" uid="uid://b47obq6r6cvyh" path="res://Core/Entity/Boss/Bob/bob_idle.png" id="3_fihjd"]
 [ext_resource type="Texture2D" uid="uid://dcbyshpjemjdg" path="res://Core/Entity/Boss/Bob/bob_slam.png" id="4_uvk8k"]
@@ -279,6 +280,7 @@ animations = [{
 
 [node name="Bob" type="Node2D"]
 script = ExtResource("1_0226v")
+boss_active = ExtResource("2_73qdi")
 
 [node name="Hand" parent="." instance=ExtResource("2_781at")]
 unique_name_in_owner = true
