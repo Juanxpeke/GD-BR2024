@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Global/Skills/Effects/damage_effect.gd" id="1_jgq5f"]
 [ext_resource type="Script" path="res://Global/Skills/skill.gd" id="1_ovk2h"]
-[ext_resource type="AudioStream" uid="uid://bvoyminfrgtmw" path="res://Global/Skills/DarkBlast/dark_blast.wav" id="3_3g4rb"]
-[ext_resource type="Texture2D" uid="uid://b6o1adu3krmd" path="res://Global/Skills/DarkBlast/dark_blast.png" id="3_woq14"]
+[ext_resource type="AudioStream" uid="uid://d2d6vwjmepr0g" path="res://Global/Skills/DarkBlast/dark_blast.wav" id="3_3g4rb"]
+[ext_resource type="Texture2D" uid="uid://doe6xlvmlxawn" path="res://Global/Skills/DarkBlast/dark_blast.png" id="3_woq14"]
 
 [sub_resource type="Resource" id="Resource_3af4o"]
 script = ExtResource("1_jgq5f")

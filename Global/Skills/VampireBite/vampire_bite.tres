@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=8 format=3 uid="uid://bdemexji24ye2"]
+[gd_resource type="Resource" script_class="Skill" load_steps=8 format=3 uid="uid://cn2led5ct3uk4"]
 
 [ext_resource type="Script" path="res://Global/Skills/Effects/damage_effect.gd" id="1_cr4i1"]
 [ext_resource type="Script" path="res://Global/Skills/skill.gd" id="1_rejwx"]
 [ext_resource type="Script" path="res://Global/Skills/Effects/healing_effect.gd" id="2_b8q2t"]
-[ext_resource type="AudioStream" uid="uid://by2uxcw3kkg2h" path="res://Global/Skills/VampireBite/vampire_bite.wav" id="4_6bwu8"]
-[ext_resource type="Texture2D" uid="uid://bv0bcj6hdatmf" path="res://Global/Skills/VampireBite/vampire_bite.png" id="5_osn1g"]
+[ext_resource type="AudioStream" uid="uid://bsqrpn0e2epbb" path="res://Global/Skills/VampireBite/vampire_bite.wav" id="4_6bwu8"]
+[ext_resource type="Texture2D" uid="uid://fup8mvc2mmvl" path="res://Global/Skills/VampireBite/vampire_bite.png" id="5_osn1g"]
 
 [sub_resource type="Resource" id="Resource_yh1c8"]
 script = ExtResource("1_cr4i1")

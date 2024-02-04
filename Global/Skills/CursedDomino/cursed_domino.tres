@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=6 format=3 uid="uid://dkr54v6foxhy6"]
+
+[ext_resource type="Script" path="res://Global/Skills/Effects/destroy_domino_effect.gd" id="1_0c2kk"]
+[ext_resource type="Script" path="res://Global/Skills/skill.gd" id="1_m7obh"]
+[ext_resource type="AudioStream" uid="uid://d2d6vwjmepr0g" path="res://Global/Skills/DarkBlast/dark_blast.wav" id="2_lmjte"]
+[ext_resource type="Texture2D" uid="uid://d21blppavapuc" path="res://Global/Skills/CursedDomino/cursed_domino.png" id="4_agrw3"]
+
+[sub_resource type="Resource" id="Resource_hfoay"]
+script = ExtResource("1_0c2kk")
+value = 1.0
+
+[resource]
+script = ExtResource("1_m7obh")
+name = "Cursed Domino"
+sprite = ExtResource("4_agrw3")
+sound = ExtResource("2_lmjte")
+description = "Destroys {effect}{0, icon} {effect}{0, value} domino from the enemy's hand. If the enemy has no dominoes, deals {effect}{0, value} damage"
+effects = Array[Resource("res://Global/Skills/Effects/effect.gd")]([SubResource("Resource_hfoay")])
+manas_needed = Array[int]([0, 0, 1, 1])
+maximum_repetitions = -1

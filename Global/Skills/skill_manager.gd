@@ -23,6 +23,7 @@ var skills = [
 	# Nature & Inferno
 	load("res://Global/Skills/FireMoon/fire_moon.tres"),
 	# Inferno & Dark
+	load("res://Global/Skills/CursedDomino/cursed_domino.tres"),
 ]
 
 # Private
