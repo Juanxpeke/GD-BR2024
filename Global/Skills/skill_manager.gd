@@ -2,17 +2,17 @@ extends Node
 
 var skills = [
 	# Arcane
-	load("res://Global/Skills/ArcaneLance/arcane_lance.tres"),
-	load("res://Global/Skills/MagicMissiles/magic_missiles.tres"),
+	#load("res://Global/Skills/ArcaneLance/arcane_lance.tres"),
+	#load("res://Global/Skills/MagicMissiles/magic_missiles.tres"),
 	# Nature
-	load("res://Global/Skills/ElectroBolt/electro_bolt.tres"),
-	load("res://Global/Skills/ThunderStrike/thunder_strike.tres"),
+	#load("res://Global/Skills/ElectroBolt/electro_bolt.tres"),
+	#load("res://Global/Skills/ThunderStrike/thunder_strike.tres"),
 	# Dark
-	load("res://Global/Skills/DarkBlast/dark_blast.tres"),
-	load("res://Global/Skills/BlackHole/black_hole.tres"),
+	#load("res://Global/Skills/DarkBlast/dark_blast.tres"),
+	#load("res://Global/Skills/BlackHole/black_hole.tres"),
 	# Inferno
-	load("res://Global/Skills/Fireball/fireball.tres"),
-	load("res://Global/Skills/MagmaThrow/magma_throw.tres"),
+	#load("res://Global/Skills/Fireball/fireball.tres"),
+	#load("res://Global/Skills/MagmaThrow/magma_throw.tres"),
 	# Arcane & Nature
 	load("res://Global/Skills/VampireBite/vampire_bite.tres"),
 	# Arcane & Dark
