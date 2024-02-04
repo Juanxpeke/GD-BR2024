@@ -18,6 +18,7 @@ func _ready() -> void:
 
 # Updates this manas container layout
 func _update_layout(mana_type : GameManager.ManaType) -> void:
+	print('Updating mana layout', mana_type)
 	get_child(mana_type).mana_icon.texture = icons[mana_type]
 	get_child(mana_type).mana_amount.text = str(entity.current_manas[mana_type])
 

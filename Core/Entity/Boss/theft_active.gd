@@ -8,6 +8,10 @@ func core_activate(caller : Boss) -> void:
 	var enemy = caller.get_enemy()
 	var enemy_dominoes = enemy.hand.dominoes.get_children()
 	
+	if enemy_dominoes.is_empty():
+		current_cooldown = 0
+		return
+	
 	var random_domino_index = GameManager.rng.randi_range(0, enemy_dominoes.size() - 1)
 	var random_domino = enemy_dominoes[random_domino_index]
 	

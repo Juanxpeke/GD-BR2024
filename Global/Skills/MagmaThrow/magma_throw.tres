@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=6 format=3 uid="uid://ccyg7yw12dhw"]
+
+[ext_resource type="Script" path="res://Global/Skills/Effects/damage_effect.gd" id="1_ng4rg"]
+[ext_resource type="Script" path="res://Global/Skills/skill.gd" id="1_yu0jn"]
+[ext_resource type="Texture2D" uid="uid://bt8vloludpp0" path="res://Global/Skills/MagmaThrow/magma_throw.png" id="2_421wn"]
+[ext_resource type="AudioStream" uid="uid://brouo7qoq2tlf" path="res://Global/Skills/MagmaThrow/magma_throw.wav" id="3_w2xmr"]
+
+[sub_resource type="Resource" id="Resource_uk483"]
+script = ExtResource("1_ng4rg")
+value = 3.0
+
+[resource]
+script = ExtResource("1_yu0jn")
+name = "Magma Throw"
+sprite = ExtResource("2_421wn")
+sound = ExtResource("3_w2xmr")
+description = "Deals {effect}{0, icon} {effect}{0, value} of damage to the enemy"
+effects = Array[Resource("res://Global/Skills/Effects/effect.gd")]([SubResource("Resource_uk483")])
+manas_needed = Array[int]([0, 0, 0, 2])
+maximum_repetitions = -1

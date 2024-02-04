@@ -58,8 +58,8 @@ func is_turn_owner(entity : Entity) -> bool:
 
 #region Skills Logic
 
-# Gets all the usable skills in this match
-func get_usable_skills() -> Array[Skill]:
+# Gets all the entities skills in this match
+func get_entities_skills() -> Array[Skill]:
 	return GameManager.current_player.current_skills + GameManager.current_boss.current_skills
 
 # Swaps the skills of the entities

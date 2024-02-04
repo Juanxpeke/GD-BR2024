@@ -18,6 +18,7 @@ func _ready() -> void:
 func _update_layout() -> void:
 	skill_name.text = skill.name
 	skill_sprite.texture = skill.sprite
+	skill_description.get_v_scroll_bar()
 	skill_description.text = "[center]" + _parse_skill_description(skill.description) + "[/center]"
 	skill_manas_container.set_skill(skill)
 
