@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp5imlahteqvf"]
+
+[ext_resource type="Script" path="res://Core/GUI/Credits/Credits.gd" id="1_6l2pm"]
+[ext_resource type="Texture2D" uid="uid://c5cykccwshgp8" path="res://Assets/BrickTextures/Brickwall5_Texture.png" id="1_ths00"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6l2pm")
+
+[node name="Background" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ths00")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -387.905
+offset_top = -292.25
+offset_right = 387.905
+offset_bottom = 243.75
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Background/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ExitButton" type="Button" parent="Background/MarginContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "X
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 40
+
+[node name="Label" type="RichTextLabel" parent="Background/MarginContainer/VBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(700, 190)
+layout_mode = 2
+size_flags_vertical = 8
+bbcode_enabled = true
+text = "[center][color=#d0ffea]Credits[/color]
+
+[color=#61a53f]Juanxpeke[/color]
+Game Designer, Lead Programmer
+
+[color=#f1641f]Giarettini[/color]
+Game Designer, Lead Artist, Writer
+
+[color=]Toto[/color]
+Sound Designer
+
+[color=#fcf7be]Testing team[/color]
+Polarisu
+Cazuela Cosmica
+Juke Me
+Sebac720
+
+[color=#42bfe8]Assets[/color]
+actuallyKron (480+ Domino Assets)
+Lintnaya (RoretCursor)
+Kyrise (Kyrise’s 16x16 RPG Icon Pack)
+Seliel the Shaper (Gentle Forest Tileset)
+Shade, Octoshrimpy (16x16 Mini World Sprites)
+Luck (Satyr Character)
+Free Game Assets (Free Undead Loot Pixel Art)
+Pucci Games (Stones & Brick Textures)
+"
+fit_content = true
+scroll_active = false
