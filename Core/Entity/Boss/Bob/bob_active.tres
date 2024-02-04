@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SwapActive" load_steps=2 format=3 uid="uid://bjrjlaibujxbm"]
+
+[ext_resource type="Script" path="res://Core/Entity/Boss/swap_active.gd" id="1_jf74u"]
+
+[resource]
+script = ExtResource("1_jf74u")
+animation_name = "slam"
+cooldown = 3
