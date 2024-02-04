@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dfc1rfdj3ibh8"]
 
 [ext_resource type="Script" path="res://Core/GUI/MainMenu/main_menu.gd" id="1_enann"]
-[ext_resource type="Texture2D" uid="uid://i5lmxl3efork" path="res://Core/GUI/MainMenu/Brickwall3_Texture.png" id="2_cief4"]
+[ext_resource type="Texture2D" uid="uid://c42k23rykaocg" path="res://Core/GUI/MainMenu/main_menu_background.png" id="2_cief4"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -53,9 +53,11 @@ anchor_bottom = 0.5
 offset_left = -96.0
 offset_top = 26.0
 offset_right = 96.0
-offset_bottom = 231.0
+offset_bottom = 146.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
 
 [node name="StartGameButton" type="Button" parent="ButtonsContainer"]
 unique_name_in_owner = true
