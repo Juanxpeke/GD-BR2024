@@ -8,7 +8,7 @@ signal dead
 
 @export var health : int = 20
 
-var current_health : int = health
+var current_health : int
 var current_manas : Array[int] = []
 var current_skills : Array[Skill] = []
 
@@ -18,6 +18,8 @@ var current_skills : Array[Skill] = []
 
 # Called when the node enters the scene tree for the first time
 func _ready() -> void:
+	current_health = health
+	
 	current_manas.resize(GameManager.ManaType.size())
 	
 	GameManager.match_setted.connect(_on_match_setted)

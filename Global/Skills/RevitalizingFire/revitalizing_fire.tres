@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=6 format=3 uid="uid://dy86moo3o0i11"]
+
+[ext_resource type="Script" path="res://Global/Skills/Effects/healing_effect.gd" id="1_8sp4l"]
+[ext_resource type="Script" path="res://Global/Skills/skill.gd" id="1_kkwxr"]
+[ext_resource type="AudioStream" uid="uid://lmflq8ea3lwt" path="res://Global/Skills/Fireball/fireball.wav" id="3_tiekc"]
+[ext_resource type="Texture2D" uid="uid://btoj4v0qi11c" path="res://Global/Skills/RevitalizingFire/revitalizing_fire.png" id="4_2v3qd"]
+
+[sub_resource type="Resource" id="Resource_7kk7g"]
+script = ExtResource("1_8sp4l")
+value = 3.0
+
+[resource]
+script = ExtResource("1_kkwxr")
+name = "Revitalizing Fire"
+sprite = ExtResource("4_2v3qd")
+sound = ExtResource("3_tiekc")
+description = "Heals {effect}{0, icon} {effect}{0, value} with the power of fire"
+effects = Array[Resource("res://Global/Skills/Effects/effect.gd")]([SubResource("Resource_7kk7g")])
+manas_needed = Array[int]([1, 0, 0, 1])
+maximum_repetitions = -1
