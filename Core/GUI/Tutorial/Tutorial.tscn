@@ -1,13 +1,21 @@
-[gd_scene load_steps=13 format=3 uid="uid://d358edlipqpy2"]
+[gd_scene load_steps=20 format=3 uid="uid://d358edlipqpy2"]
 
 [ext_resource type="Script" path="res://Core/GUI/Tutorial/tutorial.gd" id="1_006v4"]
 [ext_resource type="Texture2D" uid="uid://cb68oem440ujv" path="res://Assets/CustomPixelArt/SpellCardArt/CardArts/CurseDomino.png" id="1_ljs1v"]
 [ext_resource type="Script" path="res://Core/GUI/Tutorial/tutorial_panel_resource.gd" id="2_108x0"]
+[ext_resource type="Texture2D" uid="uid://bml7hdpmsri4y" path="res://Core/GUI/Tutorial/TutorialPictures/GameBoard.PNG" id="2_rb00x"]
 [ext_resource type="Texture2D" uid="uid://c5cykccwshgp8" path="res://Assets/BrickTextures/Brickwall5_Texture.png" id="3_6vf3s"]
+[ext_resource type="Texture2D" uid="uid://b8ud43sowcxnr" path="res://Core/GUI/Tutorial/TutorialPictures/ManaSprites.png" id="4_eqgly"]
+[ext_resource type="Texture2D" uid="uid://cmbfh6yfu46ca" path="res://Core/GUI/Tutorial/TutorialPictures/RuneDominos.PNG" id="5_uw5mu"]
+[ext_resource type="Texture2D" uid="uid://b8rxhfkb3id0u" path="res://Core/GUI/Tutorial/TutorialPictures/hand_of_dominos.png" id="6_nbtd8"]
+[ext_resource type="Texture2D" uid="uid://bi441d4a07suw" path="res://Core/GUI/Tutorial/TutorialPictures/Skillcards.png" id="7_u2s4f"]
+[ext_resource type="Texture2D" uid="uid://77l8hqqghe6x" path="res://Core/GUI/Tutorial/TutorialPictures/glowing_portal.PNG" id="8_0obun"]
+[ext_resource type="Texture2D" uid="uid://bd5m2x3okwvys" path="res://Core/GUI/Tutorial/TutorialPictures/timmy_hands.PNG" id="9_hxf0d"]
 
 [sub_resource type="Resource" id="Resource_qhsx6"]
 script = ExtResource("2_108x0")
 panel_text = "[center]In [color]THE GAME, you are playing a game on a magical table. This table contains an entire world within it, which you have to explore by dragging your mouse. It’s through this world that you will acquire power with which you have to defeat your opponent by reducing their life total to 0. If instead, your life total reaches 0 before theirs, you will [color=#060608]lose the game. "
+panel_image = ExtResource("2_rb00x")
 
 [sub_resource type="Resource" id="Resource_q7wy8"]
 script = ExtResource("2_108x0")
@@ -17,6 +25,7 @@ panel_text = "[center]In [color=#20d6c7]THE GAME[/color], you and your opponent 
 
 This [color]mana emerges from the land itself, through the [color=#92dcba]mana wells[/color], each one aligned with one of the four varieties of mana. These [color=#92dcba]wells[/color] give the player the possibility to access mana.
 "
+panel_image = ExtResource("4_eqgly")
 
 [sub_resource type="Resource" id="Resource_dm44f"]
 script = ExtResource("2_108x0")
@@ -25,15 +34,18 @@ panel_text = "[center]To access this mana, you are equipped with powerful [color
 To get mana, the player must drag their [color=#f9a31b]dominos[/color] next to a [color=#f9a31b]domino[/color] in the battlefield that has a matching symbol, connecting the [color=#f9a31b]domino[/color] to the mana well. When the player does this, they will get 1 mana of the corresponding [color=#92dcba]well’s variety[/color]. Once a player plays a [color=#f9a31b]domino, their turn will end immediately.
 
 "
+panel_image = ExtResource("5_uw5mu")
 
 [sub_resource type="Resource" id="Resource_0kv5c"]
 script = ExtResource("2_108x0")
 panel_text = "[center]If you are out of [color=#f9a31b]dominos[/color], or none of the available spots please you, you can always click the [color=#f17716]mystical portal[/color] instead of playing a [color=#f9a31b]domino[/color], summoning a brand new [color=#f9a31b]rune domino[/color] to your hand."
+panel_image = ExtResource("6_nbtd8")
 
 [sub_resource type="Resource" id="Resource_0ignb"]
 script = ExtResource("2_108x0")
 panel_text = "[center]Now that you have mana, you can cast spells! With these spells you can [color=#14a02e]poison[/color], [color=#b9bffb]hurl lightning[/color], [color=#fa6a0a]fireballs[/color] and even [color=#060608]black holes[/color] at your opponent, helping you reach your goal of reducing them to 0 HP! 
 These spells are represented by spell cards, which show the player the amount and varieties of mana required to cast them, as well as their effect."
+panel_image = ExtResource("7_u2s4f")
 
 [sub_resource type="Resource" id="Resource_0x27m"]
 script = ExtResource("2_108x0")
@@ -43,12 +55,14 @@ panel_text = "[center]Each player has access to a maximum of two spell cards at 
 [sub_resource type="Resource" id="Resource_r3avx"]
 script = ExtResource("2_108x0")
 panel_text = "[center]Now, mana is not simply something you can farm to your heart’s content without a care in the world! Sometimes [color=#92dcba]wells will start glowing[/color]. This means the [color=#92dcba]well[/color] is about to become unstable and have a [color=#e86a73]chaos reaction[/color]. The next [color=#f9a31b]domino[/color] placed in this line will cause the [color=#e86a73]reaction[/color], [u]granting an extra mana of the corresponding color[/u] and [color=#a6fcdb]causing the player’s spells to be exchanged![/color] As the game progresses, the [color=#92dcba]wells[/color] will start becoming increasingly unstable, and [color=#e86a73]chaos reactions[/color] will start happening more and more often. Make sure to play around them!"
+panel_image = ExtResource("8_0obun")
 
 [sub_resource type="Resource" id="Resource_haxrb"]
 script = ExtResource("2_108x0")
 panel_text = "[center]In the [color=#fa6a0a]boss rush[/color] mode, you will be seated in front of a specially powerful opponent, one of the game’s [color=#fa6a0a]bosses![/color] These enemies have special abilities that might alter the way the game is played, or simply annoy you. Keep your eyes open! 
 
 Well, that is about everything you need to know about [color]THE GAME. Now it's time to go get them!"
+panel_image = ExtResource("9_hxf0d")
 
 [node name="Tutorial" type="Control"]
 layout_mode = 3
@@ -99,11 +113,12 @@ theme_override_constants/separation = 40
 
 [node name="Texture" type="TextureRect" parent="Background/MarginContainer/VBoxContainer2/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(600, 200)
+custom_minimum_size = Vector2(266, 150)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("1_ljs1v")
+expand_mode = 1
 
 [node name="Label" type="RichTextLabel" parent="Background/MarginContainer/VBoxContainer2/VBoxContainer"]
 unique_name_in_owner = true

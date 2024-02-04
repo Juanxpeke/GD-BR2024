@@ -13,6 +13,7 @@ var current_panel : int = 0
 func _ready() -> void:
 	previous_button.pressed.connect(set_previous_panel)
 	next_button.pressed.connect(set_next_panel)
+	print(tutorial_panels.size())
 	_init_node()
 
 func _init_node() -> void:
@@ -22,8 +23,11 @@ func _init_node() -> void:
 # Sets the next tutorial panel
 func set_next_panel() -> void:
 	current_panel +=1
-	texture.texture = tutorial_panels[current_panel].panel_image
-	label.text = tutorial_panels[current_panel].panel_text
+	if current_panel >= tutorial_panels.size():
+		self.queue_free()
+	else:
+		texture.texture = tutorial_panels[current_panel].panel_image
+		label.text = tutorial_panels[current_panel].panel_text
 
 
 # Sets the previous tutorial panel

@@ -47,11 +47,14 @@ render_target_update_mode = 4
 
 [node name="Entities" type="Node2D" parent="."]
 unique_name_in_owner = true
+visible = false
 
 [node name="Player" parent="Entities" instance=ExtResource("3_b6cyj")]
+visible = false
 position = Vector2(576, 636)
 
 [node name="Bob" parent="Entities" instance=ExtResource("4_21v77")]
+visible = false
 position = Vector2(576, 12)
 rotation = 3.14159
 
