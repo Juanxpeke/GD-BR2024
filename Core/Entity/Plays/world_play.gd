@@ -2,7 +2,7 @@ class_name WorldPlay
 extends Play
 
 const CAMERA_FOCUS_WAIT_TIME : float = 1.2
-const POST_EXECUTION_WAIT_TIME : float = 1.0
+const POST_EXECUTION_WAIT_TIME : float = 0.8
 
 # Public
 

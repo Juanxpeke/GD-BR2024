@@ -266,6 +266,7 @@ boss_active = ExtResource("2_qnu0p")
 
 [node name="Hand" parent="." instance=ExtResource("2_3wg1p")]
 unique_name_in_owner = true
+visible = false
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true

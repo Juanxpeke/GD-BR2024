@@ -9,6 +9,7 @@ var turn : int = 0
 
 @onready var world_viewport_container : SubViewportContainer = %WorldViewportContainer
 @onready var entities : Node2D = %Entities
+@onready var hud : HUD = %HUD
 
 # Private
 

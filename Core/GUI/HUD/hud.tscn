@@ -1,17 +1,96 @@
-[gd_scene load_steps=7 format=3 uid="uid://jh607gdfdrer"]
+[gd_scene load_steps=11 format=3 uid="uid://jh607gdfdrer"]
 
 [ext_resource type="Script" path="res://Core/GUI/HUD/hud.gd" id="1_qpqr3"]
 [ext_resource type="Script" path="res://Core/GUI/HUD/entity_interface.gd" id="2_ld556"]
-[ext_resource type="Texture2D" uid="uid://b42ltriordeip" path="res://Core/Match/match_background.png" id="2_xj4la"]
+[ext_resource type="Texture2D" uid="uid://b42ltriordeip" path="res://Core/GUI/HUD/hud_background.png" id="2_xj4la"]
 [ext_resource type="PackedScene" uid="uid://b7i2ovwmia6ng" path="res://Core/GUI/HUD/SkillsContainer/skills_container.tscn" id="3_6ceub"]
 [ext_resource type="PackedScene" uid="uid://d3uccs432dhjc" path="res://Core/GUI/HUD/ManasContainer/manas_container.tscn" id="5_8ujv3"]
 [ext_resource type="PackedScene" uid="uid://cxuaqhfgjlku8" path="res://Core/GUI/HUD/HealthContainer/health_container.tscn" id="5_gf0k0"]
+[ext_resource type="PackedScene" uid="uid://c7fldq4w8f5sm" path="res://Core/GUI/HUD/skill_card.tscn" id="7_70hew"]
+
+[sub_resource type="Animation" id="Animation_6h2sa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SkillCardsLayer/AnimationSkillCard:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SkillCardsLayer/AnimationSkillCard:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yvy8p"]
+resource_name = "skill_activation"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SkillCardsLayer/AnimationSkillCard:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.3, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SkillCardsLayer/AnimationSkillCard:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.3, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.4, 0.4), Vector2(1.2, 1.2), Vector2(1.3, 1.3), Vector2(2, 2)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SkillCardsLayer/AnimationSkillCard")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"show"
+}, {
+"args": [],
+"method": &"hide"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2w26u"]
+_data = {
+"RESET": SubResource("Animation_6h2sa"),
+"skill_activation": SubResource("Animation_yvy8p")
+}
 
 [node name="HUD" type="CanvasLayer"]
 layer = -1
 script = ExtResource("1_qpqr3")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="HUDBackground" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -111,3 +190,39 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="SkillCardsLayer" type="CanvasLayer" parent="."]
+
+[node name="SkillCard" parent="SkillCardsLayer" instance=ExtResource("7_70hew")]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -175.0
+offset_right = 120.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationSkillCard" parent="SkillCardsLayer" instance=ExtResource("7_70hew")]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -175.0
+offset_right = 120.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_2w26u")
+}

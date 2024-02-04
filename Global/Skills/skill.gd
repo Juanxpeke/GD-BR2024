@@ -1,6 +1,8 @@
 class_name Skill
 extends Resource
 
+const POST_SKILL_ANIMATION_WAIT_TIME : float = 0.2
+
 @export var name : String
 @export var sprite : Texture2D
 @export var sound : AudioStream
@@ -16,6 +18,8 @@ var current_repetitions : int = 0
 # Applies the skill effects
 func apply_effects(caller : Entity) -> void:
 	AudioManager.play_sound(sound)
+	await GameManager.current_match.hud.play_skill_activation(self)
+	await GameManager.get_tree().create_timer(POST_SKILL_ANIMATION_WAIT_TIME).timeout
 	
 	for effect in effects:
 		effect.apply(caller)

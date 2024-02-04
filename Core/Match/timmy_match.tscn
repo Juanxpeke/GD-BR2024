@@ -14,6 +14,9 @@ script = ExtResource("1_wckwj")
 metadata/_edit_vertical_guides_ = [246.0]
 metadata/_edit_horizontal_guides_ = [138.0, 510.0]
 
+[node name="HUD" parent="." instance=ExtResource("5_s8276")]
+unique_name_in_owner = true
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
@@ -54,5 +57,3 @@ position = Vector2(576, 636)
 [node name="Timmy" parent="Entities" instance=ExtResource("4_3nsa5")]
 position = Vector2(576, 12)
 rotation = 3.14159
-
-[node name="HUD" parent="." instance=ExtResource("5_s8276")]

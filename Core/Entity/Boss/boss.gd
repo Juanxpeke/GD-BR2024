@@ -1,9 +1,9 @@
 class_name Boss
 extends Entity
 
-const INITIAL_WAIT_TIME : float = 0.4
-const POST_ACTIVE_WAIT_TIME : float = 0.5
-const POST_SKILL_WAIT_TIME : float = 0.5
+const INITIAL_WAIT_TIME : float = 0.6
+const POST_ACTIVE_WAIT_TIME : float = 0.8
+const POST_SKILL_WAIT_TIME : float = 0.8
 
 @export var boss_active : BossActive
 
@@ -15,7 +15,7 @@ const POST_SKILL_WAIT_TIME : float = 0.5
 func _ready() -> void:
 	super()
 	
-	# hand.hide()
+	hand.hide()
 	
 	GameManager.set_boss(self)
 
@@ -35,9 +35,10 @@ func _on_turn_ended() -> void:
 		var best_skill_play = get_best_skill_play()
 		
 		while best_skill_play != null:
-			best_skill_play.execute()
+			await best_skill_play.execute()
+			await get_tree().create_timer(POST_SKILL_WAIT_TIME).timeout
+			
 			best_skill_play = get_best_skill_play()
-			await get_tree().create_timer(POST_SKILL_WAIT_TIME)
 		
 		# World play logic
 		get_best_world_play().execute()

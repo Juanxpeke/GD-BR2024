@@ -19,4 +19,4 @@ func _init(owner : Entity, skill_index : int) -> void:
 
 # Executes the play
 func execute() -> void:
-	owner.handle_skill_activation(skill_index)
+	await owner.handle_skill_activation(skill_index)

@@ -106,7 +106,7 @@ func get_mana_priority(mana_type : GameManager.ManaType) -> float:
 		var skill_left_cost = get_skill_left_cost(skill)
 		assert(skill_left_cost != 0, "Entity free skill was not activated")
 		
-		if skill.manas_needed[mana_type] > 0:
+		if skill.manas_needed[mana_type] - current_manas[mana_type] > 0:
 			var skill_priority_factor = 1.0 / skill_left_cost
 			mana_priority = max(mana_priority, skill.get_priority() * skill_priority_factor)
 	
@@ -170,9 +170,9 @@ func handle_skill_activation(skill_index : int) -> void:
 	for mana_consumption_call in mana_consumption_calls:
 		mana_consumption_call.call()
 	
-	skill.apply_effects(self)
-	
 	remove_current_skill(skill)
+	
+	await skill.apply_effects(self)
 
 #endregion Skills
 

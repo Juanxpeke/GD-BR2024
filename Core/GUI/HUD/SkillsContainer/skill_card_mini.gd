@@ -18,7 +18,9 @@ func _ready() -> void:
 
 # Called on any input within this control node
 func _gui_input(event: InputEvent) -> void:
-	if not GameManager.current_match.is_turn_owner(GameManager.current_player) or GameManager.frozen:
+	if not GameManager.current_match.is_turn_owner(GameManager.current_player) or \
+			GameManager.current_boss == entity or \
+			GameManager.frozen:
 		return
 	
 	if event.is_action_pressed("left_click"):
@@ -26,11 +28,12 @@ func _gui_input(event: InputEvent) -> void:
 
 # Called when the mouse enters the mini card
 func _on_mouse_entered() -> void:
-	pass
+	GameManager.current_match.hud.skill_card.set_skill(entity.current_skills[skill_index])
+	GameManager.current_match.hud.skill_card.show()
 
 # Called when the mouse exits the mini card
 func _on_mouse_exited() -> void:
-	pass
+	GameManager.current_match.hud.skill_card.hide()
 
 # Updates this mini card layout
 func _update_layout() -> void:
