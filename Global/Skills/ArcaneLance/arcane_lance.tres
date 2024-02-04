@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Global/Skills/Effects/damage_effect.gd" id="1_hgmgs"]
 [ext_resource type="Script" path="res://Global/Skills/skill.gd" id="2_sf3sj"]
-[ext_resource type="AudioStream" uid="uid://cf26slqdehuac" path="res://Global/Skills/ArcaneLance/arcane_lance.wav" id="3_bfoup"]
-[ext_resource type="Texture2D" uid="uid://bpv5jd3gi702k" path="res://Global/Skills/ArcaneLance/arcane_lance.png" id="4_lxbbj"]
+[ext_resource type="AudioStream" uid="uid://dksirowhfnde7" path="res://Global/Skills/ArcaneLance/arcane_lance.wav" id="3_bfoup"]
+[ext_resource type="Texture2D" uid="uid://bupmousxr7lcd" path="res://Global/Skills/ArcaneLance/arcane_lance.png" id="4_lxbbj"]
 
 [sub_resource type="Resource" id="Resource_xj6sc"]
 script = ExtResource("1_hgmgs")
@@ -14,7 +14,7 @@ script = ExtResource("2_sf3sj")
 name = "Arcane Lance"
 sprite = ExtResource("4_lxbbj")
 sound = ExtResource("3_bfoup")
-description = "Deals {effect}{0, icon} {effect}{0, value} of damage to the enemy"
+description = "Deals {effect}{0, icon} {effect}{0, value}  damage to the enemy"
 effects = Array[Resource("res://Global/Skills/Effects/effect.gd")]([SubResource("Resource_xj6sc")])
 manas_needed = Array[int]([1, 0, 0, 0])
 maximum_repetitions = -1

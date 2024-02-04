@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Global/Skills/Effects/damage_effect.gd" id="1_vto0g"]
 [ext_resource type="Script" path="res://Global/Skills/skill.gd" id="1_yhq3d"]
-[ext_resource type="Texture2D" uid="uid://dpgxdhihbuk2l" path="res://Global/Skills/BlackHole/black_hole.png" id="3_1cqia"]
-[ext_resource type="AudioStream" uid="uid://vk57se0l8qdy" path="res://Global/Skills/BlackHole/black_hole.wav" id="3_77sef"]
+[ext_resource type="Texture2D" uid="uid://beg2fyybkigof" path="res://Global/Skills/BlackHole/black_hole.png" id="3_1cqia"]
+[ext_resource type="AudioStream" uid="uid://dbli024l160l0" path="res://Global/Skills/BlackHole/black_hole.wav" id="3_77sef"]
 
 [sub_resource type="Resource" id="Resource_cphgy"]
 script = ExtResource("1_vto0g")
@@ -14,7 +14,7 @@ script = ExtResource("1_yhq3d")
 name = "Black Hole"
 sprite = ExtResource("3_1cqia")
 sound = ExtResource("3_77sef")
-description = "Deals {effect}{0, icon} {effect}{0, value} of damage to the enemy"
+description = "Deals {effect}{0, icon} {effect}{0, value} damage to the enemy"
 effects = Array[Resource("res://Global/Skills/Effects/effect.gd")]([SubResource("Resource_cphgy")])
 manas_needed = Array[int]([0, 0, 2, 0])
 maximum_repetitions = -1

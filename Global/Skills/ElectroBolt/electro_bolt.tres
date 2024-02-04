@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Global/Skills/skill.gd" id="1_tejvf"]
 [ext_resource type="Script" path="res://Global/Skills/Effects/damage_effect.gd" id="1_u6exw"]
-[ext_resource type="Texture2D" uid="uid://b5vpnth4c3ikv" path="res://Global/Skills/ElectroBolt/electro_bolt.png" id="2_5i6yv"]
-[ext_resource type="AudioStream" uid="uid://c8axqcv1mfeoq" path="res://Global/Skills/ElectroBolt/electro_bolt.wav" id="3_mxtp1"]
+[ext_resource type="Texture2D" uid="uid://c0fq7h7awvagu" path="res://Global/Skills/ElectroBolt/electro_bolt.png" id="2_5i6yv"]
+[ext_resource type="AudioStream" uid="uid://ceyy187jc36kl" path="res://Global/Skills/ElectroBolt/electro_bolt.wav" id="3_mxtp1"]
 
 [sub_resource type="Resource" id="Resource_jdr8s"]
 script = ExtResource("1_u6exw")
@@ -14,7 +14,7 @@ script = ExtResource("1_tejvf")
 name = "Electro Bolt"
 sprite = ExtResource("2_5i6yv")
 sound = ExtResource("3_mxtp1")
-description = "Deals {effect}{0, icon} {effect}{0, value} of damage to the enemy"
+description = "Deals {effect}{0, icon} {effect}{0, value} damage to the enemy"
 effects = Array[Resource("res://Global/Skills/Effects/effect.gd")]([SubResource("Resource_jdr8s")])
 manas_needed = Array[int]([0, 1, 0, 0])
 maximum_repetitions = -1

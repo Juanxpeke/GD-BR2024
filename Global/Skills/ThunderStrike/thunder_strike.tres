@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Global/Skills/skill.gd" id="1_gcvuf"]
 [ext_resource type="Script" path="res://Global/Skills/Effects/damage_effect.gd" id="1_okqtn"]
-[ext_resource type="Texture2D" uid="uid://b4l3oltvyhanc" path="res://Global/Skills/ThunderStrike/thunder_strike.png" id="2_skxee"]
-[ext_resource type="AudioStream" uid="uid://dissbyoku4owg" path="res://Global/Skills/ThunderStrike/thunder_strike.wav" id="3_ill2i"]
+[ext_resource type="Texture2D" uid="uid://bj4kh0ulkb7ot" path="res://Global/Skills/ThunderStrike/thunder_strike.png" id="2_skxee"]
+[ext_resource type="AudioStream" uid="uid://b6258784g8t0s" path="res://Global/Skills/ThunderStrike/thunder_strike.wav" id="3_ill2i"]
 
 [sub_resource type="Resource" id="Resource_mw21p"]
 script = ExtResource("1_okqtn")
@@ -14,7 +14,7 @@ script = ExtResource("1_gcvuf")
 name = "Thunder Strike"
 sprite = ExtResource("2_skxee")
 sound = ExtResource("3_ill2i")
-description = "Deals {effect}{0, icon} {effect}{0, value} of damage to the enemy"
+description = "Deals {effect}{0, icon} {effect}{0, value} damage to the enemy"
 effects = Array[Resource("res://Global/Skills/Effects/effect.gd")]([SubResource("Resource_mw21p")])
 manas_needed = Array[int]([0, 2, 0, 0])
 maximum_repetitions = -1

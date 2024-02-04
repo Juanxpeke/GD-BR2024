@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Global/Skills/skill.gd" id="1_dlyim"]
 [ext_resource type="Script" path="res://Global/Skills/Effects/TemporalEffects/regeneration_effect.gd" id="1_r1r0m"]
-[ext_resource type="Texture2D" uid="uid://qjchuastde10" path="res://Global/Skills/FireMoon/fire_moon.png" id="2_3uw33"]
-[ext_resource type="AudioStream" uid="uid://brouo7qoq2tlf" path="res://Global/Skills/MagmaThrow/magma_throw.wav" id="3_qlv4p"]
+[ext_resource type="Texture2D" uid="uid://c30bkgfry32wb" path="res://Global/Skills/FireMoon/fire_moon.png" id="2_3uw33"]
+[ext_resource type="AudioStream" uid="uid://cbaotuowup1yt" path="res://Global/Skills/MagmaThrow/magma_throw.wav" id="3_qlv4p"]
 
 [sub_resource type="Resource" id="Resource_qr373"]
 script = ExtResource("1_r1r0m")
