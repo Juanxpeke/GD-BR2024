@@ -5,7 +5,7 @@ extends Effect
 
 # Constructor
 func _init() -> void:
-	icon = load("res://Global/Skills/Effects/damage_effect_icon.png")
+	icon = load("res://Global/Skills/Effects/destroy_domino_effect_icon.png")
 
 
 # Public

@@ -18,7 +18,7 @@ var skills = [
 	# Arcane & Dark
 	load("res://Global/Skills/ManaPoison/mana_poison.tres"),
 	# Arcane & Inferno
-	load("res://Global/Skills/RevitalizingFire/revitalizing_fire.tres"),
+	load("res://Global/Skills/Revitalize/revitalize.tres"),
 	# Nature & Dark
 	load("res://Global/Skills/PoolOfPoison/pool_of_poison.tres"),
 	# Nature & Inferno
