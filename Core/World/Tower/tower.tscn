@@ -28,12 +28,13 @@ indicator_texture = ExtResource("3_fl8vd")
 [node name="CollisionShape" type="CollisionShape2D" parent="BlockedAreaComponent"]
 shape = SubResource("RectangleShape2D_8kng7")
 
-[node name="TowerChains" parent="." node_paths=PackedStringArray("tower") instance=ExtResource("6_b10md")]
-visible = false
-tower = NodePath("..")
-chained_sprite = ExtResource("7_5uetd")
-unchained_sprite = ExtResource("8_qc8t1")
-
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 scale = Vector2(2, 2)
+
+[node name="TowerChains" parent="." node_paths=PackedStringArray("tower") instance=ExtResource("6_b10md")]
+visible = false
+scale = Vector2(2, 2)
+tower = NodePath("..")
+chained_sprite = ExtResource("7_5uetd")
+unchained_sprite = ExtResource("8_qc8t1")

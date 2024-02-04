@@ -64,6 +64,7 @@ func _on_turn_ended() -> void:
 func _on_domino_placed(domino : Domino, entity : Entity) -> void:
 	if chains_duration > 0 and entity == GameManager.current_player:
 		GameManager.current_match.end_turn()
+		return
 	
 	AudioManager.play_sound(place_domino_sound, false, 0.2)
 	extractions += 1
