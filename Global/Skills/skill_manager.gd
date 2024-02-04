@@ -21,6 +21,7 @@ var skills = [
 	# Nature & Dark
 	load("res://Global/Skills/PoolOfPoison/pool_of_poison.tres"),
 	# Nature & Inferno
+	load("res://Global/Skills/FireMoon/fire_moon.tres"),
 	# Inferno & Dark
 ]
 
