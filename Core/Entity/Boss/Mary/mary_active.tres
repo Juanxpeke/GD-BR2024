@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BossActive" load_steps=2 format=3 uid="uid://bmnmg0fw7fwg4"]
+
+[ext_resource type="Script" path="res://Core/Entity/Boss/boss_active.gd" id="1_k486q"]
+
+[resource]
+script = ExtResource("1_k486q")
+animation_name = "cast"
+cooldown = 5

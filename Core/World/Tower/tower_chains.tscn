@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg3o2peo3b2yr"]
+
+[ext_resource type="Script" path="res://Core/World/Tower/tower_chains.gd" id="1_j1gyf"]
+
+[node name="TowerChains" type="Sprite2D"]
+script = ExtResource("1_j1gyf")

@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3kbu23fy2cjm"]
+[gd_scene load_steps=10 format=3 uid="uid://b3kbu23fy2cjm"]
 
 [ext_resource type="Script" path="res://Core/World/Tower/tower.gd" id="1_3jabf"]
 [ext_resource type="PackedScene" uid="uid://bi8sd1yy8rmhh" path="res://Core/World/Placement/static_placement_component.tscn" id="2_5thyv"]
 [ext_resource type="Texture2D" uid="uid://jlryjbt7mgau" path="res://icon.svg" id="3_fl8vd"]
 [ext_resource type="PackedScene" uid="uid://dp2sbtwygdtt4" path="res://Core/World/Indicators/ooc_indicator_component.tscn" id="4_38pew"]
 [ext_resource type="PackedScene" uid="uid://5svqcy4l02ge" path="res://Core/World/BackgroundBoard/blocked_area_component.tscn" id="5_q53so"]
+[ext_resource type="PackedScene" uid="uid://bg3o2peo3b2yr" path="res://Core/World/Tower/tower_chains.tscn" id="6_b10md"]
+[ext_resource type="Texture2D" uid="uid://bpvnkf5wt4teb" path="res://Core/World/Tower/TowerSprites/tower_chained.png" id="7_5uetd"]
+[ext_resource type="Texture2D" uid="uid://bt54hjwv130da" path="res://Core/World/Tower/TowerSprites/tower_unchained.png" id="8_qc8t1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8kng7"]
 size = Vector2(96, 96)
@@ -24,6 +27,12 @@ indicator_texture = ExtResource("3_fl8vd")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="BlockedAreaComponent"]
 shape = SubResource("RectangleShape2D_8kng7")
+
+[node name="TowerChains" parent="." node_paths=PackedStringArray("tower") instance=ExtResource("6_b10md")]
+visible = false
+tower = NodePath("..")
+chained_sprite = ExtResource("7_5uetd")
+unchained_sprite = ExtResource("8_qc8t1")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true

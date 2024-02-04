@@ -1,3 +1,155 @@
-[gd_scene format=3 uid="uid://cigvlcm0md3r0"]
+[gd_scene load_steps=23 format=3 uid="uid://cigvlcm0md3r0"]
 
-[node name="Merry" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://blhlb0sx0g14t" path="res://Core/Hand/hand.tscn" id="1_5waoc"]
+[ext_resource type="Script" path="res://Core/Entity/Boss/Mary/mary.gd" id="1_lmy1b"]
+[ext_resource type="Resource" uid="uid://bmnmg0fw7fwg4" path="res://Core/Entity/Boss/Mary/mary_active.tres" id="2_jaipa"]
+[ext_resource type="Texture2D" uid="uid://ephx642vi1ut" path="res://Core/Entity/Boss/Mary/mary_cast.png" id="4_ok6xr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdp85"]
+atlas = ExtResource("4_ok6xr")
+region = Rect2(0, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlryj"]
+atlas = ExtResource("4_ok6xr")
+region = Rect2(128, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbupn"]
+atlas = ExtResource("4_ok6xr")
+region = Rect2(256, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6vox"]
+atlas = ExtResource("4_ok6xr")
+region = Rect2(384, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g74mn"]
+atlas = ExtResource("4_ok6xr")
+region = Rect2(512, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usybd"]
+atlas = ExtResource("4_ok6xr")
+region = Rect2(640, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdtqp"]
+atlas = ExtResource("4_ok6xr")
+region = Rect2(768, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25jip"]
+atlas = ExtResource("4_ok6xr")
+region = Rect2(896, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mw4f"]
+atlas = ExtResource("4_ok6xr")
+region = Rect2(1024, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xssvr"]
+atlas = ExtResource("4_ok6xr")
+region = Rect2(1152, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvifd"]
+atlas = ExtResource("4_ok6xr")
+region = Rect2(1280, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uipqn"]
+atlas = ExtResource("4_ok6xr")
+region = Rect2(1408, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4mn5"]
+atlas = ExtResource("4_ok6xr")
+region = Rect2(1536, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ot6kg"]
+atlas = ExtResource("4_ok6xr")
+region = Rect2(1664, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkfvf"]
+atlas = ExtResource("4_ok6xr")
+region = Rect2(1792, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1bnj"]
+atlas = ExtResource("4_ok6xr")
+region = Rect2(1920, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wq5mq"]
+atlas = ExtResource("4_ok6xr")
+region = Rect2(2048, 0, 128, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gmepo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdp85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlryj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbupn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6vox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g74mn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usybd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdtqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25jip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mw4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xssvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvifd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uipqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4mn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ot6kg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkfvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1bnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wq5mq")
+}],
+"loop": true,
+"name": &"cast",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Mary" type="Node2D"]
+script = ExtResource("1_lmy1b")
+boss_active = ExtResource("2_jaipa")
+health = 16
+
+[node name="Hand" parent="." instance=ExtResource("1_5waoc")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -69)
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_gmepo")
+animation = &"idle"
+autoplay = "idle"
