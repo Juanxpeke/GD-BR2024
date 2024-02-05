@@ -25,15 +25,6 @@ func _on_timer_timeout() -> void:
 	
 	visible_characters += 1
 
-# Called on a input event inside this control node
-func _gui_input(event: InputEvent) -> void:
-	if not cutscene_resource: return
-	
-	if event.is_action_pressed("left_click"):
-		timer.wait_time = cutscene_resource.character_wait_time / 8.0
-	elif event.is_action_released("left_click"):
-		timer.wait_time = cutscene_resource.character_wait_time
-
 
 # Public
 

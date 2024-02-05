@@ -48,6 +48,7 @@ func _on_next_button_pressed() -> void:
 
 # Called when the next button is downed
 func _on_next_button_down() -> void:
+	AudioManager.play_sound(AudioManager.click_sound)
 	cutscene_label.speed_up()
 
 # Called when the next button is upped

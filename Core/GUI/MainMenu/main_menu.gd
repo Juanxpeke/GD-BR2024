@@ -16,6 +16,11 @@ var credits_scene : PackedScene = load("res://Core/GUI/Credits/credits.tscn")
 func _ready() -> void:
 	exit_button.visible = not GameManager.running_on_web()
 	
+	start_game_button.button_down.connect(func(): AudioManager.play_sound(AudioManager.click_sound))
+	tutorial_button.button_down.connect(func(): AudioManager.play_sound(AudioManager.click_sound))
+	credits_button.button_down.connect(func(): AudioManager.play_sound(AudioManager.click_sound))
+	exit_button.button_down.connect(func(): AudioManager.play_sound(AudioManager.click_sound))
+	
 	start_game_button.pressed.connect(_on_start_game_button_pressed)
 	tutorial_button.pressed.connect(_on_tutorial_button_pressed)
 	credits_button.pressed.connect(_on_credits_button_pressed)

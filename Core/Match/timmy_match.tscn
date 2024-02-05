@@ -12,30 +12,31 @@
 [sub_resource type="Resource" id="Resource_6p0o8"]
 script = ExtResource("4_k523d")
 text = "As you joked with your fellow tavern-goers about the preposterous notion that the most powerful wizard in the land would be found in this rathole of a tavern, you felt the door creek ever so slightly..."
-character_wait_time = 0.1
-character_slow_wait_time = 0.8
-slowdown_threshold = 3
+character_wait_time = 0.08
+character_slow_wait_time = 0.64
+slowdown_threshold = 4
 
 [sub_resource type="Resource" id="Resource_1xnx6"]
 script = ExtResource("4_k523d")
 text = "You felt a soft breeze hit your back, and turned around to find the door wide open. A bit confused, you turned around and almost let out an embarrassing yelp when you found a complete stranger sitting in front of you, where before there was no one."
-character_wait_time = 0.1
-character_slow_wait_time = 0.3
+character_wait_time = 0.08
+character_slow_wait_time = 0.64
 slowdown_threshold = 0
 
 [sub_resource type="Resource" id="Resource_1sf1i"]
 script = ExtResource("4_k523d")
 text = "
-The hooded fellow was wearing dusty travel clothes, and had a dangerous air about him. Even though his face was not entirely visible under the hood he wore, you were sure he was looking right at you, and not with a friendly face."
-character_wait_time = 0.1
-character_slow_wait_time = 0.3
+The hooded fellow was wearing dusty travel clothes, and had a dangerous air about him. Even though his face was not entirely visible under the hood he wore, you were sure he was looking right at you, and not with a friendly face.
+"
+character_wait_time = 0.08
+character_slow_wait_time = 0.64
 slowdown_threshold = 0
 
 [sub_resource type="Resource" id="Resource_sjhmx"]
 script = ExtResource("4_k523d")
 text = "[color=f9a31b]\"Master of Mana\"[/color] he said, and a shadowy smile appeared from under his hood [color=f9a31b]\"heh heh, you look like an average wizard to me\"[/color]. Before you could even process the misunderstanding, the playing table in front of you opened up, and the rune dominos were summoned on both sides. The duel had already started. "
-character_wait_time = 0.1
-character_slow_wait_time = 0.3
+character_wait_time = 0.08
+character_slow_wait_time = 0.64
 slowdown_threshold = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqamv"]

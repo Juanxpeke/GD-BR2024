@@ -2,7 +2,9 @@ extends Node
 
 signal sound_played
 
-const MINIMUM_SOUND_DELAY : float = 0.01 
+const MINIMUM_SOUND_DELAY : float = 0.01
+
+static var click_sound : AudioStream = load("res://SFX/click.wav") 
 
 var sounds_queue : Array[AudioStream] = []
 

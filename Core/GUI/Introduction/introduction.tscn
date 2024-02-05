@@ -8,25 +8,25 @@
 [sub_resource type="Resource" id="Resource_e2skg"]
 script = ExtResource("4_pionl")
 text = "
-Among wizards there is a legend that tells of a being so powerful that the very essence of mana bends at its feet, a sorcerer of such talents that lords and even gods tremble in their presence. When the MASTER OF MANA sits at the other side of your table, defeat is an absolute certainty. 
+Among wizards there is a legend that tells of a being so powerful that the very essence of mana bends at its feet, a sorcerer of such talents that lords and even gods tremble in their presence. When the [shake rate=20.0 level=5 connected=1]MASTER OF MANA[/shake] sits at the other side of your table, defeat is an absolute certainty. 
 "
-character_wait_time = 0.1
-character_slow_wait_time = 0.3
+character_wait_time = 0.08
+character_slow_wait_time = 0.64
 slowdown_threshold = 0
 
 [sub_resource type="Resource" id="Resource_tgaxj"]
 script = ExtResource("4_pionl")
 text = "Despite that, wizards, rogues, warriors, and adventurers of all kinds, being the prideful people that they are, seek The Master in order to claim the most grandiose victory of all, victory against the invincible. The Master is elusive though, and very few even manage to find them...
 "
-character_wait_time = 0.1
-character_slow_wait_time = 0.3
-slowdown_threshold = 3
+character_wait_time = 0.08
+character_slow_wait_time = 0.64
+slowdown_threshold = 4
 
 [sub_resource type="Resource" id="Resource_hyaa0"]
 script = ExtResource("4_pionl")
 text = "That's why you were quite perplexed when, sitting at the tavern, looking to have a good time after a long day of spellcasting, you heard of a group of adventurers who were seeking The Master of Mana in these parts."
-character_wait_time = 0.1
-character_slow_wait_time = 0.3
+character_wait_time = 0.08
+character_slow_wait_time = 0.64
 slowdown_threshold = 0
 
 [node name="Introduction" type="Control"]
