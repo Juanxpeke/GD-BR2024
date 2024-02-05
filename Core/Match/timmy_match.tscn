@@ -33,7 +33,7 @@ slowdown_threshold = 0
 
 [sub_resource type="Resource" id="Resource_sjhmx"]
 script = ExtResource("4_k523d")
-text = "[color=f9a31b]\"Master of Mana\"[/color] he said, and a shadowy smile appeared from under his hood [f9a31b]\"heh heh, you look like an average wizard to me\"[/color]. Before you could even process the misunderstanding, the playing table in front of you opened up, and the rune dominos were summoned on both sides. The duel had already started. "
+text = "[color=f9a31b]\"Master of Mana\"[/color] he said, and a shadowy smile appeared from under his hood [color=f9a31b]\"heh heh, you look like an average wizard to me\"[/color]. Before you could even process the misunderstanding, the playing table in front of you opened up, and the rune dominos were summoned on both sides. The duel had already started. "
 character_wait_time = 0.1
 character_slow_wait_time = 0.3
 slowdown_threshold = 0
