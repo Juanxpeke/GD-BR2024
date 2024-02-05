@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp5imlahteqvf"]
+[gd_scene load_steps=4 format=3 uid="uid://cp5imlahteqvf"]
 
 [ext_resource type="Script" path="res://Core/GUI/Credits/credits.gd" id="1_6l2pm"]
-[ext_resource type="Texture2D" uid="uid://bw6ugueaguyti" path="res://Assets/BrickTextures/Brickwall5_Texture.png" id="1_ths00"]
+[ext_resource type="Texture2D" uid="uid://c42k23rykaocg" path="res://Core/GUI/MainMenu/main_menu_background.png" id="2_31qq7"]
+[ext_resource type="Texture2D" uid="uid://bmkf0mlwjx5h2" path="res://Core/GUI/Tutorial/tutorial_borders.png" id="3_sgivt"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -12,51 +13,61 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6l2pm")
 
-[node name="Background" type="NinePatchRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.0627451, 0.0627451, 0.0627451, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_ths00")
+texture = ExtResource("2_31qq7")
+expand_mode = 1
+stretch_mode = 1
+flip_v = true
 
-[node name="MarginContainer" type="MarginContainer" parent="Background"]
+[node name="Borders" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_sgivt")
+expand_mode = 1
+flip_v = true
+
+[node name="ExitButton" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -89.0
+offset_top = 37.0
+offset_right = -39.0
+offset_bottom = 77.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+text = "X
+"
+
+[node name="Label" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(700, 190)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -387.905
-offset_top = -292.25
-offset_right = 387.905
-offset_bottom = 243.75
+offset_left = -387.5
+offset_top = -247.0
+offset_right = 387.5
+offset_bottom = 247.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_vertical = 4
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="Background/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="ExitButton" type="Button" parent="Background/MarginContainer/VBoxContainer2"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 25)
-layout_mode = 2
-size_flags_horizontal = 8
-text = "X
-"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_constants/separation = 40
-
-[node name="Label" type="RichTextLabel" parent="Background/MarginContainer/VBoxContainer2/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(700, 190)
-layout_mode = 2
 size_flags_vertical = 8
 bbcode_enabled = true
 text = "[center][color=#d0ffea]Credits[/color]
@@ -74,7 +85,7 @@ Sound Designer
 Voice Actor
 
 [color=#fcf7be]Testing team[/color]
-	Polarisu						Cazuela Cosmica
+Polarisu   		      Cazuela Cosmica
 Juke Me						Sebac720
 [color=#42bfe8]Assets[/color]
 actuallyKron (480+ Domino Assets)						

@@ -5,6 +5,8 @@ signal turn_ended
 
 @export var next_scene : PackedScene
 
+const MUSIC_REPETITION_WAIT_TIME : float = 20.0
+
 static var match_music : AudioStream = load("res://Core/Match/match_music.wav")
 static var skill_swapping_sound : AudioStream = load("res://SFX/skill_swapping.wav")
 
@@ -33,9 +35,8 @@ func _on_cutscene_component_finished() -> void:
 	AudioManager.play_music(match_music)
 	AudioManager.music_stream_player.finished.connect(
 		func():
-			await get_tree().create_timer(GameManager.rng.randf_range(10.0, 60.0)).timeout
-			AudioManager.play_music(match_music)
-	)
+			await get_tree().create_timer(MUSIC_REPETITION_WAIT_TIME).timeout
+			AudioManager.play_music(match_music))
 	
 # Called when the mouse enters the world viewport container
 func _on_world_viewport_container_mouse_entered() -> void:

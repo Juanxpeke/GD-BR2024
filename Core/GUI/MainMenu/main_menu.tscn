@@ -13,7 +13,6 @@ grow_vertical = 2
 script = ExtResource("1_enann")
 
 [node name="Background" type="TextureRect" parent="."]
-texture_repeat = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,13 +31,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -370.5
-offset_top = -185.0
-offset_right = 370.5
-offset_bottom = -83.0
+offset_left = -421.5
+offset_top = -196.5
+offset_right = 421.5
+offset_bottom = -69.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 128
+theme_override_font_sizes/normal_font_size = 160
 bbcode_enabled = true
 text = "[center][color=fff]MASTER OF MANA[/color][/center]"
 fit_content = true

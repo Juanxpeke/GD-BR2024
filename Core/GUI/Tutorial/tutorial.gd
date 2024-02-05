@@ -12,9 +12,14 @@ var current_panel : int = 0
 
 #Private
 func _ready() -> void:
+	previous_button.button_down.connect(func(): AudioManager.play_sound(AudioManager.click_sound))
+	next_button.button_down.connect(func(): AudioManager.play_sound(AudioManager.click_sound))
+	exit_button.button_down.connect(func(): AudioManager.play_sound(AudioManager.click_sound))
+	
 	previous_button.pressed.connect(set_previous_panel)
 	next_button.pressed.connect(set_next_panel)
 	exit_button.pressed.connect(close_tutorial)
+	
 	_init_node()
 
 func _init_node() -> void:

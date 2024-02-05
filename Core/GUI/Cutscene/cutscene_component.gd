@@ -21,10 +21,11 @@ func _ready() -> void:
 	
 	cutscene_label.text_typing_finished.connect(_on_text_typing_finished)
 	
-	next_button.pressed.connect(_on_next_button_pressed)
 	next_button.button_down.connect(_on_next_button_down)
 	next_button.button_up.connect(_on_next_button_up)
+	next_button.pressed.connect(_on_next_button_pressed)
 	
+	close_button.button_down.connect(func(): AudioManager.play_sound(AudioManager.click_sound))
 	close_button.pressed.connect(_on_close_button_pressed)
 	
 	if auto_start:
