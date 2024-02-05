@@ -1,6 +1,7 @@
 class_name HUD
 extends CanvasLayer
 
+@onready var mute_music_button := %MuteMusicButton
 @onready var player_interface := %PlayerInterface
 @onready var boss_interface := %BossInterface
 @onready var skill_card := %SkillCard
@@ -15,12 +16,20 @@ func _ready() -> void:
 	animation_skill_card.hide()
 	
 	GameManager.match_setted.connect(_on_match_setted)
+	
+	mute_music_button.toggled.connect(_on_mute_music_button_toggled)
 
 # Called when the game match is setted
 func _on_match_setted() -> void:
 	player_interface.set_entity(GameManager.current_player)
 	boss_interface.set_entity(GameManager.current_boss)
 
+# Called when the mute music button is toggled
+func _on_mute_music_button_toggled(toggled_on : bool) -> void:
+	if toggled_on:
+		AudioManager.stop_music()
+	else:
+		AudioManager.play_music(Match.match_music)
 
 # Public
 

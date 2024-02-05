@@ -56,6 +56,7 @@ metadata/_edit_horizontal_guides_ = [138.0, 510.0]
 unique_name_in_owner = true
 
 [node name="CutsceneComponent" parent="." instance=ExtResource("3_wqfcl")]
+unique_name_in_owner = true
 cutscene_resources = Array[ExtResource("4_fnsbr")]([SubResource("Resource_4mg4c"), SubResource("Resource_uik1c"), SubResource("Resource_p07jw"), SubResource("Resource_ixgdo"), SubResource("Resource_2ede4")])
 
 [node name="PanelContainer" type="PanelContainer" parent="."]

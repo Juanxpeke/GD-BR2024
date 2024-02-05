@@ -3,6 +3,7 @@ extends Node
 
 signal turn_ended
 
+static var match_music : AudioStream = load("res://Core/Match/match_music.wav")
 static var skill_swapping_sound : AudioStream = load("res://SFX/skill_swapping.wav")
 
 var turn : int = 0
@@ -10,14 +11,26 @@ var turn : int = 0
 @onready var world_viewport_container : SubViewportContainer = %WorldViewportContainer
 @onready var entities : Node2D = %Entities
 @onready var hud : HUD = %HUD
+@onready var cutscene_component : CutsceneComponent = %CutsceneComponent
 
 # Private
 
 # Called when the node enters the scene tree for the first time
 func _ready() -> void:
+	cutscene_component.finished.connect(_on_cutscene_component_finished)
 	world_viewport_container.mouse_entered.connect(_on_world_viewport_container_mouse_entered)
 	world_viewport_container.mouse_exited.connect(_on_world_viewport_container_mouse_exited)
 	GameManager.set_match(self)
+	
+# Called when the cutscene component finishes
+func _on_cutscene_component_finished() -> void:
+	cutscene_component.hide()
+	AudioManager.play_music(match_music)
+	AudioManager.music_stream_player.finished.connect(
+		func():
+			await get_tree().create_timer(GameManager.rng.randf_range(10.0, 60.0)).timeout
+			AudioManager.play_music(match_music)
+	)
 	
 # Called when the mouse enters the world viewport container
 func _on_world_viewport_container_mouse_entered() -> void:

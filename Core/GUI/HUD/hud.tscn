@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://jh607gdfdrer"]
+[gd_scene load_steps=13 format=3 uid="uid://jh607gdfdrer"]
 
 [ext_resource type="Script" path="res://Core/GUI/HUD/hud.gd" id="1_qpqr3"]
 [ext_resource type="Script" path="res://Core/GUI/HUD/entity_interface.gd" id="2_ld556"]
 [ext_resource type="Texture2D" uid="uid://b42ltriordeip" path="res://Core/GUI/HUD/hud_background.png" id="2_xj4la"]
+[ext_resource type="Texture2D" uid="uid://c4mep1sgb4m3t" path="res://Core/GUI/HUD/mute_music_button_normal.png" id="3_0dbj5"]
 [ext_resource type="PackedScene" uid="uid://b7i2ovwmia6ng" path="res://Core/GUI/HUD/SkillsContainer/skills_container.tscn" id="3_6ceub"]
+[ext_resource type="Texture2D" uid="uid://bje6bmyih6k66" path="res://Core/GUI/HUD/mute_music_button_toggled.png" id="4_4ybed"]
 [ext_resource type="PackedScene" uid="uid://d3uccs432dhjc" path="res://Core/GUI/HUD/ManasContainer/manas_container.tscn" id="5_8ujv3"]
 [ext_resource type="PackedScene" uid="uid://cxuaqhfgjlku8" path="res://Core/GUI/HUD/HealthContainer/health_container.tscn" id="5_gf0k0"]
 [ext_resource type="PackedScene" uid="uid://c7fldq4w8f5sm" path="res://Core/GUI/HUD/skill_card.tscn" id="7_70hew"]
@@ -190,6 +192,27 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MuteMusicButton" type="TextureButton" parent="BossInterface"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = -56.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("3_0dbj5")
+texture_pressed = ExtResource("4_4ybed")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="SkillCardsLayer" type="CanvasLayer" parent="."]
 
