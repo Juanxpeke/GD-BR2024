@@ -6,6 +6,7 @@ const POST_ACTIVE_WAIT_TIME : float = 0.8
 const POST_SKILL_WAIT_TIME : float = 0.8
 
 @export var boss_active : BossActive
+@export var boss_active_sound : AudioStream
 
 @onready var sprite : AnimatedSprite2D = %Sprite
 
@@ -28,6 +29,7 @@ func _on_turn_ended() -> void:
 		
 		# Active logic
 		if GameManager.rng.randi_range(0, 1) == 0 and boss_active.current_cooldown == 0:
+			AudioManager.play_sound(boss_active_sound)
 			await boss_active.activate(self)
 			await get_tree().create_timer(POST_ACTIVE_WAIT_TIME).timeout
 			
