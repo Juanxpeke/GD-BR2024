@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TheftActive" load_steps=2 format=3 uid="uid://cxqu6ngv0rvnb"]
+[gd_resource type="Resource" script_class="TheftActive" load_steps=2 format=3 uid="uid://b2mtc7ym0ucsj"]
 
 [ext_resource type="Script" path="res://Core/Entity/Boss/theft_active.gd" id="1_kfi1n"]
 
