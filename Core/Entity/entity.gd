@@ -6,7 +6,7 @@ signal mana_changed(mana_type : GameManager.ManaType)
 signal skills_changed()
 signal dead
 
-@export var health : int = 16
+@export var health : int = 12
 @export var injury_sounds : Array[AudioStream]
 @export var reaction_sounds : Array[AudioStream]
 

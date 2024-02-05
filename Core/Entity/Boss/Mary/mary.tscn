@@ -225,7 +225,7 @@ animations = [{
 script = ExtResource("1_lmy1b")
 boss_active = ExtResource("2_jaipa")
 boss_active_sounds = Array[AudioStream]([ExtResource("3_x86o7"), ExtResource("4_chf4j")])
-health = 12
+health = 10
 injury_sounds = Array[AudioStream]([ExtResource("5_32bev"), ExtResource("6_sdgyy"), ExtResource("7_wc2l0"), ExtResource("8_wrn2b")])
 
 [node name="Hand" parent="." instance=ExtResource("1_5waoc")]
