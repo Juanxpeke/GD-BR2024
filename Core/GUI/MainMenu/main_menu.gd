@@ -2,7 +2,7 @@ class_name MainMenu
 extends Control
 
 var introduction_scene : PackedScene = load("res://Core/GUI/Introduction/introduction.tscn")
-var tutorial_scene : PackedScene = load("res://Core/GUI/Tutorial/tutorial_x.tscn")
+var tutorial_scene : PackedScene = load("res://Core/GUI/Tutorial/tutorial.tscn")
 var credits_scene : PackedScene = load("res://Core/GUI/Credits/credits.tscn")
 
 @onready var start_game_button := %StartGameButton
