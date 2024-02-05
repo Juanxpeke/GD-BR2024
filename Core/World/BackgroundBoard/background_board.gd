@@ -119,7 +119,9 @@ func get_free_region_center(N : int, M : int) -> Vector2:
 			break
 		
 		assert(i < free_cells.size() - 1, 'Not found free region of %d x %d in background board' % [N, M])
-	
+	print(region.origin)
+	print(region.N)
+	print(region.M)
 	return region.get_center_position()
 
 # Returns true if the given region is free in the world
@@ -181,7 +183,9 @@ class Region:
 	
 	# Gets the region center position
 	func get_center_position() -> Vector2:
-		var origin_top_left = GameManager.current_background_board.get_cell_top_leftp(origin)
+		var origin_top_left = GameManager.current_background_board.get_cell_top_left(origin)
 		var center_x = origin_top_left.x + M * Domino.SPRITE_WIDTH * 0.5
 		var center_y = origin_top_left.y + N * Domino.SPRITE_WIDTH * 0.5
+		print(origin_top_left)
+		print(origin)
 		return Vector2(center_x, center_y)
