@@ -34,6 +34,7 @@ func _on_match_setted() -> void:
 
 # Called when the current turn ends
 func _on_turn_ended() -> void:
+	print("turnended")
 	_refill_current_skills()
 	
 	if GameManager.frozen: await GameManager.being_unfrozen
@@ -65,7 +66,7 @@ func get_current_health() -> int:
 func set_current_health(amount : int) -> void:
 	current_health = clamp(amount, 0, health)
 	health_changed.emit()
-	
+	dead.emit() # TODO: Delete this after debug
 	if current_health == 0:
 		dead.emit()
 

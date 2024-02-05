@@ -30,6 +30,8 @@ func _on_match_setted() -> void:
 # Called when a turn ends
 func _on_turn_ended() -> void:
 	# The previous turn owner ended its turn without passing
+	if !GameManager.current_match:
+		return
 	if not previous_turn_passed[GameManager.current_match.get_previous_turn_owner().name]:
 		accumulated_passes[GameManager.current_match.get_previous_turn_owner().name] = 0
 	

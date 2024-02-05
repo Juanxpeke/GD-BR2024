@@ -56,6 +56,8 @@ func _on_match_setted() -> void:
 
 # Called when the current turn ends
 func _on_turn_ended() -> void:
+	if !GameManager.current_match:
+		return
 	if GameManager.current_match.turn % 2 == 0:
 		chains_duration = max(chains_duration - 1, 0)
 	chains_duration_changed.emit()

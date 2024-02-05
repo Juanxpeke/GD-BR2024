@@ -3,10 +3,13 @@ extends Node
 
 signal turn_ended
 
+@export var next_scene : PackedScene
+
 static var match_music : AudioStream = load("res://Core/Match/match_music.wav")
 static var skill_swapping_sound : AudioStream = load("res://SFX/skill_swapping.wav")
 
 var turn : int = 0
+var loss_screen : PackedScene = load("res://Core/GUI/LossScreen/loss_screen.tscn")
 
 @onready var world_viewport_container : SubViewportContainer = %WorldViewportContainer
 @onready var entities : Node2D = %Entities
@@ -20,6 +23,8 @@ func _ready() -> void:
 	cutscene_component.finished.connect(_on_cutscene_component_finished)
 	world_viewport_container.mouse_entered.connect(_on_world_viewport_container_mouse_entered)
 	world_viewport_container.mouse_exited.connect(_on_world_viewport_container_mouse_exited)
+	GameManager.current_player.dead.connect(player_lose)
+	GameManager.current_boss.dead.connect(player_win)
 	GameManager.set_match(self)
 	
 # Called when the cutscene component finishes
@@ -44,6 +49,25 @@ func _on_world_viewport_container_mouse_exited() -> void:
 	
 	GameManager.current_player.grabbed_domino.reparent(GameManager.current_player.hand.dominoes, false)
 
+
+
+# Called when the opponent loses the game
+func player_win() -> void:
+	print("connected")
+	for connection in turn_ended.get_connections():
+		turn_ended.disconnect(connection.callable)
+	print("disconnected")
+	get_tree().change_scene_to_packed(next_scene)
+	GameManager.current_match = null
+
+# Called when the player loses the game
+func player_lose() -> void:
+	print("connected")
+	for connection in turn_ended.get_connections():
+		turn_ended.disconnect(connection.callable)
+	print("disconnected")
+	get_tree().change_scene_to_packed(loss_screen)
+	GameManager.current_match = null
 
 # Public
 

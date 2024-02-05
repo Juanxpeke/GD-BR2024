@@ -38,6 +38,8 @@ func _on_turn_ended() -> void:
 		
 		while best_skill_play != null:
 			await best_skill_play.execute()
+			if !get_tree():
+				return
 			await get_tree().create_timer(POST_SKILL_WAIT_TIME).timeout
 			
 			best_skill_play = get_best_skill_play()

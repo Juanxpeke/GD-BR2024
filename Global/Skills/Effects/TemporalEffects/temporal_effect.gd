@@ -19,6 +19,10 @@ func _on_match_setted() -> void:
 
 # Called when the current turn ends
 func _on_turn_ended() -> void:
+	if !GameManager.current_match:
+		activations = []
+		return
+
 	if GameManager.current_match.turn % 2 == 1:
 		return
 	

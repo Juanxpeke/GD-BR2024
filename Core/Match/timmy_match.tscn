@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://c0o2nke3j8sgy"]
+[gd_scene load_steps=14 format=3 uid="uid://c0o2nke3j8sgy"]
 
 [ext_resource type="Script" path="res://Core/Match/match.gd" id="1_wckwj"]
+[ext_resource type="PackedScene" uid="uid://dt7dn0kgtp5yj" path="res://Core/Match/mary_match.tscn" id="2_5xw6i"]
 [ext_resource type="PackedScene" uid="uid://jqq8ueul6hen" path="res://Core/World/world.tscn" id="2_xbwb8"]
 [ext_resource type="PackedScene" uid="uid://c44laowkuxfc4" path="res://Core/Entity/Player/player.tscn" id="3_1pckf"]
 [ext_resource type="PackedScene" uid="uid://clu2r6usspr4j" path="res://Core/GUI/Cutscene/cutscene_component.tscn" id="3_qq2rj"]
@@ -43,6 +44,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Match" type="Node"]
 script = ExtResource("1_wckwj")
+next_scene = ExtResource("2_5xw6i")
 metadata/_edit_vertical_guides_ = [246.0]
 metadata/_edit_horizontal_guides_ = [138.0, 510.0]
 

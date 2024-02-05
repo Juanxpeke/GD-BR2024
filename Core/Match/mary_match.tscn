@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://dt7dn0kgtp5yj"]
+[gd_scene load_steps=15 format=3 uid="uid://dt7dn0kgtp5yj"]
 
 [ext_resource type="Script" path="res://Core/Match/match.gd" id="1_yn3rn"]
 [ext_resource type="PackedScene" uid="uid://jh607gdfdrer" path="res://Core/GUI/HUD/hud.tscn" id="2_k58a6"]
+[ext_resource type="PackedScene" uid="uid://c28basntku3e0" path="res://Core/Match/bob_match.tscn" id="2_yawtw"]
 [ext_resource type="PackedScene" uid="uid://clu2r6usspr4j" path="res://Core/GUI/Cutscene/cutscene_component.tscn" id="3_0fqp1"]
 [ext_resource type="PackedScene" uid="uid://jqq8ueul6hen" path="res://Core/World/world.tscn" id="3_40e6g"]
 [ext_resource type="Script" path="res://Core/GUI/Cutscene/cutscene_resource.gd" id="4_h3tn7"]
@@ -48,6 +49,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Match" type="Node"]
 script = ExtResource("1_yn3rn")
+next_scene = ExtResource("2_yawtw")
 metadata/_edit_vertical_guides_ = [246.0]
 metadata/_edit_horizontal_guides_ = [138.0, 510.0]
 
