@@ -14,21 +14,21 @@ slowdown_threshold = 0
 
 [sub_resource type="Resource" id="Resource_evjn5"]
 script = ExtResource("3_b8uj3")
-text = " You went outside for a moment to catch the evening air, and heard a strange voice beside you. [color=cdf7e2]“Fun, isn’t it? Winning duels, gaining glory? It was fun for me too, once upon a time.”[/color]"
+text = " You went outside for a moment to catch the evening air, and heard a strange voice beside you. [color=cdf7e2]“Fun, isn't it? Winning duels, gaining glory? It was fun for me too, once upon a time.”[/color]"
 character_wait_time = 0.1
 character_slow_wait_time = 0.004
 slowdown_threshold = 8
 
 [sub_resource type="Resource" id="Resource_rvuoc"]
 script = ExtResource("3_b8uj3")
-text = "You looked to your side and saw a small creature dressed in many robes, all of different colors, and felt the hairs of your arms stand up, charged with pure magic. [color=cdf7e2]“Nowadays, I wish I could spend more time just looking at the moon. That’s why I’m here.”[/color]"
+text = "You looked to your side and saw a small creature dressed in many robes, all of different colors, and felt the hairs of your arms stand up, charged with pure magic. [color=cdf7e2]“Nowadays, I wish I could spend more time just looking at the moon. That's why I'm here.”[/color]"
 character_wait_time = 0.1
 character_slow_wait_time = 0.01
 slowdown_threshold = 8
 
 [sub_resource type="Resource" id="Resource_7rs3l"]
 script = ExtResource("3_b8uj3")
-text = "[color=cdf7e2]“You’re already good enough at impersonating me. Wanna try the real thing?”[/color]. They looked at you for a good minute or two as you stood in silence, and when you looked back at them, your eyes said everything. The small being’s robes started twirling, creating a tornado of fabrics, and then they were gone. 
+text = "[color=cdf7e2]“You're already good enough at impersonating me. Wanna try the real thing?”[/color]. They looked at you for a good minute or two as you stood in silence, and when you looked back at them, your eyes said everything. The small being's robes started twirling, creating a tornado of fabrics, and then they were gone. 
 [color=cdf7e2]The Master of Mana was gone.[/color]"
 character_wait_time = 0.1
 character_slow_wait_time = 0.1

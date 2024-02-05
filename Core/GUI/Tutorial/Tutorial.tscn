@@ -14,7 +14,7 @@
 
 [sub_resource type="Resource" id="Resource_qhsx6"]
 script = ExtResource("3_1u2a1")
-panel_text = "[center]In [color=42bfe8]Master of Mana[/color], you are playing a game on a magical table. This table contains an entire world within it, which you have to explore by dragging your mouse. It’s through this world that you will acquire power with which you have to defeat your opponent by reducing their life total to 0. If instead, your life total reaches 0 before theirs, you will [color=#060608]lose the game. "
+panel_text = "[center]In [color=42bfe8]Master of Mana[/color], you are playing a game on a magical table. This table contains an entire world within it, which you have to explore by dragging your mouse. It's through this world that you will acquire power with which you have to defeat your opponent by reducing their life total to 0. If instead, your life total reaches 0 before theirs, you will [color=#060608]lose the game. "
 panel_image = ExtResource("2_eglue")
 
 [sub_resource type="Resource" id="Resource_q7wy8"]
@@ -31,7 +31,7 @@ panel_image = ExtResource("4_vqq8p")
 script = ExtResource("3_1u2a1")
 panel_text = "[center]To access this mana, you are equipped with powerful [color=#f9a31b]RUNE DOMINOS[/color], summoned from a [color=#f17716]mystical portal[/color] which sits at the middle of the battlefield..
 
-To get mana, the player must drag their [color=#f9a31b]dominos[/color] next to a [color=#f9a31b]domino[/color] in the battlefield that has a matching symbol, connecting the [color=#f9a31b]domino[/color] to the mana well. When the player does this, they will get 1 mana of the corresponding [color=#92dcba]well’s variety[/color]. Once a player plays a [color=#f9a31b]domino, their turn will end immediately.
+To get mana, the player must drag their [color=#f9a31b]dominos[/color] next to a [color=#f9a31b]domino[/color] in the battlefield that has a matching symbol, connecting the [color=#f9a31b]domino[/color] to the mana well. When the player does this, they will get 1 mana of the corresponding [color=#92dcba]well's variety[/color]. Once a player plays a [color=#f9a31b]domino, their turn will end immediately.
 
 "
 panel_image = ExtResource("5_n7aa3")
@@ -55,12 +55,12 @@ panel_image = ExtResource("8_yrcw3")
 
 [sub_resource type="Resource" id="Resource_r3avx"]
 script = ExtResource("3_1u2a1")
-panel_text = "[center]Now, mana is not simply something you can farm to your heart’s content without a care in the world! Sometimes [color=#92dcba]wells will start glowing[/color]. This means the [color=#92dcba]well[/color] is about to become unstable and have a [color=#e86a73]chaos reaction[/color]. The next [color=#f9a31b]domino[/color] placed in this line will cause the [color=#e86a73]reaction[/color], [u]granting an extra mana of the corresponding color[/u] and [color=#a6fcdb]causing the player’s spells to be exchanged![/color] As the game progresses, the [color=#92dcba]wells[/color] will start becoming increasingly unstable, and [color=#e86a73]chaos reactions[/color] will start happening more and more often. Make sure to play around them!"
+panel_text = "[center]Now, mana is not simply something you can farm to your heart's content without a care in the world! Sometimes [color=#92dcba]wells will start glowing[/color]. This means the [color=#92dcba]well[/color] is about to become unstable and have a [color=#e86a73]chaos reaction[/color]. The next [color=#f9a31b]domino[/color] placed in this line will cause the [color=#e86a73]reaction[/color], [u]granting an extra mana of the corresponding color[/u] and [color=#a6fcdb]causing the player's spells to be exchanged![/color] As the game progresses, the [color=#92dcba]wells[/color] will start becoming increasingly unstable, and [color=#e86a73]chaos reactions[/color] will start happening more and more often. Make sure to play around them!"
 panel_image = ExtResource("9_eitua")
 
 [sub_resource type="Resource" id="Resource_haxrb"]
 script = ExtResource("3_1u2a1")
-panel_text = "[center]In the [color=#fa6a0a]boss rush[/color] mode, you will be seated in front of a specially powerful opponent, one of the game’s [color=#fa6a0a]bosses![/color] These enemies have special abilities that might alter the way the game is played, or simply annoy you. Keep your eyes open! 
+panel_text = "[center]In the [color=#fa6a0a]boss rush[/color] mode, you will be seated in front of a specially powerful opponent, one of the game's [color=#fa6a0a]bosses![/color] These enemies have special abilities that might alter the way the game is played, or simply annoy you. Keep your eyes open! 
 
 Well, that is about everything you need to know about [color=42bfe8]the game[/color]. Now it's time to go get them!"
 panel_image = ExtResource("10_orsv4")
@@ -133,7 +133,7 @@ custom_minimum_size = Vector2(700, 190)
 layout_mode = 2
 size_flags_vertical = 8
 bbcode_enabled = true
-text = "[center]In the [color=#fa6a0a]boss rush[/color] mode, you will be seated in front of a specially powerful opponent, one of the game’s [color=#fa6a0a]bosses![/color] These enemies have special abilities that might alter the way the game is played, or simply annoy you. Keep your eyes open! 
+text = "[center]In the [color=#fa6a0a]boss rush[/color] mode, you will be seated in front of a specially powerful opponent, one of the game's [color=#fa6a0a]bosses![/color] These enemies have special abilities that might alter the way the game is played, or simply annoy you. Keep your eyes open! 
 
 Well, that is about everything you need to know about [color]THE GAME. Now it's time to go get them!"
 fit_content = true

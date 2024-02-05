@@ -79,3 +79,17 @@ func unfreeze() -> void:
 	frozen = false
 
 #endregion
+
+#region Misc
+
+# Returns true if the current platform the game is running on is web
+func running_on_web() -> bool:
+	return OS.get_name() == "Web"
+	
+# Quits the game
+func quit_game() -> void:
+	if running_on_web(): return
+	
+	get_tree().quit()
+
+#endregion

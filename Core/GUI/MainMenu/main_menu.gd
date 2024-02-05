@@ -14,6 +14,8 @@ var credits_scene : PackedScene = load("res://Core/GUI/Credits/credits.tscn")
 
 # Called when the node enters the scene tree for the first time
 func _ready() -> void:
+	exit_button.visible = not GameManager.running_on_web()
+	
 	start_game_button.pressed.connect(_on_start_game_button_pressed)
 	tutorial_button.pressed.connect(_on_tutorial_button_pressed)
 	credits_button.pressed.connect(_on_credits_button_pressed)
@@ -35,4 +37,4 @@ func _on_credits_button_pressed() -> void:
 
 # Called when the exit button is pressed
 func _on_exit_button_pressed() -> void:
-	get_tree().quit()
+	GameManager.quit_game()

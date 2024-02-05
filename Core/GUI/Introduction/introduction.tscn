@@ -24,7 +24,7 @@ slowdown_threshold = 6
 
 [sub_resource type="Resource" id="Resource_hyaa0"]
 script = ExtResource("4_pionl")
-text = "That’s why you were quite perplexed when, sitting at the tavern, looking to have a good time after a long day of spellcasting, you heard of a group of adventurers who were seeking The Master of Mana in these parts."
+text = "That's why you were quite perplexed when, sitting at the tavern, looking to have a good time after a long day of spellcasting, you heard of a group of adventurers who were seeking The Master of Mana in these parts."
 character_wait_time = 0.1
 character_slow_wait_time = 0.3
 slowdown_threshold = 0
