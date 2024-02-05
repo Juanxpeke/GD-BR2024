@@ -7,6 +7,7 @@ signal skills_changed()
 signal dead
 
 @export var health : int = 20
+@export var reaction_sounds : Array 
 
 var current_health : int
 var current_manas : Array[int] = []
@@ -74,6 +75,8 @@ func add_current_health(amount : int) -> void:
 
 # Subtract an amount from the current health
 func subtract_current_health(amount : int) -> void:
+	if amount > 0:
+		AudioManager.play_random_sound(reaction_sounds)
 	set_current_health(current_health - amount)
 	# TODO: Floating number and animation logic (apart from skill stuff)
 
