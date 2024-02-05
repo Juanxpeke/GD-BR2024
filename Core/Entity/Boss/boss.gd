@@ -6,7 +6,7 @@ const POST_ACTIVE_WAIT_TIME : float = 0.8
 const POST_SKILL_WAIT_TIME : float = 0.8
 
 @export var boss_active : BossActive
-@export var boss_active_sounds : Array
+@export var boss_active_sounds : Array[AudioStream]
 
 @onready var sprite : AnimatedSprite2D = %Sprite
 

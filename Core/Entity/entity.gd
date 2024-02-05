@@ -6,8 +6,9 @@ signal mana_changed(mana_type : GameManager.ManaType)
 signal skills_changed()
 signal dead
 
-@export var health : int = 20
-@export var reaction_sounds : Array 
+@export var health : int = 16
+@export var injury_sounds : Array[AudioStream]
+@export var reaction_sounds : Array[AudioStream]
 
 var current_health : int
 var current_manas : Array[int] = []
@@ -76,7 +77,7 @@ func add_current_health(amount : int) -> void:
 # Subtract an amount from the current health
 func subtract_current_health(amount : int) -> void:
 	if amount > 0:
-		AudioManager.play_random_sound(reaction_sounds)
+		AudioManager.play_random_sound(injury_sounds)
 	set_current_health(current_health - amount)
 	# TODO: Floating number and animation logic (apart from skill stuff)
 
