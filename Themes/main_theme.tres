@@ -1,14 +1,43 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://f7hxx5p0b4y4"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://f7hxx5p0b4y4"]
 
 [ext_resource type="FontFile" uid="uid://ddsoj3e3t6uud" path="res://Fonts/monogram.ttf" id="1_7s802"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jk1p0"]
+content_margin_left = 4.0
+content_margin_top = 6.0
+content_margin_right = 4.0
+content_margin_bottom = 11.0
+bg_color = Color(0.0196078, 0.0196078, 0.0196078, 1)
+border_width_bottom = 3
+border_color = Color(0.00784314, 0.00784314, 0.00784314, 1)
+expand_margin_top = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mojdy"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 14.0
+bg_color = Color(0.0196078, 0.0196078, 0.0196078, 1)
+border_width_bottom = 4
+border_color = Color(0.00784314, 0.00784314, 0.00784314, 1)
+expand_margin_top = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7iql"]
+content_margin_left = 4.0
+content_margin_top = 6.0
+content_margin_right = 4.0
+content_margin_bottom = 11.0
+bg_color = Color(0.0196078, 0.0196078, 0.0196078, 1)
+border_width_bottom = 3
+border_color = Color(0.00784314, 0.00784314, 0.00784314, 1)
+expand_margin_top = 3.0
 
 [resource]
 default_font = ExtResource("1_7s802")
 default_font_size = 24
 Button/font_sizes/font_size = 32
 Button/styles/focus = null
-Button/styles/hover = null
-Button/styles/normal = null
-Button/styles/pressed = null
+Button/styles/hover = SubResource("StyleBoxFlat_jk1p0")
+Button/styles/normal = SubResource("StyleBoxFlat_mojdy")
+Button/styles/pressed = SubResource("StyleBoxFlat_u7iql")
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/font_sizes/font_size = 24
