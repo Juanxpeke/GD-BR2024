@@ -43,4 +43,5 @@ func _on_next_button_pressed() -> void:
 func start() -> void:
 	show()
 	
-	cutscene_label.set_cutscene_resource(cutscene_resources[current_panel])
+	if not cutscene_resources.is_empty():
+		cutscene_label.set_cutscene_resource(cutscene_resources[current_panel])
