@@ -57,7 +57,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_i8s3i")
 
 [node name="CutsceneLabelContainer" type="PanelContainer" parent="."]
 anchors_preset = -1
-anchor_top = 0.25
+anchor_top = 0.2
 anchor_right = 1.0
 anchor_bottom = 0.75
 offset_left = 72.0
