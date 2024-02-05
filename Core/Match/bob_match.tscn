@@ -47,7 +47,7 @@ slowdown_threshold = 4
 
 [sub_resource type="Resource" id="Resource_7mnru"]
 script = ExtResource("4_fnsbr")
-text = "[shake rate=40.0 level=7 connected=1][color=14a02e]“Fight me“[/color][/shake]"
+text = "[shake rate=40.0 level=7 connected=1][color=14a02e]\"Fight me\"[/color][/shake]"
 character_wait_time = 0.01
 character_slow_wait_time = 0.64
 slowdown_threshold = 0
