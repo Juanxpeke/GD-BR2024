@@ -16,6 +16,8 @@ var current_panel : int = 0
 # Called when the node enters the scene tree for the first time
 func _ready() -> void:
 	hide()
+	next_button.hide()
+	
 	cutscene_label.text_typing_finished.connect(_on_text_typing_finished)
 	next_button.pressed.connect(_on_next_button_pressed)
 	
@@ -32,6 +34,8 @@ func _on_next_button_pressed() -> void:
 	if current_panel >= cutscene_resources.size() - 1:
 		finished.emit()
 		return
+	
+	next_button.hide()
 	
 	current_panel += 1
 	cutscene_label.set_cutscene_resource(cutscene_resources[current_panel])
