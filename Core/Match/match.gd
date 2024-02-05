@@ -53,6 +53,8 @@ func _on_world_viewport_container_mouse_exited() -> void:
 
 # Called when the opponent loses the game
 func player_win() -> void:
+	entities.queue_free()
+	world_viewport_container.queue_free()
 	print("connected")
 	for connection in turn_ended.get_connections():
 		turn_ended.disconnect(connection.callable)
@@ -62,6 +64,8 @@ func player_win() -> void:
 
 # Called when the player loses the game
 func player_lose() -> void:
+	entities.queue_free()
+	world_viewport_container.queue_free()
 	print("connected")
 	for connection in turn_ended.get_connections():
 		turn_ended.disconnect(connection.callable)

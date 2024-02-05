@@ -66,7 +66,7 @@ func get_current_health() -> int:
 func set_current_health(amount : int) -> void:
 	current_health = clamp(amount, 0, health)
 	health_changed.emit()
-	dead.emit() # TODO: Delete this after debug
+	#dead.emit() # TODO: Delete this after debug
 	if current_health == 0:
 		dead.emit()
 

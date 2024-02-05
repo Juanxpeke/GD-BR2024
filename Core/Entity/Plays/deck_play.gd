@@ -17,6 +17,4 @@ func get_play_position() -> Vector2:
 
 # Core execution logic
 func core_execute() -> void:
-	if !GameManager.current_match:
-		return
 	GameManager.current_world.deck.give_domino()
