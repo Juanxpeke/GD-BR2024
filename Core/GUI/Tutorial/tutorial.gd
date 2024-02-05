@@ -15,7 +15,6 @@ func _ready() -> void:
 	previous_button.pressed.connect(set_previous_panel)
 	next_button.pressed.connect(set_next_panel)
 	exit_button.pressed.connect(close_tutorial)
-	print(tutorial_panels.size())
 	_init_node()
 
 func _init_node() -> void:
