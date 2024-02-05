@@ -10,10 +10,10 @@
 
 [sub_resource type="Resource" id="Resource_6p0o8"]
 script = ExtResource("4_k523d")
-text = "As you joked with your fellow tavern-goers about the preposterous notion that the most powerful wizard in the land would be found in this rathole of a tavern, you felt the door creek ever so slightly…"
+text = "As you joked with your fellow tavern-goers about the preposterous notion that the most powerful wizard in the land would be found in this rathole of a tavern, you felt the door creek ever so slightly. . ."
 character_wait_time = 0.1
 character_slow_wait_time = 0.8
-slowdown_threshold = 4
+slowdown_threshold = 6
 
 [sub_resource type="Resource" id="Resource_1xnx6"]
 script = ExtResource("4_k523d")
@@ -33,7 +33,7 @@ slowdown_threshold = 0
 
 [sub_resource type="Resource" id="Resource_sjhmx"]
 script = ExtResource("4_k523d")
-text = "\"Master of Mana\" he said, and a shadowy smile appeared from under his hood \"heh heh, you look like an average wizard to me\". Before you could even process the misunderstanding, the playing table in front of you opened up, and the rune dominos were summoned on both sides. The duel had already started. "
+text = "[color=f9a31b]\"Master of Mana\"[/color] he said, and a shadowy smile appeared from under his hood [f9a31b]\"heh heh, you look like an average wizard to me\"[/color]. Before you could even process the misunderstanding, the playing table in front of you opened up, and the rune dominos were summoned on both sides. The duel had already started. "
 character_wait_time = 0.1
 character_slow_wait_time = 0.3
 slowdown_threshold = 0

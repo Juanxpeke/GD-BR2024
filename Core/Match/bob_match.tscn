@@ -38,7 +38,7 @@ slowdown_threshold = 0
 
 [sub_resource type="Resource" id="Resource_2ede4"]
 script = ExtResource("4_fnsbr")
-text = "The orc sat down and the chair creaked, but miraculously managed to hold him for now. Then he said “Fight me“
+text = "The orc sat down and the chair creaked, but miraculously managed to hold him for now. Then he said [color=14a02e]“Fight me“
 "
 character_wait_time = 0.1
 character_slow_wait_time = 0.76

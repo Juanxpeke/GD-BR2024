@@ -17,7 +17,7 @@ slowdown_threshold = 0
 
 [sub_resource type="Resource" id="Resource_46v5g"]
 script = ExtResource("4_h3tn7")
-text = "As you tried to catch your breath, still shaken with excitement, you felt a strange change in the air in the tavern. The whole place went silent, but you could clearly hear a soft murmur coming from outside. "
+text = "As you tried to catch your breath, still shaken with excitement, you felt a strange change in the air of the tavern. The whole place went silent, but you could clearly hear a soft murmur coming from outside. "
 character_wait_time = 0.1
 character_slow_wait_time = 0.3
 slowdown_threshold = 0
@@ -38,7 +38,7 @@ slowdown_threshold = 0
 
 [sub_resource type="Resource" id="Resource_7c7pm"]
 script = ExtResource("4_h3tn7")
-text = "He slowly crossed the room and sat in front of you. In your mind, his voice resounded “I will show you what a true master of mana is”."
+text = "He slowly crossed the room and sat in front of you. In your mind, his voice resounded [color=249fde]“I will show you what a true master of mana is”.[/color]"
 character_wait_time = 0.1
 character_slow_wait_time = 0.3
 slowdown_threshold = 0

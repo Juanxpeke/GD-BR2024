@@ -1,29 +1,45 @@
-[gd_scene load_steps=7 format=3 uid="uid://gowk2v0tioow"]
+[gd_scene load_steps=10 format=3 uid="uid://gowk2v0tioow"]
 
 [ext_resource type="Script" path="res://Core/GUI/Ending/ending.gd" id="1_lu166"]
+[ext_resource type="PackedScene" uid="uid://dfc1rfdj3ibh8" path="res://Core/GUI/MainMenu/main_menu.tscn" id="2_gwa8m"]
 [ext_resource type="PackedScene" uid="uid://clu2r6usspr4j" path="res://Core/GUI/Cutscene/cutscene_component.tscn" id="2_y7360"]
-[ext_resource type="Script" path="res://Core/GUI/Cutscene/cutscene_resource.gd" id="4_pionl"]
+[ext_resource type="Script" path="res://Core/GUI/Cutscene/cutscene_resource.gd" id="3_b8uj3"]
 
-[sub_resource type="Resource" id="Resource_th642"]
-script = ExtResource("4_pionl")
-text = "Among wizards there is a legend that tells of a being so powerful that the very essence of mana bends at its feet, a sorcerer of such talents that lords and even gods tremble in their presence. When the MASTER OF MANA sits at the other side of your table, defeat is an absolute certainty. "
+[sub_resource type="Resource" id="Resource_rdfl6"]
+script = ExtResource("3_b8uj3")
+text = "As the orc was defeated, he stood up, dumbfounded and ashamed. Despite it all, he managed to extend his hand, and give you a crushing, but honest handshake. He rejoined the rest of his party outside the tavern, and the three of them left."
 character_wait_time = 0.1
 character_slow_wait_time = 0.3
 slowdown_threshold = 0
 
-[sub_resource type="Resource" id="Resource_l6aqm"]
-script = ExtResource("4_pionl")
-text = "Despite that, wizards, rogues, warriors, and adventurers of all kinds, being the prideful people that they are, seek The Master in order to claim the most grandiose victory of all, victory against the invincible. The Master is elusive though, and very few even manage to find them…."
+[sub_resource type="Resource" id="Resource_evjn5"]
+script = ExtResource("3_b8uj3")
+text = " You went outside for a moment to catch the evening air, and heard a strange voice beside you. [color=cdf7e2]“Fun, isn’t it? Winning duels, gaining glory? It was fun for me too, once upon a time.”[/color]"
 character_wait_time = 0.1
-character_slow_wait_time = 0.5
-slowdown_threshold = 3
+character_slow_wait_time = 0.004
+slowdown_threshold = 8
 
-[sub_resource type="Resource" id="Resource_10rxh"]
-script = ExtResource("4_pionl")
-text = "That’s why you were quite perplexed when, sitting at the tavern, looking to have a good time after a long day of spellcasting, you heard of a group of adventurers who were seeking The Master of Mana in these parts."
+[sub_resource type="Resource" id="Resource_rvuoc"]
+script = ExtResource("3_b8uj3")
+text = "You looked to your side and saw a small creature dressed in many robes, all of different colors, and felt the hairs of your arms stand up, charged with pure magic. [color=cdf7e2]“Nowadays, I wish I could spend more time just looking at the moon. That’s why I’m here.”[/color]"
 character_wait_time = 0.1
-character_slow_wait_time = 0.3
-slowdown_threshold = 0
+character_slow_wait_time = 0.01
+slowdown_threshold = 8
+
+[sub_resource type="Resource" id="Resource_7rs3l"]
+script = ExtResource("3_b8uj3")
+text = "[color=cdf7e2]“You’re already good enough at impersonating me. Wanna try the real thing?”[/color]. They looked at you for a good minute or two as you stood in silence, and when you looked back at them, your eyes said everything. The small being’s robes started twirling, creating a tornado of fabrics, and then they were gone. 
+[color=cdf7e2]The Master of Mana was gone.[/color]"
+character_wait_time = 0.1
+character_slow_wait_time = 0.1
+slowdown_threshold = 8
+
+[sub_resource type="Resource" id="Resource_5p41e"]
+script = ExtResource("3_b8uj3")
+text = "Now you are. . ."
+character_wait_time = 0.1
+character_slow_wait_time = 0.8
+slowdown_threshold = 6
 
 [node name="Ending" type="Control"]
 layout_mode = 3
@@ -33,7 +49,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lu166")
+main_menu_scene = ExtResource("2_gwa8m")
 
 [node name="CutsceneComponent" parent="." instance=ExtResource("2_y7360")]
 unique_name_in_owner = true
-cutscene_resources = Array[ExtResource("4_pionl")]([SubResource("Resource_th642"), SubResource("Resource_l6aqm"), SubResource("Resource_10rxh")])
+cutscene_resources = Array[ExtResource("3_b8uj3")]([SubResource("Resource_rdfl6"), SubResource("Resource_evjn5"), SubResource("Resource_rvuoc"), SubResource("Resource_7rs3l"), SubResource("Resource_5p41e")])
