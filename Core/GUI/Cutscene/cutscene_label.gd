@@ -3,10 +3,6 @@ extends RichTextLabel
 
 signal text_typing_finished
 
-
-var character_pos : int = 0
-var current_panel : int = 0
-
 var cutscene_resource : CutsceneResource
 
 @onready var timer = %Timer
@@ -17,6 +13,14 @@ var cutscene_resource : CutsceneResource
 func _ready() -> void:
 	timer.timeout.connect(_on_timer_timeout)
 
+# Called on a input event inside this control node
+func _gui_input(event: InputEvent) -> void:
+	if not cutscene_resource: return
+	
+	if event.is_action_pressed("left_click"):
+		timer.wait_time = cutscene_resource.character_wait_time / 8.0
+	elif event.is_action_released("left_click"):
+		timer.wait_time = cutscene_resource.character_wait_time
 
 # Public
 
