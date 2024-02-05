@@ -1,6 +1,8 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://f7hxx5p0b4y4"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://f7hxx5p0b4y4"]
 
 [ext_resource type="FontFile" uid="uid://ddsoj3e3t6uud" path="res://Fonts/monogram.ttf" id="1_7s802"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q2smd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jk1p0"]
 content_margin_left = 4.0
@@ -35,7 +37,7 @@ expand_margin_top = 3.0
 default_font = ExtResource("1_7s802")
 default_font_size = 24
 Button/font_sizes/font_size = 32
-Button/styles/focus = null
+Button/styles/focus = SubResource("StyleBoxEmpty_q2smd")
 Button/styles/hover = SubResource("StyleBoxFlat_jk1p0")
 Button/styles/normal = SubResource("StyleBoxFlat_mojdy")
 Button/styles/pressed = SubResource("StyleBoxFlat_u7iql")

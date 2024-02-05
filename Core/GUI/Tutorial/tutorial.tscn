@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d358edlipqpy2"]
+[gd_scene load_steps=21 format=3 uid="uid://d358edlipqpy2"]
 
 [ext_resource type="Script" path="res://Core/GUI/Tutorial/tutorial.gd" id="1_8tuvp"]
 [ext_resource type="Texture2D" uid="uid://cjmqdagatvyeq" path="res://Core/GUI/Tutorial/TutorialPictures/GameBoard.PNG" id="2_f3yt2"]
@@ -10,7 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://qdk2hqynf3b8" path="res://Core/GUI/Tutorial/TutorialPictures/Skillcards image.PNG" id="8_1gf1l"]
 [ext_resource type="Texture2D" uid="uid://cgvnmo761u15o" path="res://Core/GUI/Tutorial/TutorialPictures/glowing_portal.PNG" id="9_41cvk"]
 [ext_resource type="Texture2D" uid="uid://gw8hd5sbp8v6" path="res://Core/GUI/Tutorial/TutorialPictures/hands_rogue.png" id="10_480kk"]
-[ext_resource type="Texture2D" uid="uid://bw6ugueaguyti" path="res://Assets/BrickTextures/Brickwall5_Texture.png" id="11_3kejs"]
+[ext_resource type="Texture2D" uid="uid://c42k23rykaocg" path="res://Core/GUI/MainMenu/main_menu_background.png" id="12_247ps"]
+[ext_resource type="Texture2D" uid="uid://bmkf0mlwjx5h2" path="res://Core/GUI/Tutorial/tutorial_borders.png" id="12_w6h2j"]
 
 [sub_resource type="Resource" id="Resource_qhsx6"]
 script = ExtResource("3_17l5v")
@@ -75,25 +76,40 @@ grow_vertical = 2
 script = ExtResource("1_8tuvp")
 tutorial_panels = Array[ExtResource("3_17l5v")]([SubResource("Resource_qhsx6"), SubResource("Resource_q7wy8"), SubResource("Resource_dm44f"), SubResource("Resource_0kv5c"), SubResource("Resource_0ignb"), SubResource("Resource_0x27m"), SubResource("Resource_r3avx"), SubResource("Resource_haxrb")])
 
-[node name="Background" type="NinePatchRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.0941176, 0.0941176, 0.0941176, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("11_3kejs")
+texture = ExtResource("12_247ps")
+expand_mode = 1
+stretch_mode = 1
+flip_v = true
 
-[node name="MarginContainer" type="MarginContainer" parent="Background"]
+[node name="Borders" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_w6h2j")
+expand_mode = 1
+flip_v = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -392.5
+offset_left = -395.0
 offset_top = -280.0
-offset_right = 392.5
+offset_right = 395.0
 offset_bottom = 280.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -103,23 +119,23 @@ theme_override_constants/margin_top = 45
 theme_override_constants/margin_right = 45
 theme_override_constants/margin_bottom = 0
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Background/MarginContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="ExitButton" type="Button" parent="Background/MarginContainer/VBoxContainer2"]
+[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "X"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer/VBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 40
 
-[node name="Texture" type="TextureRect" parent="Background/MarginContainer/VBoxContainer2/VBoxContainer"]
+[node name="Texture" type="TextureRect" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(267, 150)
 layout_mode = 2
@@ -127,7 +143,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 expand_mode = 1
 
-[node name="Label" type="RichTextLabel" parent="Background/MarginContainer/VBoxContainer2/VBoxContainer"]
+[node name="Label" type="RichTextLabel" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(700, 190)
 layout_mode = 2
@@ -139,24 +155,24 @@ Well, that is about everything you need to know about [color]THE GAME. Now it's 
 fit_content = true
 scroll_active = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Background/MarginContainer/VBoxContainer2"]
+[node name="ButtonsContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_constants/separation = 250
 
-[node name="Previous" type="Button" parent="Background/MarginContainer/VBoxContainer2/HBoxContainer"]
+[node name="Previous" type="Button" parent="MarginContainer/VBoxContainer2/ButtonsContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(75, 50)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
-text = "Previous"
+text = " Previous "
 
-[node name="Next" type="Button" parent="Background/MarginContainer/VBoxContainer2/HBoxContainer"]
+[node name="Next" type="Button" parent="MarginContainer/VBoxContainer2/ButtonsContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(75, 50)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-text = "Next"
+text = " Next "
