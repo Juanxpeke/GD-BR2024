@@ -6,6 +6,7 @@ const MINIMUM_SOUND_DELAY : float = 0.01
 
 var sounds_queue : Array[AudioStream] = []
 
+var music_stream_player : AudioStreamPlayer = AudioStreamPlayer.new()
 var sound_stream_player : AudioStreamPlayer = AudioStreamPlayer.new()
 var sound_stream_player_2 : AudioStreamPlayer = AudioStreamPlayer.new()
 
@@ -13,6 +14,7 @@ var sound_stream_player_2 : AudioStreamPlayer = AudioStreamPlayer.new()
 
 # Called when the node enters the scene tree for the first time
 func _ready() -> void:
+	add_child(music_stream_player)
 	add_child(sound_stream_player)
 	add_child(sound_stream_player_2)
 
@@ -60,3 +62,13 @@ func play_sound(sound : AudioStream, override : bool = false, delay : float = 0.
 			sound_stream_player.stop()
 			sound_stream_player.stream = sound
 			sound_stream_player.play()
+
+# Plays the given music
+func play_music(music : AudioStream) -> void:
+	music_stream_player.stop()
+	music_stream_player.stream = music
+	music_stream_player.play()
+
+# Stops the current music playing in the music player
+func stop_music() -> void:
+	music_stream_player.stop()

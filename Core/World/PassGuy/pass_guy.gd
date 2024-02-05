@@ -1,6 +1,8 @@
 class_name PassGuy
 extends Node2D
 
+@export var pass_sound : AudioStream
+
 var previous_turn_passed : Dictionary = {}
 var accumulated_passes : Dictionary = {}
 
@@ -60,9 +62,15 @@ func _reward_pass() -> void:
 func pass_turn() -> void:
 	accumulated_passes[GameManager.current_match.get_turn_owner().name] += 1
 	previous_turn_passed[GameManager.current_match.get_turn_owner().name] = true
+	
+	AudioManager.play_sound(pass_sound)
 	sprite.play("clicked")
+	
 	await sprite.animation_finished
+	
 	sprite.play("idle")
+	
 	_reward_pass()
+	
 	self.global_position = GameManager.current_background_board.get_free_region_center(2,2)
 	GameManager.current_match.end_turn()
