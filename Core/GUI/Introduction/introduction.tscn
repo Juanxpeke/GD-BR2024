@@ -1,8 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://btlm3c8rgqm5q"]
+[gd_scene load_steps=7 format=3 uid="uid://btlm3c8rgqm5q"]
 
 [ext_resource type="Script" path="res://Core/GUI/Introduction/introduction.gd" id="1_4awsi"]
-[ext_resource type="PackedScene" uid="uid://s013uq0tt34u" path="res://Core/Match/match.tscn" id="2_w7mmi"]
 [ext_resource type="PackedScene" uid="uid://clu2r6usspr4j" path="res://Core/GUI/Cutscene/cutscene_component.tscn" id="2_y7360"]
+[ext_resource type="Script" path="res://Core/GUI/Cutscene/cutscene_resource.gd" id="4_pionl"]
+
+[sub_resource type="Resource" id="Resource_e2skg"]
+script = ExtResource("4_pionl")
+text = "
+Among wizards there is a legend that tells of a being so powerful that the very essence of mana bends at its feet, a sorcerer of such talents that lords and even gods tremble in their presence. When the MASTER OF MANA sits at the other side of your table, defeat is an absolute certainty. 
+"
+character_wait_time = 0.1
+character_slow_wait_time = 0.3
+slowdown_threshold = 0
+
+[sub_resource type="Resource" id="Resource_tgaxj"]
+script = ExtResource("4_pionl")
+text = "Despite that, wizards, rogues, warriors, and adventurers of all kinds, being the prideful people that they are, seek The Master in order to claim the most grandiose victory of all, victory against the invincible. The Master is elusive though, and very few even manage to find them . . .
+"
+character_wait_time = 0.1
+character_slow_wait_time = 0.3
+slowdown_threshold = 6
+
+[sub_resource type="Resource" id="Resource_hyaa0"]
+script = ExtResource("4_pionl")
+text = "That’s why you were quite perplexed when, sitting at the tavern, looking to have a good time after a long day of spellcasting, you heard of a group of adventurers who were seeking The Master of Mana in these parts."
+character_wait_time = 0.1
+character_slow_wait_time = 0.3
+slowdown_threshold = 0
 
 [node name="Introduction" type="Control"]
 layout_mode = 3
@@ -12,7 +36,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4awsi")
-first_boss_match = ExtResource("2_w7mmi")
 
 [node name="CutsceneComponent" parent="." instance=ExtResource("2_y7360")]
 unique_name_in_owner = true
+cutscene_resources = Array[ExtResource("4_pionl")]([SubResource("Resource_e2skg"), SubResource("Resource_tgaxj"), SubResource("Resource_hyaa0")])

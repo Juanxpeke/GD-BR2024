@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://gowk2v0tioow"]
+
+[ext_resource type="Script" path="res://Core/GUI/Ending/ending.gd" id="1_lu166"]
+[ext_resource type="PackedScene" uid="uid://clu2r6usspr4j" path="res://Core/GUI/Cutscene/cutscene_component.tscn" id="2_y7360"]
+[ext_resource type="Script" path="res://Core/GUI/Cutscene/cutscene_resource.gd" id="4_pionl"]
+
+[sub_resource type="Resource" id="Resource_th642"]
+script = ExtResource("4_pionl")
+text = "Among wizards there is a legend that tells of a being so powerful that the very essence of mana bends at its feet, a sorcerer of such talents that lords and even gods tremble in their presence. When the MASTER OF MANA sits at the other side of your table, defeat is an absolute certainty. "
+character_wait_time = 0.1
+character_slow_wait_time = 0.3
+slowdown_threshold = 0
+
+[sub_resource type="Resource" id="Resource_l6aqm"]
+script = ExtResource("4_pionl")
+text = "Despite that, wizards, rogues, warriors, and adventurers of all kinds, being the prideful people that they are, seek The Master in order to claim the most grandiose victory of all, victory against the invincible. The Master is elusive though, and very few even manage to find them…."
+character_wait_time = 0.1
+character_slow_wait_time = 0.5
+slowdown_threshold = 3
+
+[sub_resource type="Resource" id="Resource_10rxh"]
+script = ExtResource("4_pionl")
+text = "That’s why you were quite perplexed when, sitting at the tavern, looking to have a good time after a long day of spellcasting, you heard of a group of adventurers who were seeking The Master of Mana in these parts."
+character_wait_time = 0.1
+character_slow_wait_time = 0.3
+slowdown_threshold = 0
+
+[node name="Ending" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lu166")
+
+[node name="CutsceneComponent" parent="." instance=ExtResource("2_y7360")]
+unique_name_in_owner = true
+cutscene_resources = Array[ExtResource("4_pionl")]([SubResource("Resource_th642"), SubResource("Resource_l6aqm"), SubResource("Resource_10rxh")])

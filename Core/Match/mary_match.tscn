@@ -1,10 +1,47 @@
-[gd_scene load_steps=7 format=3 uid="uid://cepvf32ninc8h"]
+[gd_scene load_steps=14 format=3 uid="uid://dt7dn0kgtp5yj"]
 
 [ext_resource type="Script" path="res://Core/Match/match.gd" id="1_yn3rn"]
 [ext_resource type="PackedScene" uid="uid://jh607gdfdrer" path="res://Core/GUI/HUD/hud.tscn" id="2_k58a6"]
+[ext_resource type="PackedScene" uid="uid://clu2r6usspr4j" path="res://Core/GUI/Cutscene/cutscene_component.tscn" id="3_0fqp1"]
 [ext_resource type="PackedScene" uid="uid://jqq8ueul6hen" path="res://Core/World/world.tscn" id="3_40e6g"]
+[ext_resource type="Script" path="res://Core/GUI/Cutscene/cutscene_resource.gd" id="4_h3tn7"]
 [ext_resource type="PackedScene" uid="uid://c44laowkuxfc4" path="res://Core/Entity/Player/player.tscn" id="4_wkx1m"]
 [ext_resource type="PackedScene" uid="uid://cigvlcm0md3r0" path="res://Core/Entity/Boss/Mary/mary.tscn" id="5_qy72k"]
+
+[sub_resource type="Resource" id="Resource_ar2eo"]
+script = ExtResource("4_h3tn7")
+text = "Ecstatic from the victory against such a menacing opponent, you briefly turned around to celebrate with the other patrons, and before you could even turn back, the roguish devil had disappeared."
+character_wait_time = 0.1
+character_slow_wait_time = 0.3
+slowdown_threshold = 0
+
+[sub_resource type="Resource" id="Resource_46v5g"]
+script = ExtResource("4_h3tn7")
+text = "As you tried to catch your breath, still shaken with excitement, you felt a strange change in the air in the tavern. The whole place went silent, but you could clearly hear a soft murmur coming from outside. "
+character_wait_time = 0.1
+character_slow_wait_time = 0.3
+slowdown_threshold = 0
+
+[sub_resource type="Resource" id="Resource_1js4p"]
+script = ExtResource("4_h3tn7")
+text = " As it came closer, you realized what the feeling around you was. The concentration of mana in the air was at least doubled from what is normal, which could only mean a powerful sorcerer was near. "
+character_wait_time = 0.1
+character_slow_wait_time = 0.3
+slowdown_threshold = 0
+
+[sub_resource type="Resource" id="Resource_s8was"]
+script = ExtResource("4_h3tn7")
+text = "Exactly on cue, a tattered looking man entered the room, reciting incantations in an ancient arcane language. From him came a faint bluish glow that only grew stronger as his incantations rose in volume. "
+character_wait_time = 0.1
+character_slow_wait_time = 0.3
+slowdown_threshold = 0
+
+[sub_resource type="Resource" id="Resource_7c7pm"]
+script = ExtResource("4_h3tn7")
+text = "He slowly crossed the room and sat in front of you. In your mind, his voice resounded “I will show you what a true master of mana is”."
+character_wait_time = 0.1
+character_slow_wait_time = 0.3
+slowdown_threshold = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqamv"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -16,6 +53,9 @@ metadata/_edit_horizontal_guides_ = [138.0, 510.0]
 
 [node name="HUD" parent="." instance=ExtResource("2_k58a6")]
 unique_name_in_owner = true
+
+[node name="CutsceneComponent" parent="." instance=ExtResource("3_0fqp1")]
+cutscene_resources = Array[ExtResource("4_h3tn7")]([SubResource("Resource_ar2eo"), SubResource("Resource_46v5g"), SubResource("Resource_1js4p"), SubResource("Resource_s8was"), SubResource("Resource_7c7pm")])
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchors_preset = 8

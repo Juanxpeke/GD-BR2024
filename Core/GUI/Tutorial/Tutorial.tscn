@@ -1,16 +1,16 @@
 [gd_scene load_steps=20 format=3 uid="uid://d358edlipqpy2"]
 
 [ext_resource type="Script" path="res://Core/GUI/Tutorial/tutorial.gd" id="1_uhruw"]
-[ext_resource type="Texture2D" uid="uid://cjmqdagatvyeq" path="res://Core/GUI/Tutorial/TutorialPictures/GameBoard.PNG" id="2_eglue"]
+[ext_resource type="Texture2D" uid="uid://bml7hdpmsri4y" path="res://Core/GUI/Tutorial/TutorialPictures/GameBoard.PNG" id="2_eglue"]
 [ext_resource type="Script" path="res://Core/GUI/Tutorial/tutorial_panel_resource.gd" id="3_1u2a1"]
-[ext_resource type="Texture2D" uid="uid://7xnjivtdvki7" path="res://Core/GUI/Tutorial/TutorialPictures/ManaSprites.png" id="4_vqq8p"]
-[ext_resource type="Texture2D" uid="uid://djqdoh7jtqr05" path="res://Core/GUI/Tutorial/TutorialPictures/RuneDominos.PNG" id="5_n7aa3"]
-[ext_resource type="Texture2D" uid="uid://b0ibmc6w1kveh" path="res://Core/GUI/Tutorial/TutorialPictures/hand_of_dominos.png" id="6_x7vof"]
-[ext_resource type="Texture2D" uid="uid://p14otfbjoctx" path="res://Core/GUI/Tutorial/TutorialPictures/Skillcards.png" id="7_fuxno"]
-[ext_resource type="Texture2D" uid="uid://qdk2hqynf3b8" path="res://Core/GUI/Tutorial/TutorialPictures/Skillcards image.PNG" id="8_yrcw3"]
-[ext_resource type="Texture2D" uid="uid://cgvnmo761u15o" path="res://Core/GUI/Tutorial/TutorialPictures/glowing_portal.PNG" id="9_eitua"]
-[ext_resource type="Texture2D" uid="uid://gw8hd5sbp8v6" path="res://Core/GUI/Tutorial/TutorialPictures/hands_rogue.png" id="10_orsv4"]
-[ext_resource type="Texture2D" uid="uid://bw6ugueaguyti" path="res://Assets/BrickTextures/Brickwall5_Texture.png" id="11_qb276"]
+[ext_resource type="Texture2D" uid="uid://b8ud43sowcxnr" path="res://Core/GUI/Tutorial/TutorialPictures/ManaSprites.png" id="4_vqq8p"]
+[ext_resource type="Texture2D" uid="uid://cmbfh6yfu46ca" path="res://Core/GUI/Tutorial/TutorialPictures/RuneDominos.PNG" id="5_n7aa3"]
+[ext_resource type="Texture2D" uid="uid://b8rxhfkb3id0u" path="res://Core/GUI/Tutorial/TutorialPictures/hand_of_dominos.png" id="6_x7vof"]
+[ext_resource type="Texture2D" uid="uid://bi441d4a07suw" path="res://Core/GUI/Tutorial/TutorialPictures/Skillcards.png" id="7_fuxno"]
+[ext_resource type="Texture2D" uid="uid://buqa3gxqkvifl" path="res://Core/GUI/Tutorial/TutorialPictures/Skillcards image.PNG" id="8_yrcw3"]
+[ext_resource type="Texture2D" uid="uid://77l8hqqghe6x" path="res://Core/GUI/Tutorial/TutorialPictures/glowing_portal.PNG" id="9_eitua"]
+[ext_resource type="Texture2D" uid="uid://cult28inkqnjm" path="res://Core/GUI/Tutorial/TutorialPictures/hands_rogue.png" id="10_orsv4"]
+[ext_resource type="Texture2D" uid="uid://c5cykccwshgp8" path="res://Assets/BrickTextures/Brickwall5_Texture.png" id="11_qb276"]
 
 [sub_resource type="Resource" id="Resource_qhsx6"]
 script = ExtResource("3_1u2a1")
@@ -38,7 +38,7 @@ panel_image = ExtResource("5_n7aa3")
 
 [sub_resource type="Resource" id="Resource_0kv5c"]
 script = ExtResource("3_1u2a1")
-panel_text = "[center]If you are out of [color=#f9a31b]dominos[/color], or none of the available spots please you, you can always click the [color=#f17716]mystical portal[/color] instead of playing a [color=#f9a31b]domino[/color], summoning a brand new [color=#f9a31b]rune domino[/color] to your hand."
+panel_text = "[center]If you are out of [color=#f9a31b]dominos[/color], or none of the available spots please you, you can always click the [color=#f17716]mystical portal[/color] instead of playing a [color=#f9a31b]domino[/color], summoning a brand new [color=#f9a31b]rune domino[/color] to your hand, or find the [color=fa6a0a]elusive homunculus[/color] to simply pass the turn."
 panel_image = ExtResource("6_x7vof")
 
 [sub_resource type="Resource" id="Resource_0ignb"]

@@ -1,10 +1,48 @@
-[gd_scene load_steps=7 format=3 uid="uid://boy3uxbythtgv"]
+[gd_scene load_steps=14 format=3 uid="uid://c28basntku3e0"]
 
 [ext_resource type="Script" path="res://Core/Match/match.gd" id="1_af6a0"]
 [ext_resource type="PackedScene" uid="uid://jh607gdfdrer" path="res://Core/GUI/HUD/hud.tscn" id="2_24uuk"]
 [ext_resource type="PackedScene" uid="uid://jqq8ueul6hen" path="res://Core/World/world.tscn" id="3_ccpal"]
+[ext_resource type="PackedScene" uid="uid://clu2r6usspr4j" path="res://Core/GUI/Cutscene/cutscene_component.tscn" id="3_wqfcl"]
+[ext_resource type="Script" path="res://Core/GUI/Cutscene/cutscene_resource.gd" id="4_fnsbr"]
 [ext_resource type="PackedScene" uid="uid://c44laowkuxfc4" path="res://Core/Entity/Player/player.tscn" id="4_pmhud"]
 [ext_resource type="PackedScene" uid="uid://dhpj4gs6e4p0f" path="res://Core/Entity/Boss/Bob/bob.tscn" id="5_nekvk"]
+
+[sub_resource type="Resource" id="Resource_4mg4c"]
+script = ExtResource("4_fnsbr")
+text = "Still covered in mana dust, you jumped from your seat with your arms over your head. You had defeated a sorcerer!"
+character_wait_time = 0.1
+character_slow_wait_time = 0.3
+slowdown_threshold = 0
+
+[sub_resource type="Resource" id="Resource_uik1c"]
+script = ExtResource("4_fnsbr")
+text = "Sadly, you were too immersed in joy to feel the ground trembling below you until mugs and pitchers were falling from their tables. As you looked back, you saw a hulking figure enter the tavern."
+character_wait_time = 0.1
+character_slow_wait_time = 0.3
+slowdown_threshold = 0
+
+[sub_resource type="Resource" id="Resource_p07jw"]
+script = ExtResource("4_fnsbr")
+text = "The massive orc had to crouch to pass through the door, and with every step he took, your table moved about a foot. "
+character_wait_time = 0.1
+character_slow_wait_time = 0.3
+slowdown_threshold = 0
+
+[sub_resource type="Resource" id="Resource_ixgdo"]
+script = ExtResource("4_fnsbr")
+text = "The sorcerer, who was still sitting in front of you, looked at the orc and pointed him toward you before giving you an evil grin and leaving. "
+character_wait_time = 0.1
+character_slow_wait_time = 0.3
+slowdown_threshold = 0
+
+[sub_resource type="Resource" id="Resource_2ede4"]
+script = ExtResource("4_fnsbr")
+text = "The orc sat down and the chair creaked, but miraculously managed to hold him for now. Then he said “Fight me“
+"
+character_wait_time = 0.1
+character_slow_wait_time = 0.76
+slowdown_threshold = 11
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqamv"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -16,6 +54,9 @@ metadata/_edit_horizontal_guides_ = [138.0, 510.0]
 
 [node name="HUD" parent="." instance=ExtResource("2_24uuk")]
 unique_name_in_owner = true
+
+[node name="CutsceneComponent" parent="." instance=ExtResource("3_wqfcl")]
+cutscene_resources = Array[ExtResource("4_fnsbr")]([SubResource("Resource_4mg4c"), SubResource("Resource_uik1c"), SubResource("Resource_p07jw"), SubResource("Resource_ixgdo"), SubResource("Resource_2ede4")])
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchors_preset = 8

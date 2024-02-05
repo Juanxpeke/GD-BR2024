@@ -1,10 +1,42 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0o2nke3j8sgy"]
+[gd_scene load_steps=13 format=3 uid="uid://c0o2nke3j8sgy"]
 
 [ext_resource type="Script" path="res://Core/Match/match.gd" id="1_wckwj"]
 [ext_resource type="PackedScene" uid="uid://jqq8ueul6hen" path="res://Core/World/world.tscn" id="2_xbwb8"]
 [ext_resource type="PackedScene" uid="uid://c44laowkuxfc4" path="res://Core/Entity/Player/player.tscn" id="3_1pckf"]
+[ext_resource type="PackedScene" uid="uid://clu2r6usspr4j" path="res://Core/GUI/Cutscene/cutscene_component.tscn" id="3_qq2rj"]
 [ext_resource type="PackedScene" uid="uid://brf63tmxxdl7s" path="res://Core/Entity/Boss/Timmy/timmy.tscn" id="4_3nsa5"]
+[ext_resource type="Script" path="res://Core/GUI/Cutscene/cutscene_resource.gd" id="4_k523d"]
 [ext_resource type="PackedScene" uid="uid://jh607gdfdrer" path="res://Core/GUI/HUD/hud.tscn" id="5_s8276"]
+
+[sub_resource type="Resource" id="Resource_6p0o8"]
+script = ExtResource("4_k523d")
+text = "As you joked with your fellow tavern-goers about the preposterous notion that the most powerful wizard in the land would be found in this rathole of a tavern, you felt the door creek ever so slightly…"
+character_wait_time = 0.1
+character_slow_wait_time = 0.8
+slowdown_threshold = 4
+
+[sub_resource type="Resource" id="Resource_1xnx6"]
+script = ExtResource("4_k523d")
+text = "You felt a soft breeze hit your back, and turned around to find the door wide open. A bit confused, you turned around and almost let out an embarrassing yelp when you found a complete stranger sitting in front of you, where before there was no one."
+character_wait_time = 0.1
+character_slow_wait_time = 0.3
+slowdown_threshold = 0
+
+[sub_resource type="Resource" id="Resource_1sf1i"]
+script = ExtResource("4_k523d")
+text = "
+The hooded fellow was wearing dusty travel clothes, and had a dangerous air about him. Even though his face was not entirely visible under the hood he wore, you were sure he was looking right at you, and not with a friendly face
+"
+character_wait_time = 0.1
+character_slow_wait_time = 0.3
+slowdown_threshold = 0
+
+[sub_resource type="Resource" id="Resource_sjhmx"]
+script = ExtResource("4_k523d")
+text = "\"Master of Mana\" he said, and a shadowy smile appeared from under his hood \"heh heh, you look like an average wizard to me\". Before you could even process the misunderstanding, the playing table in front of you opened up, and the rune dominos were summoned on both sides. The duel had already started. "
+character_wait_time = 0.1
+character_slow_wait_time = 0.3
+slowdown_threshold = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqamv"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -16,6 +48,9 @@ metadata/_edit_horizontal_guides_ = [138.0, 510.0]
 
 [node name="HUD" parent="." instance=ExtResource("5_s8276")]
 unique_name_in_owner = true
+
+[node name="CutsceneComponent" parent="." instance=ExtResource("3_qq2rj")]
+cutscene_resources = Array[ExtResource("4_k523d")]([SubResource("Resource_6p0o8"), SubResource("Resource_1xnx6"), SubResource("Resource_1sf1i"), SubResource("Resource_sjhmx")])
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchors_preset = 8
