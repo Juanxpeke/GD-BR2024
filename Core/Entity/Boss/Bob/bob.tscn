@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dhpj4gs6e4p0f"]
+[gd_scene load_steps=43 format=3 uid="uid://dhpj4gs6e4p0f"]
 
 [ext_resource type="Script" path="res://Core/Entity/Boss/Bob/bob.gd" id="1_0226v"]
 [ext_resource type="Resource" uid="uid://bjrjlaibujxbm" path="res://Core/Entity/Boss/Bob/bob_active.tres" id="2_73qdi"]
@@ -150,10 +150,6 @@ region = Rect2(3536, 0, 208, 106)
 atlas = ExtResource("4_uvk8k")
 region = Rect2(3744, 0, 208, 106)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ppbqp"]
-atlas = ExtResource("4_uvk8k")
-region = Rect2(3952, 0, 208, 106)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_mnqpu"]
 animations = [{
 "frames": [{
@@ -269,9 +265,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rdqb4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ppbqp")
 }],
 "loop": false,
 "name": &"slam",
@@ -291,5 +284,7 @@ unique_name_in_owner = true
 position = Vector2(0, -26)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_mnqpu")
-animation = &"idle"
+animation = &"slam"
 autoplay = "idle"
+frame = 18
+frame_progress = 1.0
