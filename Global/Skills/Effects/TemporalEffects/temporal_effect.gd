@@ -13,6 +13,8 @@ func _init() -> void:
 	
 # Called when the game match is setted
 func _on_match_setted() -> void:
+	activations.clear()
+	
 	GameManager.current_match.turn_ended.connect(_on_turn_ended)
 
 # Called when the current turn ends

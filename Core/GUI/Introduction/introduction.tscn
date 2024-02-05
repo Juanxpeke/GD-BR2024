@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://btlm3c8rgqm5q"]
+
+[ext_resource type="Script" path="res://Core/GUI/Introduction/introduction.gd" id="1_4awsi"]
+[ext_resource type="PackedScene" uid="uid://s013uq0tt34u" path="res://Core/Match/match.tscn" id="2_w7mmi"]
+[ext_resource type="PackedScene" uid="uid://clu2r6usspr4j" path="res://Core/GUI/Cutscene/cutscene_component.tscn" id="2_y7360"]
+
+[node name="Introduction" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4awsi")
+first_boss_match = ExtResource("2_w7mmi")
+
+[node name="CutsceneComponent" parent="." instance=ExtResource("2_y7360")]
+unique_name_in_owner = true

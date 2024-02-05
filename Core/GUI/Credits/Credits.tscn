@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cp5imlahteqvf"]
 
 [ext_resource type="Script" path="res://Core/GUI/Credits/credits.gd" id="1_6l2pm"]
-[ext_resource type="Texture2D" uid="uid://c5cykccwshgp8" path="res://Assets/BrickTextures/Brickwall5_Texture.png" id="1_ths00"]
+[ext_resource type="Texture2D" uid="uid://bw6ugueaguyti" path="res://Assets/BrickTextures/Brickwall5_Texture.png" id="1_ths00"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3

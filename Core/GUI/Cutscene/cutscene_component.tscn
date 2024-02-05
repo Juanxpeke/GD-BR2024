@@ -1,21 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://clu2r6usspr4j"]
+[gd_scene load_steps=8 format=3 uid="uid://clu2r6usspr4j"]
 
 [ext_resource type="Script" path="res://Core/GUI/Cutscene/cutscene_component.gd" id="1_dhyly"]
 [ext_resource type="Script" path="res://Core/GUI/Cutscene/cutscene_label.gd" id="2_3ckje"]
 [ext_resource type="Script" path="res://Core/GUI/Cutscene/cutscene_resource.gd" id="2_uam5p"]
 
-[sub_resource type="Resource" id="Resource_1t1ei"]
+[sub_resource type="Resource" id="Resource_27p6e"]
 script = ExtResource("2_uam5p")
-cutscene_text = "Hello, my name is Timmy. Or is it...."
-typing_speed = 0.1
-slowdown_threshold = 4
+text = "Test 1 for this component..."
+character_wait_time = 0.1
+character_slow_wait_time = 0.3
+slowdown_threshold = 3
+
+[sub_resource type="Resource" id="Resource_g8vh0"]
+script = ExtResource("2_uam5p")
+text = "Test 2 for this component..."
+character_wait_time = 0.1
+character_slow_wait_time = 0.3
+slowdown_threshold = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8s3i"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4gia6"]
+
 [node name="CutsceneComponent" type="CanvasLayer"]
 script = ExtResource("1_dhyly")
-cutscene_panels = Array[ExtResource("2_uam5p")]([SubResource("Resource_1t1ei")])
+cutscene_resources = Array[ExtResource("2_uam5p")]([SubResource("Resource_27p6e"), SubResource("Resource_g8vh0")])
 
 [node name="CutsceneBackground" type="Panel" parent="."]
 anchors_preset = 15
@@ -25,39 +35,42 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_i8s3i")
 
-[node name="CutsceneLabel" type="RichTextLabel" parent="CutsceneBackground"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(450, 150)
-layout_mode = 2
-offset_top = 145.0
-offset_right = 1152.0
-offset_bottom = 295.0
+[node name="CutsceneLabelContainer" type="PanelContainer" parent="."]
+anchors_preset = -1
+anchor_top = 0.25
+anchor_right = 1.0
+anchor_bottom = 0.75
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4gia6")
+
+[node name="CutsceneLabel" type="RichTextLabel" parent="CutsceneLabelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
-text = "[center]Once upon a time there was a wee lad called timmy..."
-visible_characters = 0
-visible_ratio = 0.0
+text = "[center]This is a cutscene label[/center]"
+fit_content = true
 script = ExtResource("2_3ckje")
 
-[node name="Timer" type="Timer" parent="CutsceneBackground/CutsceneLabel"]
+[node name="Timer" type="Timer" parent="CutsceneLabelContainer/CutsceneLabel"]
 unique_name_in_owner = true
-wait_time = 0.25
-autostart = true
 
-[node name="NextButton" type="Button" parent="CutsceneBackground"]
+[node name="NextButton" type="Button" parent="."]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(80, 50)
-layout_mode = 2
-offset_left = 536.0
-offset_top = 376.0
-offset_right = 616.0
-offset_bottom = 426.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -106.0
+offset_right = 40.0
+offset_bottom = -56.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Next"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+text = "..."

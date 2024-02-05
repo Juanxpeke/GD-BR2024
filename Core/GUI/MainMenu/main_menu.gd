@@ -1,7 +1,7 @@
 class_name MainMenu
 extends Control
 
-var match_scene : PackedScene = load("res://Core/Match/match.tscn")
+var introduction_scene : PackedScene = load("res://Core/GUI/Introduction/introduction.tscn")
 var tutorial_scene : PackedScene = load("res://Core/GUI/Tutorial/tutorial.tscn")
 var credits_scene : PackedScene = load("res://Core/GUI/Credits/credits.tscn")
 
@@ -21,7 +21,7 @@ func _ready() -> void:
 
 # Called when the start game button is pressed
 func _on_start_game_button_pressed() -> void:
-	get_tree().change_scene_to_packed(match_scene)
+	get_tree().change_scene_to_packed(introduction_scene)
 
 # Called when the tutorial button is pressed
 func _on_tutorial_button_pressed() -> void:
