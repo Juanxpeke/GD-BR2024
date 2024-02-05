@@ -1,10 +1,16 @@
-[gd_scene load_steps=35 format=3 uid="uid://cigvlcm0md3r0"]
+[gd_scene load_steps=41 format=3 uid="uid://cigvlcm0md3r0"]
 
 [ext_resource type="PackedScene" uid="uid://blhlb0sx0g14t" path="res://Core/Hand/hand.tscn" id="1_5waoc"]
 [ext_resource type="Script" path="res://Core/Entity/Boss/Mary/mary.gd" id="1_lmy1b"]
 [ext_resource type="Resource" uid="uid://crhqrggy8djw8" path="res://Core/Entity/Boss/Mary/mary_active.tres" id="2_jaipa"]
+[ext_resource type="AudioStream" uid="uid://co70453rpih0w" path="res://Core/Entity/Boss/Mary/ActiveSounds/mary_cast_1.wav" id="3_x86o7"]
+[ext_resource type="AudioStream" uid="uid://bh0auhhfgflqx" path="res://Core/Entity/Boss/Mary/ActiveSounds/mary_cast_2.wav" id="4_chf4j"]
 [ext_resource type="Texture2D" uid="uid://bdsbsagbswxa4" path="res://Core/Entity/Boss/Mary/mary_idle.png" id="4_fkgs6"]
 [ext_resource type="Texture2D" uid="uid://ephx642vi1ut" path="res://Core/Entity/Boss/Mary/mary_cast.png" id="4_ok6xr"]
+[ext_resource type="AudioStream" uid="uid://4ma2j6aiybvl" path="res://Core/Entity/Boss/Mary/InjurySounds/mary_injury_1.wav" id="5_32bev"]
+[ext_resource type="AudioStream" uid="uid://6j7af5j6n1um" path="res://Core/Entity/Boss/Mary/InjurySounds/mary_injury_2.wav" id="6_sdgyy"]
+[ext_resource type="AudioStream" uid="uid://cajut3ci4g8d" path="res://Core/Entity/Boss/Mary/InjurySounds/mary_injury_3.wav" id="7_wc2l0"]
+[ext_resource type="AudioStream" uid="uid://cps86qcc8irjd" path="res://Core/Entity/Boss/Mary/InjurySounds/mary_injury_4.wav" id="8_wrn2b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qdp85"]
 atlas = ExtResource("4_ok6xr")
@@ -218,7 +224,9 @@ animations = [{
 [node name="Mary" type="Node2D"]
 script = ExtResource("1_lmy1b")
 boss_active = ExtResource("2_jaipa")
-health = 16
+boss_active_sounds = Array[AudioStream]([ExtResource("3_x86o7"), ExtResource("4_chf4j")])
+health = 12
+injury_sounds = Array[AudioStream]([ExtResource("5_32bev"), ExtResource("6_sdgyy"), ExtResource("7_wc2l0"), ExtResource("8_wrn2b")])
 
 [node name="Hand" parent="." instance=ExtResource("1_5waoc")]
 unique_name_in_owner = true

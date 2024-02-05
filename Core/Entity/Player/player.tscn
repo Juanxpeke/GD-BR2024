@@ -1,10 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://c44laowkuxfc4"]
+[gd_scene load_steps=7 format=3 uid="uid://c44laowkuxfc4"]
 
 [ext_resource type="Script" path="res://Core/Entity/Player/player.gd" id="1_72hs4"]
+[ext_resource type="AudioStream" uid="uid://cyckcmxkkb7yu" path="res://Core/Entity/Player/InjurySounds/player_injury_1.wav" id="2_g3b58"]
 [ext_resource type="PackedScene" uid="uid://blhlb0sx0g14t" path="res://Core/Hand/hand.tscn" id="2_vksxr"]
+[ext_resource type="AudioStream" uid="uid://brl5n1jmkprdq" path="res://Core/Entity/Player/InjurySounds/player_injury_2.wav" id="3_nwmqe"]
+[ext_resource type="AudioStream" uid="uid://chytb0lvk2w5r" path="res://Core/Entity/Player/InjurySounds/player_injury_3.wav" id="4_885sn"]
+[ext_resource type="AudioStream" uid="uid://eqa1n3yneel7" path="res://Core/Entity/Player/InjurySounds/player_injury_4.wav" id="5_5jegu"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_72hs4")
+injury_sounds = Array[AudioStream]([ExtResource("2_g3b58"), ExtResource("3_nwmqe"), ExtResource("4_885sn"), ExtResource("5_5jegu")])
 
 [node name="Hand" parent="." instance=ExtResource("2_vksxr")]
 unique_name_in_owner = true

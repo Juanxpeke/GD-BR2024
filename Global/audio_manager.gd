@@ -16,6 +16,7 @@ func _ready() -> void:
 	add_child(sound_stream_player)
 	add_child(sound_stream_player_2)
 
+
 # Public
 
 # Queues the given sound
@@ -35,11 +36,10 @@ func play_next_queued_sound() -> void:
 		await sound_stream_player.finished
 		play_next_queued_sound()
 
-#Plays a random sound from an array
-func play_random_sound(sound_array : Array) -> void:
+# Plays a random sound from an array of sounds
+func play_random_sound(sound_array : Array[AudioStream]) -> void:
 	var sound_to_play = sound_array.pick_random()
 	play_sound(sound_to_play)
-
 
 # Plays the given sound
 func play_sound(sound : AudioStream, override : bool = false, delay : float = 0.0) -> void:

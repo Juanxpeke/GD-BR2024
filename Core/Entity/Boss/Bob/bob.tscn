@@ -1,10 +1,21 @@
-[gd_scene load_steps=43 format=3 uid="uid://dhpj4gs6e4p0f"]
+[gd_scene load_steps=54 format=3 uid="uid://dhpj4gs6e4p0f"]
 
 [ext_resource type="Script" path="res://Core/Entity/Boss/Bob/bob.gd" id="1_0226v"]
 [ext_resource type="Resource" uid="uid://bjrjlaibujxbm" path="res://Core/Entity/Boss/Bob/bob_active.tres" id="2_73qdi"]
 [ext_resource type="PackedScene" uid="uid://blhlb0sx0g14t" path="res://Core/Hand/hand.tscn" id="2_781at"]
 [ext_resource type="Texture2D" uid="uid://b47obq6r6cvyh" path="res://Core/Entity/Boss/Bob/bob_idle.png" id="3_fihjd"]
+[ext_resource type="AudioStream" uid="uid://lusxb4wqcm3m" path="res://Core/Entity/Boss/Bob/ActiveSounds/bob_slam_1.wav" id="3_mp42y"]
+[ext_resource type="AudioStream" uid="uid://dhipmmv8f8jqi" path="res://Core/Entity/Boss/Bob/ActiveSounds/bob_slam_2.wav" id="4_nett6"]
 [ext_resource type="Texture2D" uid="uid://dcbyshpjemjdg" path="res://Core/Entity/Boss/Bob/bob_slam.png" id="4_uvk8k"]
+[ext_resource type="AudioStream" uid="uid://c4g43o2edx5k6" path="res://Core/Entity/Boss/Bob/InjurySounds/bob_injury_1.wav" id="5_ibtxn"]
+[ext_resource type="AudioStream" uid="uid://bbq5q5xp0vk34" path="res://Core/Entity/Boss/Bob/InjurySounds/bob_injury_2.wav" id="6_5uvb3"]
+[ext_resource type="AudioStream" uid="uid://du0twtgkify8u" path="res://Core/Entity/Boss/Bob/InjurySounds/bob_injury_3.wav" id="7_hkxrl"]
+[ext_resource type="AudioStream" uid="uid://bab1a6nhjv1gm" path="res://Core/Entity/Boss/Bob/InjurySounds/bob_injury_4.wav" id="8_1fr8i"]
+[ext_resource type="AudioStream" uid="uid://dij15ucwbxljv" path="res://Core/Entity/Boss/Bob/InjurySounds/bob_injury_5.wav" id="9_xuxvy"]
+[ext_resource type="AudioStream" uid="uid://htppfo12utdu" path="res://Core/Entity/Boss/Bob/InjurySounds/bob_injury_6.wav" id="10_l7k2i"]
+[ext_resource type="AudioStream" uid="uid://djqomya3aylyx" path="res://Core/Entity/Boss/Bob/InjurySounds/bob_injury_7.wav" id="11_05oxb"]
+[ext_resource type="AudioStream" uid="uid://dgtc67l1avx13" path="res://Core/Entity/Boss/Bob/InjurySounds/bob_injury_8.wav" id="12_km0ca"]
+[ext_resource type="AudioStream" uid="uid://cyc0sau4cnq74" path="res://Core/Entity/Boss/Bob/InjurySounds/bob_injury_9.wav" id="13_yult6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fov76"]
 atlas = ExtResource("3_fihjd")
@@ -274,6 +285,8 @@ animations = [{
 [node name="Bob" type="Node2D"]
 script = ExtResource("1_0226v")
 boss_active = ExtResource("2_73qdi")
+boss_active_sounds = Array[AudioStream]([ExtResource("3_mp42y"), ExtResource("4_nett6")])
+injury_sounds = Array[AudioStream]([ExtResource("5_ibtxn"), ExtResource("6_5uvb3"), ExtResource("7_hkxrl"), ExtResource("8_1fr8i"), ExtResource("9_xuxvy"), ExtResource("10_l7k2i"), ExtResource("11_05oxb"), ExtResource("12_km0ca"), ExtResource("13_yult6")])
 
 [node name="Hand" parent="." instance=ExtResource("2_781at")]
 unique_name_in_owner = true
