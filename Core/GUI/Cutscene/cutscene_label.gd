@@ -13,6 +13,18 @@ var cutscene_resource : CutsceneResource
 func _ready() -> void:
 	timer.timeout.connect(_on_timer_timeout)
 
+# Called every time the timer finishes counting
+func _on_timer_timeout() -> void:
+	if visible_characters >= cutscene_resource.text.length():
+		timer.stop()
+		text_typing_finished.emit()
+		return
+	
+	if visible_characters == cutscene_resource.text.length() - cutscene_resource.slowdown_threshold - 1:
+		timer.wait_time = cutscene_resource.character_slow_wait_time
+	
+	visible_characters += 1
+
 # Called on a input event inside this control node
 func _gui_input(event: InputEvent) -> void:
 	if not cutscene_resource: return
@@ -21,6 +33,7 @@ func _gui_input(event: InputEvent) -> void:
 		timer.wait_time = cutscene_resource.character_wait_time / 8.0
 	elif event.is_action_released("left_click"):
 		timer.wait_time = cutscene_resource.character_wait_time
+
 
 # Public
 
@@ -33,16 +46,14 @@ func set_cutscene_resource(cutscene_resource : CutsceneResource) -> void:
 	text = "[center]" + cutscene_resource.text + "[/center]"
 	timer.start()
 
-# Called every time the timer finishes counting
-func _on_timer_timeout() -> void:
-	if visible_characters >= cutscene_resource.text.length():
-		timer.stop()
-		text_typing_finished.emit()
-		return
+# Speeds up the label
+func speed_up() -> void:
+	if not cutscene_resource: return
 	
-	if visible_characters == cutscene_resource.text.length() - cutscene_resource.slowdown_threshold - 1:
-		timer.wait_time = cutscene_resource.character_slow_wait_time
+	timer.wait_time = cutscene_resource.character_wait_time / 8.0
+
+# Speeds down the label
+func speed_down() -> void:
+	if not cutscene_resource: return
 	
-	visible_characters += 1
-	
-	
+	timer.wait_time = cutscene_resource.character_wait_time

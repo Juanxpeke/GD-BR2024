@@ -7,38 +7,58 @@ signal finished
 @export var cutscene_resources : Array[CutsceneResource] 
 
 var current_panel : int = 0
+var cutscene_label_finished : bool = false
 
 @onready var cutscene_label := %CutsceneLabel
 @onready var next_button := %NextButton
+@onready var close_button := %CloseButton
 
 # Private
 
 # Called when the node enters the scene tree for the first time
 func _ready() -> void:
 	hide()
-	next_button.hide()
 	
 	cutscene_label.text_typing_finished.connect(_on_text_typing_finished)
+	
 	next_button.pressed.connect(_on_next_button_pressed)
+	next_button.button_down.connect(_on_next_button_down)
+	next_button.button_up.connect(_on_next_button_up)
+	
+	close_button.pressed.connect(_on_close_button_pressed)
 	
 	if auto_start:
 		start()
 
 # Called when the label has finished the typing animation
 func _on_text_typing_finished() -> void:
-	if !next_button.visible:
-		next_button.visible = true
+	if not cutscene_label_finished:
+		cutscene_label_finished = true
 
 # Called when the next button is pressed
 func _on_next_button_pressed() -> void:
-	if current_panel >= cutscene_resources.size() - 1:
-		finished.emit()
-		return
-	
-	next_button.hide()
-	
-	current_panel += 1
-	cutscene_label.set_cutscene_resource(cutscene_resources[current_panel])
+	if cutscene_label_finished:
+		if current_panel >= cutscene_resources.size() - 1:
+			finished.emit()
+			return
+		
+		current_panel += 1
+		cutscene_label_finished = false
+		cutscene_label.set_cutscene_resource(cutscene_resources[current_panel])
+
+# Called when the next button is downed
+func _on_next_button_down() -> void:
+	cutscene_label.speed_up()
+
+# Called when the next button is upped
+func _on_next_button_up() -> void:
+	cutscene_label.speed_down()
+
+# Called when the close button is pressed
+func _on_close_button_pressed() -> void:
+	hide()
+	finished.emit()
+	return
 
 
 # Public

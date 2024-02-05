@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://clu2r6usspr4j"]
+[gd_scene load_steps=9 format=3 uid="uid://clu2r6usspr4j"]
 
 [ext_resource type="Script" path="res://Core/GUI/Cutscene/cutscene_component.gd" id="1_dhyly"]
 [ext_resource type="Script" path="res://Core/GUI/Cutscene/cutscene_label.gd" id="2_3ckje"]
@@ -19,6 +19,24 @@ content_margin_left = 24.0
 content_margin_top = 12.0
 content_margin_right = 22.0
 content_margin_bottom = 16.0
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q0wyn"]
+content_margin_left = 16.0
+content_margin_top = 0.0
+content_margin_right = 14.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cln6r"]
+content_margin_left = 16.0
+content_margin_top = 0.0
+content_margin_right = 14.0
+content_margin_bottom = 10.0
 bg_color = Color(0, 0, 0, 0)
 border_width_left = 1
 border_width_top = 1
@@ -77,7 +95,28 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxEmpty_11ekg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_sc63k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sc63k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_11ekg")
 text = ">>>"
+
+[node name="CloseButton" type="Button" parent="."]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_top = 34.0
+offset_right = -42.0
+offset_bottom = 80.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxEmpty_q0wyn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cln6r")
+text = "x"
