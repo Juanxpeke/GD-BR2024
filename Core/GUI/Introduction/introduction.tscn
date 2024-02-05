@@ -16,11 +16,11 @@ slowdown_threshold = 0
 
 [sub_resource type="Resource" id="Resource_tgaxj"]
 script = ExtResource("4_pionl")
-text = "Despite that, wizards, rogues, warriors, and adventurers of all kinds, being the prideful people that they are, seek The Master in order to claim the most grandiose victory of all, victory against the invincible. The Master is elusive though, and very few even manage to find them . . .
+text = "Despite that, wizards, rogues, warriors, and adventurers of all kinds, being the prideful people that they are, seek The Master in order to claim the most grandiose victory of all, victory against the invincible. The Master is elusive though, and very few even manage to find them...
 "
 character_wait_time = 0.1
 character_slow_wait_time = 0.3
-slowdown_threshold = 6
+slowdown_threshold = 3
 
 [sub_resource type="Resource" id="Resource_hyaa0"]
 script = ExtResource("4_pionl")

@@ -11,10 +11,10 @@
 
 [sub_resource type="Resource" id="Resource_6p0o8"]
 script = ExtResource("4_k523d")
-text = "As you joked with your fellow tavern-goers about the preposterous notion that the most powerful wizard in the land would be found in this rathole of a tavern, you felt the door creek ever so slightly. . ."
+text = "As you joked with your fellow tavern-goers about the preposterous notion that the most powerful wizard in the land would be found in this rathole of a tavern, you felt the door creek ever so slightly..."
 character_wait_time = 0.1
 character_slow_wait_time = 0.8
-slowdown_threshold = 6
+slowdown_threshold = 3
 
 [sub_resource type="Resource" id="Resource_1xnx6"]
 script = ExtResource("4_k523d")
@@ -26,8 +26,7 @@ slowdown_threshold = 0
 [sub_resource type="Resource" id="Resource_1sf1i"]
 script = ExtResource("4_k523d")
 text = "
-The hooded fellow was wearing dusty travel clothes, and had a dangerous air about him. Even though his face was not entirely visible under the hood he wore, you were sure he was looking right at you, and not with a friendly face
-"
+The hooded fellow was wearing dusty travel clothes, and had a dangerous air about him. Even though his face was not entirely visible under the hood he wore, you were sure he was looking right at you, and not with a friendly face."
 character_wait_time = 0.1
 character_slow_wait_time = 0.3
 slowdown_threshold = 0
