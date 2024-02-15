@@ -1,2 +1,5 @@
 - Templates
 - Particles when placing domino
+- Reducing max domino dots to 5, and augment min to 1
+- Debugging big crash stuff from the last day of jam
+- Debugging pressing 2 skill cards at the 'same time'
